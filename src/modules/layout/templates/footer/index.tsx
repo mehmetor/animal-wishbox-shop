@@ -1,7 +1,7 @@
 import { listCategories } from "@lib/data/categories"
 import { listCollections } from "@lib/data/collections"
 import { Text, clx } from "@medusajs/ui"
-
+import { ArrowUpRightMini } from "@medusajs/icons"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import MedusaCTA from "@modules/layout/components/medusa-cta"
 
@@ -10,6 +10,10 @@ export default async function Footer() {
     fields: "*products",
   })
   const productCategories = await listCategories()
+
+  // Medusa backend URL'sini al
+  const medusaBackendUrl =
+    process.env.MEDUSA_BACKEND_URL || "http://localhost:9000"
 
   return (
     <footer className="border-t border-ui-border-base w-full">
@@ -109,7 +113,7 @@ export default async function Footer() {
               </div>
             )}
             <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Animal Wishbox</span>
+              
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
                   <a
@@ -121,14 +125,35 @@ export default async function Footer() {
                     Documentation
                   </a>
                 </li>
+                <li>
+                  <div className="flex items-center gap-2 mt-1">
+                    <a
+                      href={`${medusaBackendUrl}/app`}
+                      target="_blank"
+                      rel="noreferrer"
+                      title={medusaBackendUrl}
+                      className="flex items-center gap-2"
+                    >
+                      <Text className="text-ui-fg-interactive">
+                        Portal
+                      </Text>
+                      <ArrowUpRightMini
+                        className="group-hover:rotate-45 ease-in-out duration-150"
+                        color="var(--fg-interactive)"
+                      />
+                    </a>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
         </div>
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
-          <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Animal Wishbox. All rights reserved.
-          </Text>
+          <div className="flex flex-col">
+            <Text className="txt-compact-small">
+              © {new Date().getFullYear()} Animal Wishbox. All rights reserved.
+            </Text>
+          </div>
           <MedusaCTA />
         </div>
       </div>
