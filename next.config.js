@@ -19,6 +19,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    domains: ["vwtwktgmqoqlwspzteqb.supabase.co", "mscrosugxoblkqhymkux.supabase.co"],
     remotePatterns: [
       {
         protocol: "http",
@@ -35,6 +36,16 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "medusa-server-testing.s3.us-east-1.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "vwtwktgmqoqlwspzteqb.supabase.co",
+        pathname: "/storage/v1/object/public/**",
+      },
+      {
+        protocol: "https",
+        hostname: "mscrosugxoblkqhymkux.supabase.co",
+        pathname: "/storage/v1/object/public/**",
       },
     ],
   },
