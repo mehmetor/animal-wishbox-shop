@@ -19,7 +19,6 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ["vwtwktgmqoqlwspzteqb.supabase.co", "mscrosugxoblkqhymkux.supabase.co"],
     remotePatterns: [
       {
         protocol: "http",
