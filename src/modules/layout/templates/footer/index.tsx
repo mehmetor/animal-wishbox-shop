@@ -151,7 +151,7 @@ export default async function Footer() {
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
           <div className="flex flex-col">
             <Text className="txt-compact-small">
-              © {new Date().getFullYear()} Animal Wishbox - All rights reserved
+              © {new Date().getFullYear()} Animal Wishbox. All rights reserved. v0.1.0
             </Text>
           </div>
           <MedusaCTA />
