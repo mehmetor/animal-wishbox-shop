@@ -1,6 +1,19 @@
 {
-    "HomePage": {
-      "title": "Hello world!",
-      "comingSoon": "Coming soon!"
-    }
+  "HomePage": {
+    "title": "Hello world!",
+    "comingSoon": "Coming soon!",
+    "emptyCart": "Your shopping bag is empty.",
+    "goToCart": "Go to cart",
+    "exclTaxes": "excl. taxes",
+    "inclTaxes": "incl. taxes",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "goToAllProductsPage": "Go to all products page",
+    "exploreProducts": "Explore products",
+    "quantity": "Quantity",
+    "cart": "Cart"
+  },
+  "Components": {
+    "variant": "Variant"
   }
+}

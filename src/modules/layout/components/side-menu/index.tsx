@@ -1,8 +1,15 @@
 "use client"
 
 import { Popover, PopoverPanel, Transition } from "@headlessui/react"
-import { ArrowRightMini, XMark } from "@medusajs/icons"
-import { Text, clx, useToggleState } from "@medusajs/ui"
+import { ArrowRightMini, XMark, BarsThree } from "@medusajs/icons"
+import {
+  Drawer,
+  Text,
+  Button,
+  IconButton,
+  clx,
+  useToggleState,
+} from "@medusajs/ui"
 import { Fragment } from "react"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
@@ -18,6 +25,71 @@ const SideMenuItems = {
 
 const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
   const toggleState = useToggleState()
+  return (
+    <Drawer>
+      <Drawer.Trigger asChild>
+        <IconButton variant="transparent">
+          <BarsThree />
+        </IconButton>
+      </Drawer.Trigger>
+      <Drawer.Content aria-describedby="side-menu" className="z-10">
+        <Drawer.Header>
+          <Drawer.Title></Drawer.Title>
+        </Drawer.Header>
+        <Drawer.Body className="p-4">
+          <div
+            data-testid="nav-menu-popup"
+            className="flex flex-col h-full justify-between p-6"
+          >
+            <ul className="flex flex-col gap-6 items-start justify-start">
+              {Object.entries(SideMenuItems).map(([name, href]) => {
+                return (
+                  <li key={name}>
+                    <LocalizedClientLink
+                      href={href}
+                      className="text-3xl leading-10 hover:text-ui-fg-disabled"
+                      onClick={close}
+                      data-testid={`${name.toLowerCase()}-link`}
+                    >
+                      {name}
+                    </LocalizedClientLink>
+                  </li>
+                )
+              })}
+            </ul>
+            <div className="hidden flex flex-col gap-y-6 ">
+              <div
+                className="flex justify-between"
+                onMouseEnter={toggleState.open}
+                onMouseLeave={toggleState.close}
+              >
+                {regions && (
+                  <CountrySelect toggleState={toggleState} regions={regions} />
+                )}
+                <ArrowRightMini
+                  className={clx(
+                    "transition-transform duration-150",
+                    toggleState.state ? "-rotate-90" : ""
+                  )}
+                />
+              </div>
+            </div>
+          </div>
+        </Drawer.Body>
+        <Drawer.Footer className="flex justify-between items-center txt-compact-small">
+          <Drawer.Title>
+            <Text>
+              © {new Date().getFullYear()} Animal Wishbox. All rights reserved.
+            </Text>
+          </Drawer.Title>
+          <Drawer.Close asChild>
+            <Button variant="secondary">Close</Button>
+          </Drawer.Close>
+          {/* <Button>Save</Button> */}
+        </Drawer.Footer>
+      </Drawer.Content>
+    </Drawer>
+  )
 
   return (
     <div className="h-full">
