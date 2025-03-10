@@ -3,7 +3,6 @@
 import { addToCart } from "@lib/data/cart"
 import { useIntersection } from "@lib/hooks/use-in-view"
 import { HttpTypes } from "@medusajs/types"
-import { Button } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
 import OptionSelect from "@modules/products/components/product-actions/option-select"
 import { isEqual } from "lodash"
@@ -11,6 +10,7 @@ import { useParams } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
 import ProductPrice from "../product-price"
 import MobileActions from "./mobile-actions"
+import { RainbowButton } from "components/magicui/rainbow-button"
 
 type ProductActionsProps = {
   product: HttpTypes.StoreProduct
@@ -140,8 +140,10 @@ export default function ProductActions({
 
         <ProductPrice product={product} variant={selectedVariant} />
 
-        <Button
+        <RainbowButton
           onClick={handleAddToCart}
+          // variant="primary"
+          isLoading={isAdding}
           disabled={
             !inStock ||
             !selectedVariant ||
@@ -149,17 +151,15 @@ export default function ProductActions({
             isAdding ||
             !isValidVariant
           }
-          variant="primary"
-          className="w-full h-10"
-          isLoading={isAdding}
-          data-testid="add-product-button"
+          className="w-full text-white"
+          data-testid="add-product-button"          
         >
           {!selectedVariant && !options
             ? "Select variant"
             : !inStock || !isValidVariant
             ? "Out of stock"
             : "Add to cart"}
-        </Button>
+        </RainbowButton>
         <MobileActions
           product={product}
           variant={selectedVariant}

@@ -11,7 +11,7 @@ export default async function Footer() {
   })
   const productCategories = await listCategories()
 
-  // Medusa backend URL'sini al
+  // Animal Wishbox backend URL'sini al
   const medusaBackendUrl =
     process.env.MEDUSA_BACKEND_URL || "http://localhost:9000"
 
@@ -22,7 +22,7 @@ export default async function Footer() {
           <div>
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
+              className="text-xl"
             >
               Animal Wishbox
             </LocalizedClientLink>

@@ -1,6 +1,6 @@
 import Medusa from "@medusajs/js-sdk"
 
-// Defaults to standard port for Medusa server
+// Defaults to standard port for Animal Wishbox server
 let MEDUSA_BACKEND_URL = "http://localhost:9000"
 
 if (process.env.MEDUSA_BACKEND_URL) {

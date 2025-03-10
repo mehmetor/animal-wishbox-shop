@@ -1,0 +1,31 @@
+{
+  "HomePage": {
+    "title": "Merhaba Dünya!",
+    "comingSoon": "Çok yakında!",
+    "emptyCart": "Sepetiniz boş.",
+    "goToCart": "Sepete git",
+    "exclTaxes": "vergi hariç",
+    "inclTaxes": "vergi dahil",
+    "remove": "Sil",
+    "subtotal": "Toplam",
+    "goToAllProductsPage": "Tüm ürünler sayfasına git",
+    "exploreProducts": "Ürünleri keşfet",
+    "quantity": "Adet",
+    "cart": "Sepet",
+    "cartTransferError": "Sepetinizi aktarmaya çalıştığımızda bir şeyler ters gitti"
+  },
+  "Components": {
+    "variant": "Varyant"
+  },
+  "SideMenu": {
+    "allRightsReserved": "Tüm hakları saklıdır.",
+    "home": "Anasayfa",
+    "products": "Ürünler",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "account": "Hesabım",
+    "cart": "Sepetim",
+    "store": "Mağaza",
+    "close": "Kapat"
+  }  
+}

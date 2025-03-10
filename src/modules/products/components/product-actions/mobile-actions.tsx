@@ -10,6 +10,7 @@ import { getProductPrice } from "@lib/util/get-product-price"
 import OptionSelect from "./option-select"
 import { HttpTypes } from "@medusajs/types"
 import { isSimpleProduct } from "@lib/util/product"
+import { RainbowButton } from "components/magicui/rainbow-button"
 
 type MobileActionsProps = {
   product: HttpTypes.StoreProduct
@@ -116,7 +117,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                   <ChevronDown />
                 </div>
               </Button>}
-              <Button
+              <RainbowButton
                 onClick={handleAddToCart}
                 disabled={!inStock || !variant}
                 className="w-full"
@@ -128,7 +129,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                   : !inStock
                   ? "Out of stock"
                   : "Add to cart"}
-              </Button>
+              </RainbowButton>
             </div>
           </div>
         </Transition>
