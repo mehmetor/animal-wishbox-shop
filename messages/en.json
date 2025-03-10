@@ -11,7 +11,8 @@
     "goToAllProductsPage": "Go to all products page",
     "exploreProducts": "Explore products",
     "quantity": "Quantity",
-    "cart": "Cart"
+    "cart": "Cart",
+  "cartTransferError": "Something went wrong when we tried to transfer your cart"
   },
   "Components": {
     "variant": "Variant"

@@ -11,7 +11,8 @@
     "goToAllProductsPage": "Tüm ürünler sayfasına git",
     "exploreProducts": "Ürünleri keşfet",
     "quantity": "Adet",
-    "cart": "Sepet"
+    "cart": "Sepet",
+    "cartTransferError": "Sepetinizi aktarmaya çalıştığımızda bir şeyler ters gitti"
   },
   "Components": {
     "variant": "Varyant"
@@ -26,5 +27,5 @@
     "cart": "Sepetim",
     "store": "Mağaza",
     "close": "Kapat"
-  }
+  }  
 }

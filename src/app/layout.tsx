@@ -3,6 +3,7 @@ import { getLocale, getMessages } from "next-intl/server"
 import { getBaseURL } from "@lib/util/env"
 import { Metadata } from "next"
 import "styles/globals.css"
+import { cn } from "@lib/util/cn"
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -23,7 +24,15 @@ export default async function RootLayout({
     <html lang={locale} data-mode="light">
       <body>
         <NextIntlClientProvider messages={messages}>
-          <main className="relative">{children}</main>
+          <main
+            className={cn(
+              "min-h-screen",
+              "bg-[url('/assets/pattern-light.svg')]",
+              "dark:bg-[url('/assets/pattern-dark.svg')]"
+            )}
+          >
+            {children}
+          </main>
         </NextIntlClientProvider>
       </body>
     </html>

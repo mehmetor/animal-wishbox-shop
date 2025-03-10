@@ -5399,6 +5399,7 @@ __metadata:
     eslint-config-next: "npm:15.0.3"
     lodash: "npm:^4.17.21"
     lucide-react: "npm:^0.479.0"
+    motion: "npm:^12.4.10"
     next: "npm:15.0.3"
     next-intl: "npm:^3.26.5"
     pg: "npm:^8.11.3"
@@ -6923,6 +6924,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"framer-motion@npm:^12.4.10":
+  version: 12.4.10
+  resolution: "framer-motion@npm:12.4.10"
+  dependencies:
+    motion-dom: "npm:^12.4.10"
+    motion-utils: "npm:^12.4.10"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    "@emotion/is-prop-valid": "*"
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    "@emotion/is-prop-valid":
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10/1847957ae9c23479ee0bc8ebe45738f9df6a0befcb7a0e8048622a715f59b48f5d9b56b8160a88f2de05d34cecaebad648fccd1c8b7a314533b0352cb12514de
+  languageName: node
+  linkType: hard
+
 "fs-minipass@npm:^3.0.0":
   version: 3.0.3
   resolution: "fs-minipass@npm:3.0.3"
@@ -8068,6 +8091,43 @@ __metadata:
   bin:
     mkdirp: dist/cjs/src/bin.js
   checksum: 10/16fd79c28645759505914561e249b9a1f5fe3362279ad95487a4501e4467abeb714fd35b95307326b8fd03f3c7719065ef11a6f97b7285d7888306d1bd2232ba
+  languageName: node
+  linkType: hard
+
+"motion-dom@npm:^12.4.10":
+  version: 12.4.10
+  resolution: "motion-dom@npm:12.4.10"
+  dependencies:
+    motion-utils: "npm:^12.4.10"
+  checksum: 10/2c6eafe35f45756bde69d1bbcd395f34c479e8008f7a96534d12dfe5826b05d3caeebebe8b803929bb35abc6ae1d700f6c0c13bcac035ffb45e2e9e40e6b2c9a
+  languageName: node
+  linkType: hard
+
+"motion-utils@npm:^12.4.10":
+  version: 12.4.10
+  resolution: "motion-utils@npm:12.4.10"
+  checksum: 10/a5d018df30e6292da5844eca9dbf96633b9c9ef5654d708323dfee6ba2303f6f67e277f874dd68ad499bedf4a406545960f8e10015e1d1c76149172f56ad04aa
+  languageName: node
+  linkType: hard
+
+"motion@npm:^12.4.10":
+  version: 12.4.10
+  resolution: "motion@npm:12.4.10"
+  dependencies:
+    framer-motion: "npm:^12.4.10"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    "@emotion/is-prop-valid": "*"
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    "@emotion/is-prop-valid":
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10/ba34fc5d0403579da4d3ccdd0c260e1ba2126236a358c4fd61545d6b65de033fbf33e051b02cb0bae7d919fea7e6849c392b1fa34543ff727b983a5ea9b35dcb
   languageName: node
   linkType: hard
 
