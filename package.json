@@ -2,6 +2,7 @@
   "name": "animal-wishbox",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "yarn@3.2.3",
   "author": "Mehmet Akif ORAKCI",
   "description": "",
   "keywords": [

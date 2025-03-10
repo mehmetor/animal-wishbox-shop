@@ -1,10 +1,10 @@
+import { RainbowButton } from "@/components/magicui/rainbow-button"
 import { BarsThree, XMark } from "@medusajs/icons"
 import { Button, Drawer, Heading, Prompt, Text } from "@medusajs/ui"
 import { useTranslations } from "next-intl"
 
 const Hero = () => {
   const t = useTranslations("HomePage")
-
 
   return (
     <div className="h-[75vh] w-full border-b border-ui-border-base relative bg-ui-bg-subtle">
