@@ -2,15 +2,15 @@ const checkEnvVariables = require("./check-env-variables")
 
 checkEnvVariables()
 
-const createNextIntlPlugin = require('next-intl/plugin');
- 
-const withNextIntl = createNextIntlPlugin();
+const createNextIntlPlugin = require("next-intl/plugin")
+
+const withNextIntl = createNextIntlPlugin()
 
 /**
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   logging: {
     fetches: {
       fullUrl: true,
@@ -52,6 +52,19 @@ const nextConfig = {
       },
     ],
   },
-};
+  webpack: (config, { dev, isServer }) => {
+    if (dev && !isServer) {
+      config.experiments = { ...config.experiments, topLevelAwait: true }
+    }
+    return config
+  },
+  experimental: {
+    turbo: {
+      resolveAlias: {
+        // Turbopack için özel ayarlar
+      },
+    },
+  },
+}
 
-module.exports = withNextIntl(nextConfig);
+module.exports = withNextIntl(nextConfig)

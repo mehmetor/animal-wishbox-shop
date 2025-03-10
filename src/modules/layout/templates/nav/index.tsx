@@ -12,26 +12,24 @@ import { ShoppingCart, User } from "lucide-react"
 export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
 
-  const navigation = [{ name: "Store", href: "/store" }]
-
   return (
-    <div className="sticky top-0 inset-x-0 z-10 group">
-      <header className="relative h-16 mx-auto duration-200 ">
+    <div className="sticky top-0 inset-x-0 z-50 group">
+      <header className="relative mx-auto duration-200 ">
         <nav
           aria-label="Global"
           className="flex items-center justify-between p-6 lg:px-8"
         >
-          <div className="flex lg:flex-1">
+         <div className="flex flex-1">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Animal Wishbox</span>
-              <img
+              <span >Animal Wishbox</span>
+              {/* <img
                 alt=""
                 src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
                 className="h-8 w-auto"
-              />
+              /> */}
             </a>
-          </div>
-          <div className="flex lg:hidden">
+          </div> 
+          {/* <div className="flex lg:hidden">
             <button
               type="button"
               // onClick={() => setMobileMenuOpen(true)}
@@ -40,19 +38,9 @@ export default async function Nav() {
               <span className="sr-only">Open main menu</span>
               <BarsThree aria-hidden="true" className="size-6" />
             </button>
-          </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm/6 font-semibold text-gray-900"
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          </div> */}
+          <div className="hidden lg:flex lg:gap-x-12"></div>
+          <div className="flex flex-1 justify-end">
             {/* <a href="#" className="text-sm/6 font-semibold text-gray-900">
               Log in <span aria-hidden="true">&rarr;</span>
             </a> */}
