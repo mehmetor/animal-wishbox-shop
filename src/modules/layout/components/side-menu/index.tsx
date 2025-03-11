@@ -1,32 +1,112 @@
-"use client"
+"use client";
 
-import { ArrowRightMini, BarsThree } from "@medusajs/icons"
+import { useToggleState } from "@medusajs/ui";
+
+import { Button } from "@/components/ui/button";
 import {
   Drawer,
-  Button,
-  IconButton,
-  clx,
-  useToggleState,
-} from "@medusajs/ui"
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import CountrySelect from "../country-select"
-import { HttpTypes } from "@medusajs/types"
-import { useTranslations } from "next-intl"
-import { useRef } from "react"
+import LocalizedClientLink from "@modules/common/components/localized-client-link";
+import CountrySelect from "../country-select";
+import { HttpTypes } from "@medusajs/types";
+import { useTranslations } from "next-intl";
+import { useRef } from "react";
+import { ArrowRightFromLineIcon, Menu, Minus } from "lucide-react";
 
+import { Plus } from "lucide-react";
+import { cn } from "@/lib/utils";
 const SideMenuItems = {
   home: "/",
   store: "/store",
   account: "/account",
   cart: "/cart",
-}
+};
 
 const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
-  const toggleState = useToggleState()
-  const t = useTranslations("SideMenu")
-  const closeButtonRef = useRef<HTMLButtonElement>(null)
-  
+  const toggleState = useToggleState();
+  const t = useTranslations("SideMenu");
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  return (
+    <Drawer direction="right">
+      <DrawerTrigger asChild>
+        <Button variant="ghost" size="icon">
+          <Menu />
+        </Button>
+      </DrawerTrigger>
+      <DrawerContent>
+        <div className="mx-auto flex h-full w-full max-w-sm flex-col">
+          <DrawerHeader>
+            <DrawerTitle>Animal Wishbox</DrawerTitle>
+            <DrawerDescription></DrawerDescription>
+          </DrawerHeader>
+          <div
+            data-testid="nav-menu-popup"
+            className="flex h-full flex-col justify-between p-6"
+          >
+            <ul className="flex flex-col items-start justify-start gap-6">
+              {Object.entries(SideMenuItems).map(([name, href]) => {
+                return (
+                  <li key={name}>
+                    <LocalizedClientLink
+                      href={href}
+                      className="hover:text-ui-fg-disabled text-2xl leading-10"
+                      onClick={toggleState.close}
+                      data-testid={`${name.toLowerCase()}-link`}
+                    >
+                      {t(name)}
+                    </LocalizedClientLink>
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="flex hidden flex-col gap-y-6">
+              <div
+                className="flex justify-between"
+                onMouseEnter={toggleState.open}
+                onMouseLeave={toggleState.close}
+              >
+                {regions && (
+                  <CountrySelect toggleState={toggleState} regions={regions} />
+                )}
+                <ArrowRightFromLineIcon
+                  className={cn(
+                    "transition-transform duration-150",
+                    toggleState.state ? "-rotate-90" : "",
+                  )}
+                />
+              </div>
+            </div>
+          </div>
+
+          <DrawerFooter className="flex items-center justify-between">
+            <DrawerTitle className="font-thin">
+              © {new Date().getFullYear()} Animal Wishbox.{" "}
+              {t("allRightsReserved")}
+            </DrawerTitle>
+            <DrawerClose asChild>
+              <Button
+                variant="secondary"
+                ref={closeButtonRef}
+                className="hidden"
+              >
+                {t("close")}
+              </Button>
+            </DrawerClose>
+          </DrawerFooter>
+        </div>
+      </DrawerContent>
+    </Drawer>
+  );
+  /*
   return (
     <Drawer open={toggleState.state} onOpenChange={toggleState.toggle}>
       <Drawer.Trigger asChild>
@@ -91,7 +171,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
         </Drawer.Footer>
       </Drawer.Content>
     </Drawer>
-  )
-}
+  )*/
+};
 
-export default SideMenu
+export default SideMenu;

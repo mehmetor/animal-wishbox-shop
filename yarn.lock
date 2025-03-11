@@ -1500,7 +1500,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-dialog@npm:1.1.6":
+"@radix-ui/react-dialog@npm:1.1.6, @radix-ui/react-dialog@npm:^1.1.1, @radix-ui/react-dialog@npm:^1.1.6":
   version: 1.1.6
   resolution: "@radix-ui/react-dialog@npm:1.1.6"
   dependencies:
@@ -1771,7 +1771,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-hover-card@npm:1.1.6":
+"@radix-ui/react-hover-card@npm:1.1.6, @radix-ui/react-hover-card@npm:^1.1.6":
   version: 1.1.6
   resolution: "@radix-ui/react-hover-card@npm:1.1.6"
   dependencies:
@@ -1951,7 +1951,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-menubar@npm:1.1.6":
+"@radix-ui/react-menubar@npm:1.1.6, @radix-ui/react-menubar@npm:^1.1.6":
   version: 1.1.6
   resolution: "@radix-ui/react-menubar@npm:1.1.6"
   dependencies:
@@ -2440,7 +2440,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-scroll-area@npm:1.2.3":
+"@radix-ui/react-scroll-area@npm:1.2.3, @radix-ui/react-scroll-area@npm:^1.2.3":
   version: 1.2.3
   resolution: "@radix-ui/react-scroll-area@npm:1.2.3"
   dependencies:
@@ -2564,7 +2564,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-separator@npm:1.1.2":
+"@radix-ui/react-separator@npm:1.1.2, @radix-ui/react-separator@npm:^1.1.2":
   version: 1.1.2
   resolution: "@radix-ui/react-separator@npm:1.1.2"
   dependencies:
@@ -3005,7 +3005,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-tooltip@npm:1.1.8":
+"@radix-ui/react-tooltip@npm:1.1.8, @radix-ui/react-tooltip@npm:^1.1.8":
   version: 1.1.8
   resolution: "@radix-ui/react-tooltip@npm:1.1.8"
   dependencies:
@@ -5535,10 +5535,16 @@ __metadata:
     "@medusajs/ui": latest
     "@medusajs/ui-preset": latest
     "@radix-ui/react-accordion": ^1.2.3
+    "@radix-ui/react-dialog": ^1.1.6
+    "@radix-ui/react-hover-card": ^1.1.6
     "@radix-ui/react-label": ^2.1.2
+    "@radix-ui/react-menubar": ^1.1.6
     "@radix-ui/react-navigation-menu": ^1.2.5
+    "@radix-ui/react-scroll-area": ^1.2.3
     "@radix-ui/react-select": ^2.1.6
+    "@radix-ui/react-separator": ^1.1.2
     "@radix-ui/react-slot": ^1.1.2
+    "@radix-ui/react-tooltip": ^1.1.8
     "@stripe/react-stripe-js": ^1.7.2
     "@stripe/stripe-js": ^1.29.0
     "@tailwindcss/postcss": ^4.0.12
@@ -5577,6 +5583,7 @@ __metadata:
     tailwindcss-animate: ^1.0.7
     tailwindcss-radix: ^2.8.0
     typescript: ^5.3.2
+    vaul: ^1.1.2
     webpack: ^5
   languageName: unknown
   linkType: soft
@@ -9928,6 +9935,18 @@ __metadata:
   version: 2.4.0
   resolution: "v8-compile-cache@npm:2.4.0"
   checksum: 8eb6ddb59d86f24566503f1e6ca98f3e6f43599f05359bd3ab737eaaf1585b338091478a4d3d5c2646632cf8030288d7888684ea62238cdce15a65ae2416718f
+  languageName: node
+  linkType: hard
+
+"vaul@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "vaul@npm:1.1.2"
+  dependencies:
+    "@radix-ui/react-dialog": ^1.1.1
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc
+    react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc
+  checksum: e8f72775f066318daab44701e77c88c99f2b179f196093a32a57cf91e39b1fc3258e608c92359eee39ce47604298c1da68db1d11e19cb485507c28138d9f27ea
   languageName: node
   linkType: hard
 
