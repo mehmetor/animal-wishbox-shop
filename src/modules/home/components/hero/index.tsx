@@ -1,16 +1,17 @@
-import { Heading } from "@medusajs/ui"
-import { useTranslations } from "next-intl"
+import { Button } from "@/components/ui/button";
+import { Heading } from "@medusajs/ui";
+import { useTranslations } from "next-intl";
 
 const Hero = () => {
-  const t = useTranslations("HomePage")
+  const t = useTranslations("HomePage");
 
   return (
-    <div className="h-[75vh] w-full border-b border-ui-border-base relative bg-ui-bg-subtle">
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-center small:p-32 gap-6">
+    <div className="border-ui-border-base bg-ui-bg-subtle relative h-[75vh] w-full border-b">
+      <div className="small:p-32 absolute inset-0 flex flex-col items-center justify-center gap-6 text-center">
         <span>
           <h1 className="text-3xl font-bold">Hello world!</h1>
-        
-<button className="text-white px-4 sm:px-8 py-2 sm:py-3 bg-sky-700 hover:bg-sky-800">Submit</button>
+
+          <Button>Click me</Button>
 
           <Heading level="h2" className="text-3xl leading-10 font-normal">
             {t("comingSoon")}
@@ -18,7 +19,7 @@ const Hero = () => {
         </span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
