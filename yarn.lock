@@ -1832,7 +1832,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-label@npm:2.1.2":
+"@radix-ui/react-label@npm:2.1.2, @radix-ui/react-label@npm:^2.1.2":
   version: 2.1.2
   resolution: "@radix-ui/react-label@npm:2.1.2"
   dependencies:
@@ -2011,7 +2011,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-navigation-menu@npm:1.2.5":
+"@radix-ui/react-navigation-menu@npm:1.2.5, @radix-ui/react-navigation-menu@npm:^1.2.5":
   version: 1.2.5
   resolution: "@radix-ui/react-navigation-menu@npm:1.2.5"
   dependencies:
@@ -2506,7 +2506,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-select@npm:2.1.6":
+"@radix-ui/react-select@npm:2.1.6, @radix-ui/react-select@npm:^2.1.6":
   version: 2.1.6
   resolution: "@radix-ui/react-select@npm:2.1.6"
   dependencies:
@@ -5535,6 +5535,9 @@ __metadata:
     "@medusajs/ui": latest
     "@medusajs/ui-preset": latest
     "@radix-ui/react-accordion": ^1.2.3
+    "@radix-ui/react-label": ^2.1.2
+    "@radix-ui/react-navigation-menu": ^1.2.5
+    "@radix-ui/react-select": ^2.1.6
     "@radix-ui/react-slot": ^1.1.2
     "@stripe/react-stripe-js": ^1.7.2
     "@stripe/stripe-js": ^1.29.0
