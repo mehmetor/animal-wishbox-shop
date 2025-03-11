@@ -12,7 +12,9 @@
     "exploreProducts": "Ürünleri keşfet",
     "quantity": "Adet",
     "cart": "Sepet",
-    "cartTransferError": "Sepetinizi aktarmaya çalıştığımızda bir şeyler ters gitti"
+    "cartTransferError": "Sepetinizi aktarmaya çalıştığımızda bir şeyler ters gitti",
+    "runTransferAgain": "Tekrar transfer et",
+    "transferring": "Transfer ediliyor..."
   },
   "Components": {
     "variant": "Varyant"

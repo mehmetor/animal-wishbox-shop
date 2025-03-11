@@ -1,9 +1,9 @@
+import "./globals.css"
 import { NextIntlClientProvider } from "next-intl"
 import { getLocale, getMessages } from "next-intl/server"
 import { getBaseURL } from "@lib/util/env"
 import { Metadata } from "next"
-import "styles/globals.css"
-import { cn } from "@lib/util/cn"
+import { cn } from "@lib/utils"
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -14,6 +14,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  console.log("app/layout.tsx")
   const locale = await getLocale()
 
   // Providing all messages to the client

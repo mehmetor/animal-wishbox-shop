@@ -5,19 +5,18 @@ import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
-import { Button, IconBadge, IconButton, Text } from "@medusajs/ui"
-import { Drawer } from "@medusajs/ui"
+import { IconButton } from "@medusajs/ui"
 import { ShoppingCart, User } from "lucide-react"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
 
   return (
-    <div className="sticky top-0 inset-x-0 z-50 group">
+    <div className="sticky top-0 inset-x-0 z-[500] group">
       <header className="relative mx-auto duration-200 h-20">
         <nav
           aria-label="Global"
-          className="fixed top-4 backdrop-blur-lg bg-white/25 dark:bg-slate-900/25 shadow-md inset-x-4 h-12 max-w-screen-xl mx-auto rounded-full overflow-hidden border dark:border-slate-700/70"
+          className="fixed top-4 backdrop-blur-lg bg-white/25 shadow-md inset-x-4 h-12 max-w-screen-xl mx-auto rounded-full overflow-hidden border border-gray-500/25 "
         >
           <div className="h-full flex items-center justify-between mx-auto px-4">
             <div className="flex flex-1">

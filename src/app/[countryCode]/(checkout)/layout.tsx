@@ -7,6 +7,7 @@ export default function CheckoutLayout({
 }: {
   children: React.ReactNode
 }) {
+  console.log("app/[countryCode]/(checkout)/layout.tsx")
   return (
     <div className="w-full bg-white relative small:min-h-screen">
       <div className="h-16 bg-white border-b ">

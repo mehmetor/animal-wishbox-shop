@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 export default async function Home(props: {
   params: Promise<{ countryCode: string }>
 }) {
+  console.log("app/[countryCode]/(main)/page.tsx")
   const params = await props.params
 
   const { countryCode } = params

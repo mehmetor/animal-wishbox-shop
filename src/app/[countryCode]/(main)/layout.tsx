@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 }
 
 export default async function PageLayout(props: { children: React.ReactNode }) {
+  console.log("app/[countryCode]/(main)/layout.tsx")
   const customer = await retrieveCustomer()
   const cart = await retrieveCart()
   let shippingOptions: StoreCartShippingOption[] = []

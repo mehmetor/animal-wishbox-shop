@@ -12,7 +12,9 @@
     "exploreProducts": "Explore products",
     "quantity": "Quantity",
     "cart": "Cart",
-  "cartTransferError": "Something went wrong when we tried to transfer your cart"
+    "cartTransferError": "Something went wrong when we tried to transfer your cart",
+    "runTransferAgain": "Run transfer again",
+    "transferring": "Transferring..."
   },
   "Components": {
     "variant": "Variant"
