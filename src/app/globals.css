@@ -31,6 +31,7 @@
   --chart-4: oklch(0.7 0.15 220); /* Açık Mavi Tonu */
   --chart-5: oklch(0.45 0.2 250); /* Koyu Mavi-Mor Tonu */
   --radius: 0.625rem;
+  --shiny-width: 50%; /* Parlama efekti genişliği */
   --sidebar: oklch(0.984 0.003 247.858);
   --sidebar-foreground: oklch(0.129 0.042 264.695);
   --sidebar-primary: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi */
@@ -97,6 +98,7 @@
   --chart-3: oklch(0.55 0.2 290); /* Mor Tonu (Daha Parlak) */
   --chart-4: oklch(0.75 0.18 220); /* Açık Mavi Tonu (Daha Parlak) */
   --chart-5: oklch(0.5 0.22 250); /* Koyu Mavi-Mor Tonu (Daha Parlak) */
+  --shiny-width: 50%; /* Parlama efekti genişliği */
   --sidebar: oklch(0.208 0.042 265.755);
   --sidebar-foreground: oklch(0.984 0.003 247.858);
   --sidebar-primary: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi (Daha Parlak) */
@@ -162,6 +164,7 @@
   --color-color-5: var(--color-5);
   --animate-rainbow: rainbow var(--speed, 2s) infinite linear;
   --animate-aurora: aurora 180s linear infinite;
+  --animate-shiny-text: shiny-text 8s infinite;
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
@@ -183,6 +186,15 @@
     }
     to {
       background-position: 350% 50%, 350% 50%;
+    }
+  }
+  
+  @keyframes shiny-text {
+    0%, 90%, 100% {
+      background-position: calc(-100% - var(--shiny-width)) 0;
+    }
+    30%, 60% {
+      background-position: calc(100% + var(--shiny-width)) 0;
     }
   }
 }

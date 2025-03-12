@@ -92,9 +92,9 @@ export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions);
 
   return (
-    <div className="group sticky inset-x-0 top-0 z-50">
+    <div className="group sticky top-0 z-50">
       <header className="relative mx-auto h-20 duration-200">
-        <nav className="fixed inset-x-5 top-4 mx-auto h-16 max-w-screen-xl rounded-full border border-gray-500/25 bg-white/25 shadow-md backdrop-blur-lg">
+        <nav className="fixed inset-x-0 top-4 container mx-auto h-16 rounded-full border border-gray-500/25 bg-white/25 shadow-md backdrop-blur-lg">
           <div className="mx-auto flex h-full items-center justify-between px-6">
             <div className="flex flex-1">
               <a href="/" className="">

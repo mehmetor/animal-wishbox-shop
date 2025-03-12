@@ -92,7 +92,7 @@ const CartDropdown = ({
           )}
         </Button>
       </HoverCardTrigger>
-      <HoverCardContent className="w-96" align="end">
+      <HoverCardContent className="w-80" align="end">
         <div className="p-4">
           <h3 className="font-semibold">{t("cart")}</h3>
         </div>

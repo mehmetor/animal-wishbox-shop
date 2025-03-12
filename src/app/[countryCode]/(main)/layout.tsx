@@ -28,7 +28,7 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
 
   return (
     <AuroraBackground>
-      <div className="mx-auto max-w-screen-2xl h-screen">
+      <div className="container mx-auto min-h-screen">
         <Nav />
 
         {customer && cart && (
