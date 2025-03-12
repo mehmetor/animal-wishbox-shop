@@ -45,9 +45,7 @@ const CartDropdown = ({
 
   const timedOpen = () => {
     open();
-
     const timer = setTimeout(close, 5000);
-
     setActiveTimer(timer);
   };
 
@@ -55,7 +53,6 @@ const CartDropdown = ({
     if (activeTimer) {
       clearTimeout(activeTimer);
     }
-
     open();
   };
 
@@ -70,10 +67,6 @@ const CartDropdown = ({
 
   const pathname = usePathname();
 
-  const tags = Array.from({ length: 50 }).map(
-    (_, i, a) => `v1.2.0-beta.${a.length - i}`,
-  );
-
   // open cart dropdown when modifying the cart items, but only if we're not on the cart page
   useEffect(() => {
     if (itemRef.current !== totalItems && !pathname.includes("/cart")) {
@@ -81,20 +74,26 @@ const CartDropdown = ({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [totalItems, itemRef.current]);
+
   return (
-    <HoverCard openDelay={100} closeDelay={300}>
+    <HoverCard
+      openDelay={100}
+      closeDelay={300}
+      onOpenChange={setCartDropdownOpen}
+      open={cartDropdownOpen}
+    >
       <HoverCardTrigger asChild>
         <Button variant="ghost" size="icon" className="relative">
-          <ShoppingCart size={48} />
+          <ShoppingCart className="scale-125" />
           {totalItems > 0 && (
-            <div className="absolute -top-1 -right-2">
-              <Badge variant="destructive">{totalItems}</Badge>
+            <div className="absolute -top-2 -right-2">
+              <Badge variant="secondary">{totalItems}</Badge>
             </div>
           )}
         </Button>
       </HoverCardTrigger>
       <HoverCardContent className="w-96" align="end">
-        <div className=" p-4">
+        <div className="p-4">
           <h3 className="font-semibold">{t("cart")}</h3>
         </div>
         {cartState && cartState.items?.length ? (
@@ -214,6 +213,7 @@ const CartDropdown = ({
     </HoverCard>
   );
 };
+
 /*
 
         <div className="flex items-center justify-center p-4">

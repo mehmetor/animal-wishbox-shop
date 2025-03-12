@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import "tailwindcss"; 
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
@@ -10,7 +12,7 @@
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.37 0.22 265.87); /* #0F52BA - Safir Mavisi */
+  --primary: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi */
   --primary-foreground: oklch(0.984 0.003 247.858);
   --secondary: oklch(0.55 0.22 350); /* Pembe - Biraz Daha Açık Ton */
   --secondary-foreground: oklch(0.984 0.003 247.858);
@@ -22,8 +24,8 @@
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: oklch(0.929 0.013 255.508);
   --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.37 0.22 265.87); /* #0F52BA - Safir Mavisi */
-  --chart-1: oklch(0.37 0.22 265.87); /* #0F52BA - Safir Mavisi */
+  --ring: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi */
+  --chart-1: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi */
   --chart-2: oklch(0.55 0.22 350); /* Pembe - Biraz Daha Açık Ton */
   --chart-3: oklch(0.5 0.18 290); /* Mor Tonu */
   --chart-4: oklch(0.7 0.15 220); /* Açık Mavi Tonu */
@@ -31,17 +33,43 @@
   --radius: 0.625rem;
   --sidebar: oklch(0.984 0.003 247.858);
   --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.37 0.22 265.87); /* #0F52BA - Safir Mavisi */
+  --sidebar-primary: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi */
   --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
   --sidebar-accent: oklch(0.55 0.22 350 / 0.5); /* Pembe - Biraz Daha Açık Ton - %50 Opaklık */
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.37 0.22 265.87); /* #0F52BA - Safir Mavisi */
+  --sidebar-ring: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi */
   --color-1: 0 100% 63%; /* Kırmızı - RGB(255, 64, 64) */
   --color-2: 270 100% 63%; /* Mor - RGB(161, 64, 255) */
   --color-3: 210 100% 63%; /* Mavi - RGB(64, 128, 255) */
   --color-4: 195 100% 63%; /* Açık Mavi - RGB(64, 193, 255) */
   --color-5: 90 100% 63%; /* Yeşil - RGB(193, 255, 64) */
+  --white: #ffffff;
+  --black: #000000;
+  --transparent: transparent;
+
+  /* Safir Renk Paleti */
+  --sapphire-50 : hsl(216 85% 97%); /* #eaf3ff */
+  --sapphire-100: hsl(216 85% 92%); /* #d5e7ff */
+  --sapphire-200: hsl(216 85% 85%); /* #b0d1ff */
+  --sapphire-300: hsl(216 85% 75%); /* #80b3ff */
+  --sapphire-400: hsl(216 85% 55%); /* #3a7fff */
+  --sapphire-500: hsl(216 85% 39%); /* #0F52BA - Ana Safir Rengi */
+  --sapphire-600: hsl(216 85% 32%); /* #0c4398 */
+  --sapphire-700: hsl(216 85% 25%); /* #093576 */
+  --sapphire-800: hsl(216 85% 18%); /* #062654 */
+  --sapphire-900: hsl(216 85% 12%); /* #041838 */
+  --sapphire-950: hsl(216 85% 8%);  /* #02101f */
+
+  --indigo-300: oklch(0.785 0.115 274.713);
+  --violet-200: oklch(0.894 0.057 293.283);
+  
+  /* Font Ailesi */
+  --font-poppins: 'Poppins', sans-serif;
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-roboto: 'Roboto', sans-serif;
 }
 
 .dark {
@@ -51,7 +79,7 @@
   --card-foreground: oklch(0.984 0.003 247.858);
   --popover: oklch(0.129 0.042 264.695);
   --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.45 0.25 265.87); /* #0F52BA - Safir Mavisi (Daha Parlak) */
+  --primary: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi (Daha Parlak) */
   --primary-foreground: oklch(0.984 0.003 247.858);
   --secondary: oklch(0.6 0.25 350); /* Pembe - Biraz Daha Açık Ton (Daha Parlak) */
   --secondary-foreground: oklch(0.984 0.003 247.858);
@@ -63,28 +91,34 @@
   --destructive-foreground: oklch(0.637 0.237 25.331);
   --border: oklch(0.279 0.041 260.031);
   --input: oklch(0.279 0.041 260.031);
-  --ring: oklch(0.45 0.25 265.87); /* #0F52BA - Safir Mavisi (Daha Parlak) */
-  --chart-1: oklch(0.45 0.25 265.87); /* #0F52BA - Safir Mavisi (Daha Parlak) */
+  --ring: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi (Daha Parlak) */
+  --chart-1: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi (Daha Parlak) */
   --chart-2: oklch(0.6 0.25 350); /* Pembe - Biraz Daha Açık Ton (Daha Parlak) */
   --chart-3: oklch(0.55 0.2 290); /* Mor Tonu (Daha Parlak) */
   --chart-4: oklch(0.75 0.18 220); /* Açık Mavi Tonu (Daha Parlak) */
   --chart-5: oklch(0.5 0.22 250); /* Koyu Mavi-Mor Tonu (Daha Parlak) */
   --sidebar: oklch(0.208 0.042 265.755);
   --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.45 0.25 265.87); /* #0F52BA - Safir Mavisi (Daha Parlak) */
+  --sidebar-primary: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi (Daha Parlak) */
   --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
   --sidebar-accent: oklch(0.6 0.25 350 / 0.5); /* Pembe - Biraz Daha Açık Ton (Daha Parlak) - %50 Opaklık */
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(0.279 0.041 260.031);
-  --sidebar-ring: oklch(0.45 0.25 265.87); /* #0F52BA - Safir Mavisi (Daha Parlak) */
-  --color-1: 0 100% 63%; /* Kırmızı - RGB(255, 64, 64) */
-  --color-2: 270 100% 63%; /* Mor - RGB(161, 64, 255) */
-  --color-3: 210 100% 63%; /* Mavi - RGB(64, 128, 255) */
-  --color-4: 195 100% 63%; /* Açık Mavi - RGB(64, 193, 255) */
-  --color-5: 90 100% 63%; /* Yeşil - RGB(193, 255, 64) */
+  --sidebar-ring: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi (Daha Parlak) */
+
+  --white: #ffffff;
+  --black: #000000;
+  --transparent: transparent;  
+  
+  /* Font Ailesi */
+  --font-poppins: 'Poppins', sans-serif;
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-roboto: 'Roboto', sans-serif;
 }
 
-@theme inline {
+@theme  {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -121,12 +155,18 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --color-color-1: hsl(var(--color-1));
-  --color-color-2: hsl(var(--color-2));
-  --color-color-3: hsl(var(--color-3));
-  --color-color-4: hsl(var(--color-4));
-  --color-color-5: hsl(var(--color-5));
+  --color-color-1: var(--color-1);
+  --color-color-2: var(--color-2);
+  --color-color-3: var(--color-3);
+  --color-color-4: var(--color-4);
+  --color-color-5: var(--color-5);
   --animate-rainbow: rainbow var(--speed, 2s) infinite linear;
+  --animate-aurora: aurora 180s linear infinite;
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+  --font-poppins: var(--font-poppins);
+  --font-roboto: var(--font-roboto);
 
   @keyframes rainbow {
     0% {
@@ -134,6 +174,15 @@
     }
     100% {
       background-position: 200%;
+    }
+  }
+
+  @keyframes aurora {
+    from {
+      background-position: 50% 50%, 50% 50%;
+    }
+    to {
+      background-position: 350% 50%, 350% 50%;
     }
   }
 }
@@ -144,8 +193,31 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
   }
+  /* :root {
+    --default-font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  } */
 }
+
+/*@layer components {
+  .typography {
+    p {
+      font-size: var(--text-base);
+      color: var(--color-gray-700);
+    }
+    h1 {
+      font-size: var(--text-2xl--line-height);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-gray-950);
+    }
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-gray-950);
+    }
+  } 
+}*/
 
 /* Tüm sayfa için scrollbar görünümünü sabitle */
 html {

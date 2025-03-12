@@ -39,7 +39,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
     <Drawer direction="right">
       <DrawerTrigger asChild>
         <Button variant="ghost" size="icon">
-          <Menu />
+          <Menu className="scale-125" />
         </Button>
       </DrawerTrigger>
       <DrawerContent>

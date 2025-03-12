@@ -1,11 +1,10 @@
-import React, { Suspense } from "react";
-import { BarsThree, XMark } from "@medusajs/icons";
+import React from "react";
 import { listRegions } from "@lib/data/regions";
 import { StoreRegion } from "@medusajs/types";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
 import CartButton from "@modules/layout/components/cart-button";
 import SideMenu from "@modules/layout/components/side-menu";
-import { ShoppingCart, User } from "lucide-react";
+import { User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // import {
@@ -24,7 +23,6 @@ import { Button } from "@/components/ui/button";
 //   HoverCardContent,
 //   HoverCardTrigger,
 // } from "@/components/ui/hover-card";
-
 
 // const components: { title: string; href: string; description: string }[] = [
 //   {
@@ -178,18 +176,18 @@ export default async function Nav() {
 
             </NavigationMenu> */}
 
-            <div className="flex flex-1 justify-end gap-3">
-
+            <div className="flex flex-1 items-center justify-end gap-3">
               <LocalizedClientLink
                 href="/account"
                 data-testid="nav-account-link"
               >
                 <Button variant="ghost" size="icon">
-                  <User />
+                  <User className="scale-125" />
                 </Button>
               </LocalizedClientLink>
 
               <CartButton />
+
               <SideMenu regions={regions} />
             </div>
           </div>
