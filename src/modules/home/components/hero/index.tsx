@@ -30,7 +30,7 @@ const Hero = () => {
 
   return (
     <div className="relative inset-x-0 h-[85vh] w-full border-b">
-      <div className="small:p-32 absolute inset-0 flex flex-col flex-nowrap items-center justify-between gap-6 p-4 md:flex-row md:p-8 lg:p-16">
+      <div className="sm:p-32 absolute inset-0 flex flex-col flex-nowrap items-center justify-between gap-6 p-4 md:flex-row md:p-8 lg:p-16">
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

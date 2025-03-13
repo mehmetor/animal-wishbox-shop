@@ -23,7 +23,7 @@ const Register = ({ setCurrentView }: Props) => {
       <h1 className="font-semibold mb-6">
         Become a Animal Wishbox Member
       </h1>
-      <p className="text-center text-base-regular text-ui-fg-base mb-4">
+      <p className="text-center text-base-regular text-foreground mb-4">
         Create your Animal Wishbox Member profile, and get access to an enhanced
         shopping experience.
       </p>
@@ -68,7 +68,7 @@ const Register = ({ setCurrentView }: Props) => {
           />
         </div>
         <ErrorMessage error={message} data-testid="register-error" />
-        <span className="text-center text-ui-fg-base text-small-regular mt-6">
+        <span className="text-center text-foreground text-sm font-normal mt-6">
           By creating an account, you agree to Animal Wishbox&apos;s{" "}
           <LocalizedClientLink
             href="/content/privacy-policy"
@@ -89,7 +89,7 @@ const Register = ({ setCurrentView }: Props) => {
           Join
         </SubmitButton>
       </form>
-      <span className="text-center text-ui-fg-base text-small-regular mt-6">
+      <span className="text-center text-foreground text-sm font-normal mt-6">
         Already a member?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}

@@ -58,7 +58,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                   <li key={name}>
                     <LocalizedClientLink
                       href={href}
-                      className="hover:text-ui-fg-disabled text-2xl leading-10"
+                      className="hover:text-foreground/40 text-2xl leading-10"
                       onClick={toggleState.close}
                       data-testid={`${name.toLowerCase()}-link`}
                     >
@@ -132,7 +132,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                   <li key={name}>
                     <LocalizedClientLink
                       href={href}
-                      className="text-2xl leading-10 hover:text-ui-fg-disabled"
+                      className="text-2xl leading-10 hover:text-foreground/40 "
                       onClick={toggleState.close}
                       data-testid={`${name.toLowerCase()}-link`}
                     >

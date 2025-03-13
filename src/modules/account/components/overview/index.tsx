@@ -13,12 +13,12 @@ type OverviewProps = {
 const Overview = ({ customer, orders }: OverviewProps) => {
   return (
     <div data-testid="overview-page-wrapper">
-      <div className="hidden small:block">
+      <div className="hidden sm:block">
         <div className="text-xl-semi flex justify-between items-center mb-4">
           <span data-testid="welcome-message" data-value={customer?.first_name}>
             Hello {customer?.first_name}
           </span>
-          <span className="text-small-regular text-ui-fg-base">
+          <span className="text-sm font-normal text-foreground">
             Signed in as:{" "}
             <span
               className="font-semibold"
@@ -42,7 +42,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                   >
                     {getProfileCompletion(customer)}%
                   </span>
-                  <span className="uppercase text-base-regular text-ui-fg-subtle">
+                  <span className="uppercase text-base-regular text-muted-foreground">
                     Completed
                   </span>
                 </div>
@@ -58,7 +58,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                   >
                     {customer?.addresses?.length || 0}
                   </span>
-                  <span className="uppercase text-base-regular text-ui-fg-subtle">
+                  <span className="uppercase text-base-regular text-muted-foreground">
                     Saved
                   </span>
                 </div>
@@ -85,7 +85,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                           href={`/account/orders/details/${order.id}`}
                         >
                           <Container className="bg-gray-50 flex justify-between items-center p-4">
-                            <div className="grid grid-cols-3 grid-rows-2 text-small-regular gap-x-4 flex-1">
+                            <div className="grid grid-cols-3 grid-rows-2 text-sm font-normal gap-x-4 flex-1">
                               <span className="font-semibold">Date placed</span>
                               <span className="font-semibold">
                                 Order number

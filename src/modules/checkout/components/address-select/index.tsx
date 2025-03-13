@@ -61,7 +61,7 @@ const AddressSelect = ({
           leaveTo="opacity-0"
         >
           <Listbox.Options
-            className="absolute z-20 w-full overflow-auto text-small-regular bg-white border border-top-0 max-h-60 focus:outline-none sm:text-sm"
+            className="absolute z-20 w-full overflow-auto text-sm font-normal bg-white border border-top-0 max-h-60 focus:outline-none sm:text-sm"
             data-testid="shipping-address-options"
           >
             {addresses.map((address) => {
@@ -82,7 +82,7 @@ const AddressSelect = ({
                         {address.first_name} {address.last_name}
                       </span>
                       {address.company && (
-                        <span className="text-small-regular text-ui-fg-base">
+                        <span className="text-sm font-normal text-foreground">
                           {address.company}
                         </span>
                       )}

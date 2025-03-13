@@ -51,7 +51,7 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
           href={`/products/${item.product_handle}`}
           className={clx("flex", {
             "w-16": type === "preview",
-            "small:w-24 w-12": type === "full",
+            "sm:w-24 w-12": type === "full",
           })}
         >
           <Thumbnail
@@ -64,7 +64,7 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
 
       <Table.Cell className="text-left">
         <Text
-          className="txt-medium-plus text-ui-fg-base"
+          className="font-semibold text-foreground"
           data-testid="product-title"
         >
           {item.product_title}
@@ -105,7 +105,7 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
       )}
 
       {type === "full" && (
-        <Table.Cell className="hidden small:table-cell">
+        <Table.Cell className="hidden sm:table-cell">
           <LineItemUnitPrice
             item={item}
             style="tight"
@@ -122,7 +122,7 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
         >
           {type === "preview" && (
             <span className="flex gap-x-1 ">
-              <Text className="text-ui-fg-muted">{item.quantity}x </Text>
+              <Text className="text-foreground/70">{item.quantity}x </Text>
               <LineItemUnitPrice
                 item={item}
                 style="tight"

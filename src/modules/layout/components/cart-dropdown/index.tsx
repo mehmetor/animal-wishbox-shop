@@ -156,16 +156,15 @@ const CartDropdown = ({
                         id={item.id}
                         className="mt-1"
                         data-testid="cart-item-remove-button"
-                      >
-                        {t("remove")}
-                      </DeleteButton>
+                        title={t("remove")}
+                      />
                     </div>
                   </div>
                 ))}
             </ScrollArea>
-            <div className="text-small-regular flex flex-col gap-y-4 p-4">
+            <div className="text-sm font-normal flex flex-col gap-y-4 p-4">
               <div className="flex items-center justify-between">
-                <span className="text-ui-fg-base font-semibold">
+                <span className="text-foreground font-semibold">
                   {t("subtotal")}{" "}
                   <span className="font-normal">({t("exclTaxes")})</span>
                 </span>
@@ -194,7 +193,7 @@ const CartDropdown = ({
         ) : (
           <div>
             <div className="flex flex-col items-center justify-center gap-y-4 py-16">
-              <div className="text-small-regular flex h-6 w-6 items-center justify-center rounded-full bg-gray-900 text-white">
+              <div className="text-sm font-normal flex h-6 w-6 items-center justify-center rounded-full bg-gray-900 text-white">
                 <span>0</span>
               </div>
               <span>{t("emptyCart")}</span>
@@ -286,9 +285,9 @@ const CartDropdown = ({
                   </div>
                 ))}
             </div>
-            <div className="text-small-regular flex flex-col gap-y-4 p-4">
+            <div className="text-sm font-normal flex flex-col gap-y-4 p-4">
               <div className="flex items-center justify-between">
-                <span className="text-ui-fg-base font-semibold">
+                <span className="text-foreground font-semibold">
                   {t("subtotal")}{" "}
                   <span className="font-normal">({t("exclTaxes")})</span>
                 </span>
@@ -317,7 +316,7 @@ const CartDropdown = ({
         ) : (
           <div>
             <div className="flex flex-col items-center justify-center gap-y-4 py-16">
-              <div className="text-small-regular flex h-6 w-6 items-center justify-center rounded-full bg-gray-900 text-white">
+              <div className="text-sm font-normal flex h-6 w-6 items-center justify-center rounded-full bg-gray-900 text-white">
                 <span>0</span>
               </div>
               <span>{t("emptyCart")}</span>

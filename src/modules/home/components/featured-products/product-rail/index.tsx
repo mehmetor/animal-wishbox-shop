@@ -27,14 +27,14 @@ export default async function ProductRail({
   }
 
   return (
-    <div className="content-container py-12 small:py-24">
+    <div className="container py-12 sm:py-24">
       <div className="flex justify-between mb-8">
         <h2 className="text-2xl">{collection.title}</h2>
         <InteractiveLink href={`/collections/${collection.handle}`}>
           Tümünü Gör
         </InteractiveLink>
       </div>
-      <ul className="grid grid-cols-4 small:grid-cols-2 gap-x-6 gap-y-24 small:gap-y-36">
+      <ul className="grid grid-cols-4 sm:grid-cols-2 gap-x-6 gap-y-24 sm:gap-y-36">
         {pricedProducts &&
           pricedProducts.map((product) => (
             <li key={product.id}>
