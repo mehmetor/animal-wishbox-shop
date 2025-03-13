@@ -12,23 +12,24 @@ export default function CheckoutLayout({
   return (
     <div
       className={cn(
-        "sm:min-h-screen relative w-full bg-white",
+        "relative w-full bg-white sm:min-h-screen",
         "bg-[url('/assets/pattern-light.svg')]",
         "dark:bg-[url('/assets/pattern-dark.svg')]",
+        "px-16",
       )}
     >
-      <div className="h-16 border-b bg-white">
-        <nav className="container flex h-full items-center justify-between">
+      <div className="container mx-auto h-16 border-b bg-white">
+        <nav className="flex h-full items-center justify-between">
           <LocalizedClientLink
             href="/cart"
             className="text-small-semi text-foreground flex flex-1 basis-0 items-center gap-x-2 uppercase"
             data-testid="back-to-cart-link"
           >
             <ChevronDown className="rotate-90" size={16} />
-            <span className="sm:block txt-compact-plus text-muted-foreground mt-px hidden">
+            <span className="txt-compact-plus text-muted-foreground mt-px hidden sm:block">
               Back to shopping cart
             </span>
-            <span className="sm:hidden txt-compact-plus text-muted-foreground hover:text-foreground mt-px block">
+            <span className="txt-compact-plus text-muted-foreground hover:text-foreground mt-px block sm:hidden">
               Back
             </span>
           </LocalizedClientLink>
@@ -42,10 +43,13 @@ export default function CheckoutLayout({
           <div className="flex-1 basis-0" />
         </nav>
       </div>
-      <div className="relative" data-testid="checkout-container">
+      <div
+        className="relative container mx-auto"
+        data-testid="checkout-container"
+      >
         {children}
       </div>
-      <div className="flex w-full items-center justify-center py-4">
+      <div className="container mx-auto flex w-full items-center justify-center py-4">
         <MedusaCTA />
       </div>
     </div>

@@ -16,7 +16,7 @@ export default async function Footer() {
     process.env.MEDUSA_BACKEND_URL || "http://localhost:9000";
 
   return (
-    <footer className="w-full border-t border-gray-200">
+    <footer className="w-full border-t border-gray-200 mt-16">
       <div className="container mx-auto flex w-full flex-col">
         <div className="flex flex-col items-start justify-between gap-6 py-10 sm:flex-row">
           <div>

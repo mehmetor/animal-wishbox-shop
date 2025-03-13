@@ -97,7 +97,7 @@ export default async function Nav() {
         <nav className="fixed inset-x-0 top-4 container mx-auto h-16 rounded-full border border-gray-500/25 bg-white/25 shadow-md backdrop-blur-lg">
           <div className="mx-auto flex h-full items-center justify-between px-6">
             <div className="flex flex-1">
-              <a href="/" className="">
+              <a href="/" className="font-semibold text-xl text-slate-600">
                 <span>Animal Wishbox</span>
                 {/* <img
                   alt=""
