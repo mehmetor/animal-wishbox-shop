@@ -25,10 +25,10 @@ const OrderCard = ({ order }: OrderCardProps) => {
 
   return (
     <div className="bg-white flex flex-col" data-testid="order-card">
-      <div className="uppercase text-large-semi mb-1">
+      <div className="uppercase font-semibold mb-1">
         #<span data-testid="order-display-id">{order.display_id}</span>
       </div>
-      <div className="flex items-center divide-x divide-gray-200 text-small-regular text-ui-fg-base">
+      <div className="flex items-center divide-x divide-gray-200 text-sm font-normal text-foreground">
         <span className="pr-2" data-testid="order-created-at">
           {new Date(order.created_at).toDateString()}
         </span>
@@ -42,7 +42,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
           numberOfLines > 1 ? "items" : "item"
         }`}</span>
       </div>
-      <div className="grid grid-cols-2 small:grid-cols-4 gap-4 my-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 my-4">
         {order.items?.slice(0, 3).map((i) => {
           return (
             <div
@@ -51,9 +51,9 @@ const OrderCard = ({ order }: OrderCardProps) => {
               data-testid="order-item"
             >
               <Thumbnail thumbnail={i.thumbnail} images={[]} size="full" />
-              <div className="flex items-center text-small-regular text-ui-fg-base">
+              <div className="flex items-center text-sm font-normal text-foreground">
                 <span
-                  className="text-ui-fg-base font-semibold"
+                  className="text-foreground font-semibold"
                   data-testid="item-title"
                 >
                   {i.title}
@@ -66,10 +66,10 @@ const OrderCard = ({ order }: OrderCardProps) => {
         })}
         {numberOfProducts > 4 && (
           <div className="w-full h-full flex flex-col items-center justify-center">
-            <span className="text-small-regular text-ui-fg-base">
+            <span className="text-sm font-normal text-foreground">
               + {numberOfLines - 4}
             </span>
-            <span className="text-small-regular text-ui-fg-base">more</span>
+            <span className="text-sm font-normal text-foreground">more</span>
           </div>
         )}
       </div>

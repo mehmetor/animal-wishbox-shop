@@ -26,11 +26,11 @@ const AccountNav = ({
 
   return (
     <div>
-      <div className="small:hidden" data-testid="mobile-account-nav">
+      <div className="sm:hidden" data-testid="mobile-account-nav">
         {route !== `/${countryCode}/account` ? (
           <LocalizedClientLink
             href="/account"
-            className="flex items-center gap-x-2 text-small-regular py-2"
+            className="flex items-center gap-x-2 text-sm font-normal py-2"
             data-testid="account-main-link"
           >
             <>
@@ -107,7 +107,7 @@ const AccountNav = ({
           </>
         )}
       </div>
-      <div className="hidden small:block" data-testid="account-nav">
+      <div className="hidden sm:block" data-testid="account-nav">
         <div>
           <div className="pb-4">
             <h3 className="text-base-semi">Account</h3>
@@ -186,8 +186,8 @@ const AccountNavLink = ({
   return (
     <LocalizedClientLink
       href={href}
-      className={clx("text-ui-fg-subtle hover:text-ui-fg-base", {
-        "text-ui-fg-base font-semibold": active,
+      className={clx("text-muted-foreground hover:text-foreground", {
+        "text-foreground font-semibold": active,
       })}
       data-testid={dataTestId}
     >
