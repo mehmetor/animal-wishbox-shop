@@ -15,7 +15,7 @@ export default function CheckoutLayout({
         "relative w-full bg-white sm:min-h-screen",
         "bg-[url('/assets/pattern-light.svg')]",
         "dark:bg-[url('/assets/pattern-dark.svg')]",
-        "px-16",
+        "px-8 sm:px-16 md:px-24",
       )}
     >
       <div className="container mx-auto h-16 border-b bg-white">

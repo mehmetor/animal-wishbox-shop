@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default async function Home(props: {
   params: Promise<{ countryCode: string }>;
 }) {
-  console.log("app/[countryCode]/(main)/page.tsx");
+  
   const params = await props.params;
 
   const { countryCode } = params;
@@ -32,11 +32,14 @@ export default async function Home(props: {
   return (
     <>
       <Hero />
-      <div className="px-12">
-        <ul className="flex flex-col gap-x-6">
-          <FeaturedProducts collections={collections} region={region} />
-        </ul>
-      </div>
+      <ul className="flex flex-col gap-x-6 px-12">
+        <li>
+          <h1>Hello</h1>
+        </li>
+      </ul>
+      <ul className="flex flex-col gap-x-6 px-12">
+        <FeaturedProducts collections={collections} region={region} />
+      </ul>
     </>
   );
 }

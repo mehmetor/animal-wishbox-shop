@@ -24,7 +24,7 @@ export default async function RootLayout({
     <html lang={locale} data-mode="light">
       <body>
         <NextIntlClientProvider messages={messages}>
-          <main>{children}</main>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

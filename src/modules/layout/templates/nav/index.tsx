@@ -92,22 +92,21 @@ export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions);
 
   return (
-    <div className="group sticky top-0 z-50">
-      <header className="relative mx-auto h-20 duration-200">
-        <nav className="fixed inset-x-0 top-4 container mx-auto h-16 rounded-full border border-gray-500/25 bg-white/25 shadow-md backdrop-blur-lg">
-          <div className="mx-auto flex h-full items-center justify-between px-6">
-            <div className="flex flex-1">
-              <a href="/" className="font-semibold text-xl text-slate-600">
-                <span>Animal Wishbox</span>
-                {/* <img
+    <header className="group sticky z-50 ">
+      <nav className="fixed inset-x-0 top-4 container mx-auto h-16 px-8 md:px-16 lg:px-24">
+        <div className="flex h-full items-center justify-between rounded-full border border-gray-500/25 bg-white/25 px-8 shadow-md backdrop-blur-lg">
+          <div className="flex flex-1">
+            <a href="/" className="text-xl font-semibold text-slate-600">
+              <span>Animal Wishbox</span>
+              {/* <img
                   alt=""
                   src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
                   className="h-8 w-auto"
                 /> */}
-              </a>
-            </div>
+            </a>
+          </div>
 
-            {/* <NavigationMenu>
+          {/* <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
@@ -176,23 +175,19 @@ export default async function Nav() {
 
             </NavigationMenu> */}
 
-            <div className="flex flex-1 items-center justify-end gap-3">
-              <LocalizedClientLink
-                href="/account"
-                data-testid="nav-account-link"
-              >
-                <Button variant="ghost" size="icon">
-                  <User className="scale-125" />
-                </Button>
-              </LocalizedClientLink>
+          <div className="flex flex-1 items-center justify-end gap-3">
+            <LocalizedClientLink href="/account" data-testid="nav-account-link">
+              <Button variant="ghost" size="icon">
+                <User className="scale-125" />
+              </Button>
+            </LocalizedClientLink>
 
-              <CartButton />
+            <CartButton />
 
-              <SideMenu regions={regions} />
-            </div>
+            <SideMenu regions={regions} />
           </div>
-        </nav>
-      </header>
-    </div>
+        </div>
+      </nav>
+    </header>
   );
 }

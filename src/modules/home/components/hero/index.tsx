@@ -13,15 +13,15 @@ import LocalizedClientLink from "@/modules/common/components/localized-client-li
 const images = [
   {
     id: 1,
-    img: "https://vwtwktgmqoqlwspzteqb.supabase.co/storage/v1/object/public/media//PRINCESS_ECO-FRIENDLY-LITTER_LAVENDER-SCENT_6L_PLT4.png",
+    img: "https://mscrosugxoblkqhymkux.supabase.co/storage/v1/object/public/media//princess-eco-friendly-cat-litter-flushable-lavender-6l_WA-PLT4.webp",
   },
   {
     id: 2,
-    img: "https://vwtwktgmqoqlwspzteqb.supabase.co/storage/v1/object/public/media//PRINCESS_ECO-FRIENDLY-LITTER_GREEN-TEA-SCENT_6L_PLT2.png",
+    img: "https://mscrosugxoblkqhymkux.supabase.co/storage/v1/object/public/media//princess-eco-friendly-cat-litter-flushable-green-tea-6l_WA-PLT2.webp",
   },
   {
     id: 3,
-    img: "https://vwtwktgmqoqlwspzteqb.supabase.co/storage/v1/object/public/media//PRINCESS_ECO-FRIENDLY-LITTER_STRAWBERRY-SCENT_6L_PLT3.png",
+    img: "https://mscrosugxoblkqhymkux.supabase.co/storage/v1/object/public/media//princess-eco-friendly-cat-litter-flushable-strawberry-6l_WA-PLT3.webp",
   },
 ];
 
@@ -29,7 +29,7 @@ const Hero = () => {
   const t = useTranslations("HomePage");
 
   return (
-    <div className="relative inset-x-0 h-[85vh] w-full border-b">
+    <div className="relative inset-x-0 h-[85vh] w-full border-b ">
       <div className="sm:p-32 absolute inset-0 flex flex-col flex-nowrap items-center justify-between gap-6 p-4 md:flex-row md:p-8 lg:p-16">
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
