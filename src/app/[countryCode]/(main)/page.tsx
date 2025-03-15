@@ -32,11 +32,7 @@ export default async function Home(props: {
   return (
     <>
       <Hero />
-      <ul className="flex flex-col gap-x-6 px-12">
-        <li>
-          <h1>Hello</h1>
-        </li>
-      </ul>
+
       <ul className="flex flex-col gap-x-6 px-12">
         <FeaturedProducts collections={collections} region={region} />
       </ul>

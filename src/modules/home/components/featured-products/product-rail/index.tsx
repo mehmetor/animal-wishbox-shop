@@ -22,9 +22,9 @@ export default async function ProductRail({
     },
   })
 
-  if (!pricedProducts) {
-    return null
-  }
+  // if (!pricedProducts) {
+  //   return null
+  // }
 
   return (
     <div className="container py-12 sm:py-24">
@@ -34,7 +34,7 @@ export default async function ProductRail({
           Tümünü Gör
         </InteractiveLink>
       </div>
-      <ul className="grid grid-cols-4 sm:grid-cols-3 gap-x-6 gap-y-24 sm:gap-y-36">
+      <ul className="grid w-full grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-3 lg:grid-cols-4 sm:gap-y-12">
         {pricedProducts &&
           pricedProducts.map((product) => (
             <li key={product.id}>

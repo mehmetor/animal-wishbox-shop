@@ -8,7 +8,7 @@ import CartMismatchBanner from "@modules/layout/components/cart-mismatch-banner"
 import Footer from "@modules/layout/templates/footer";
 import Nav from "@modules/layout/templates/nav";
 import FreeShippingPriceNudge from "@modules/shipping/components/free-shipping-price-nudge";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+// import { AuroraBackground } from "@/components/ui/aurora-background";
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -28,7 +28,7 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
 
   return (
     // <AuroraBackground>
-    <div className="container mx-auto px-8 md:px-16 lg:px-24">
+    <div className="container mx-auto px-8 py-24 md:px-16 lg:px-24">
       <div className="relative isolate">
         <Nav />
 

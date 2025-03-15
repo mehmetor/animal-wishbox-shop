@@ -37,7 +37,7 @@ export default async function ProductPreview({
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
-      <Card>
+      <Card className="bg-[#ebeffd]">
         <CardHeader>
           <CardTitle>{product.title}</CardTitle>
         </CardHeader>
@@ -45,7 +45,7 @@ export default async function ProductPreview({
           <Thumbnail
             thumbnail={product.thumbnail}
             images={product.images}
-            size="full"
+            size="square"
             isFeatured={isFeatured}
           />
         </CardContent>
