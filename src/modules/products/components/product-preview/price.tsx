@@ -7,7 +7,7 @@ export default function PreviewPrice({ price }: { price: VariantPrice }) {
   }
 
   return (
-    <div className="flex flex-col items-start">
+    <div className="flex flex-col items-end">
       {price.price_type === "sale" && (
         <Text
           className="line-through text-gray-400 text-sm"
@@ -17,7 +17,7 @@ export default function PreviewPrice({ price }: { price: VariantPrice }) {
         </Text>
       )}
       <Text
-        className={clx("font-semibold", {
+        className={clx("font-semibold tabular-nums", {
           "text-red-600": price.price_type === "sale",
           "text-gray-900": price.price_type !== "sale",
         })}

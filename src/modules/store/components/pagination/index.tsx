@@ -1,7 +1,14 @@
 "use client"
 
-import { clx } from "@medusajs/ui"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { 
+  Pagination as UIPagination, 
+  PaginationContent, 
+  PaginationItem, 
+  PaginationLink, 
+  PaginationNext, 
+  PaginationPrevious 
+} from "@/components/ui/pagination"
 
 export function Pagination({
   page,
@@ -33,26 +40,29 @@ export function Pagination({
     label: string | number,
     isCurrent: boolean
   ) => (
-    <button
-      key={p}
-      className={clx("txt-xlarge-plus text-foreground/70", {
-        "text-foreground hover:text-muted-foreground": isCurrent,
-      })}
-      disabled={isCurrent}
-      onClick={() => handlePageChange(p)}
-    >
-      {label}
-    </button>
+    <PaginationItem key={p}>
+      <PaginationLink
+        href="#"
+        isActive={isCurrent}
+        onClick={(e) => {
+          e.preventDefault()
+          handlePageChange(p)
+        }}
+      >
+        {label}
+      </PaginationLink>
+    </PaginationItem>
   )
 
   // Function to render ellipsis
   const renderEllipsis = (key: string) => (
-    <span
-      key={key}
-      className="txt-xlarge-plus text-foreground/70 items-center cursor-default"
-    >
-      ...
-    </span>
+    <PaginationItem key={key}>
+      <span
+        className="flex h-9 w-9 items-center justify-center text-sm font-medium"
+      >
+        ...
+      </span>
+    </PaginationItem>
   )
 
   // Function to render page buttons based on the current page and total pages
@@ -108,7 +118,31 @@ export function Pagination({
   // Render the component
   return (
     <div className="flex justify-center w-full mt-12">
-      <div className="flex gap-3 items-end" data-testid={dataTestid}>{renderPageButtons()}</div>
+      <UIPagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious
+              href="#"
+              text="Geri"
+              onClick={(e) => {
+                e.preventDefault()
+                if (page > 1) handlePageChange(page - 1)
+              }}
+            />
+          </PaginationItem>
+          {renderPageButtons()}
+          <PaginationItem>
+            <PaginationNext
+              href="#"
+              text="İleri"
+              onClick={(e) => {
+                e.preventDefault()
+                if (page < totalPages) handlePageChange(page + 1)
+              }}
+            />
+          </PaginationItem>
+        </PaginationContent>
+      </UIPagination>
     </div>
   )
 }

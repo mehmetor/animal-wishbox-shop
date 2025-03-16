@@ -15,20 +15,18 @@ export const metadata: Metadata = {
 };
 
 export default async function PageLayout(props: { children: React.ReactNode }) {
-  console.log("app/[countryCode]/(main)/layout.tsx");
   const customer = await retrieveCustomer();
   const cart = await retrieveCart();
   let shippingOptions: StoreCartShippingOption[] = [];
 
   if (cart) {
     const { shipping_options } = await listCartOptions();
-
     shippingOptions = shipping_options;
   }
 
   return (
     // <AuroraBackground>
-    <div className="container mx-auto px-8 py-24 md:px-16 lg:px-24">
+    <div className="container mx-auto px-6 py-24 md:px-8 lg:px-12">
       <div className="relative isolate">
         <Nav />
 

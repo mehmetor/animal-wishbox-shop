@@ -13,7 +13,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  console.log("app/layout.tsx");
   const locale = await getLocale();
 
   // Providing all messages to the client

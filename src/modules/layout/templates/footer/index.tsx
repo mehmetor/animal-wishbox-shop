@@ -16,18 +16,18 @@ export default async function Footer() {
     process.env.MEDUSA_BACKEND_URL || "http://localhost:9000";
 
   return (
-    <footer className="mt-16 w-full border-t border-gray-200">
-      <div className="container mx-auto flex w-full flex-col">
-        <div className="flex flex-col items-start justify-between gap-6 py-10 sm:flex-row">
-          <div>
+    <footer className="mt-16 w-full border-t px-8">
+      <div className="container mx-auto flex flex-col">
+        <div className="my-16 flex flex-col items-start justify-between gap-6 sm:flex-row">
+          <div className="w-full pb-8">
             <LocalizedClientLink href="/" className="text-xl font-medium">
               Animal Wishbox
             </LocalizedClientLink>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 text-sm md:gap-16">
+          <div className="flex w-full flex-row gap-10 text-sm md:gap-16 md:px-12">
             {productCategories && productCategories?.length > 0 && (
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-1 flex-col gap-8">
                 <span className="text-sm font-medium text-gray-900">
                   Katagoriler
                 </span>
@@ -85,7 +85,7 @@ export default async function Footer() {
               </div>
             )}
             {collections && collections.length > 0 && (
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-1 flex-col gap-8">
                 <span className="text-sm font-medium text-gray-900">
                   Kolleksiyonlar
                 </span>
@@ -113,8 +113,8 @@ export default async function Footer() {
           </div>
         </div>
 
-        <div className="mb-16 flex w-full justify-between  text-xs text-gray-500">
-          <div className="flex flex-col ">
+        <div className="mt-8 flex w-full justify-between text-xs text-gray-500">
+          <div className="flex flex-col">
             <p>© {new Date().getFullYear()} Animal Wishbox. v0.1.3</p>
             <p>
               <span>Tüm hakları saklıdır.</span>
@@ -126,7 +126,7 @@ export default async function Footer() {
                   href="https://github.com/animal-wishbox/documentation"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-1 h-6 hover:text-gray-900"
+                  className="flex h-6 items-center gap-1 hover:text-gray-900"
                 >
                   <span>Dokümantasyon</span>
                   <ExternalLink size={16} />
@@ -139,7 +139,7 @@ export default async function Footer() {
                     target="_blank"
                     rel="noreferrer"
                     title={medusaBackendUrl}
-                    className="flex items-center gap-1 h-6 hover:text-gray-900"
+                    className="flex h-6 items-center gap-1 hover:text-gray-900"
                   >
                     <span>Portal</span>
                     <ExternalLink size={16} />

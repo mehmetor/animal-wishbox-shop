@@ -38,11 +38,13 @@ export default async function ProductPreview({
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
-      <Card className=" gap-4">
+      <Card className="bg-card/30 gap-1 md:gap-4 py-4 md:py-6">
         <CardHeader>
-          <CardTitle className="truncate pb-1" >
-            {product.title}
-            {product.title.length > 50 && "..."}
+          <CardTitle>
+            <div className="line-clamp-2 text-sm font-semibold md:text-base">
+              {product.title}
+              {product.title.length > 50 && "..."}
+            </div>
           </CardTitle>
           <CardDescription className="text-xs text-gray-500">
             {product.description}
@@ -56,7 +58,10 @@ export default async function ProductPreview({
             isFeatured={isFeatured}
           />
         </CardContent>
-        <CardFooter>
+        <CardFooter className="flex justify-between text-sm md:text-base">
+          <div className="flex flex-col items-start">
+            {/* <Button>Sepete Ekle</Button> */}
+          </div>
           {cheapestPrice && (
             <PreviewPrice price={cheapestPrice as VariantPrice} />
           )}
@@ -64,19 +69,4 @@ export default async function ProductPreview({
       </Card>
     </LocalizedClientLink>
   );
-
-  // return (
-  //   <LocalizedClientLink href={`/products/${product.handle}`} className="group">
-  //     <div data-testid="product-wrapper" className="">
-  //       <div className="txt-compact-medium mt-4 flex justify-between">
-  //         <Text className="text-muted-foreground" data-testid="product-title">
-  //           {product.title}
-  //         </Text>
-  //         <div className="flex items-center gap-x-2">
-  //           {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </LocalizedClientLink>
-  // );
 }

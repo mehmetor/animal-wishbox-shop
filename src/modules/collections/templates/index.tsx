@@ -21,7 +21,7 @@ export default function CollectionTemplate({
   const sort = sortBy || "created_at";
 
   return (
-    <div className="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 md:py-12">
+    <div className="mx-auto max-w-screen-2xl px-2 py-8 sm:px-4 md:py-12">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[280px_1fr] lg:gap-10 xl:grid-cols-[320px_1fr]">
         {/* Filtreleme bölümü */}
         <aside className="order-2 lg:order-1">

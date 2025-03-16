@@ -83,14 +83,14 @@ const CartDropdown = ({
       open={cartDropdownOpen}
     >
       <HoverCardTrigger asChild>
-        <Button variant="ghost" size="icon" className="relative">
-          <ShoppingCart className="scale-125" />
+        <div className="relative">
+          <ShoppingCart />
           {totalItems > 0 && (
-            <div className="absolute -top-2 -right-2">
+            <div className="absolute -top-4 -right-4">
               <Badge variant="secondary">{totalItems}</Badge>
             </div>
           )}
-        </Button>
+        </div>
       </HoverCardTrigger>
       <HoverCardContent className="w-96 md:w-[32rem]" align="end">
         <div className="p-4">

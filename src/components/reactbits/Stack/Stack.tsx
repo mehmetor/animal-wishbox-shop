@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface CardRotateProps {
   children: React.ReactNode;
@@ -57,28 +57,11 @@ export default function Stack({
   animationConfig = { stiffness: 260, damping: 20 },
   sendToBackOnClick = false,
 }: StackProps) {
-  const [cards, setCards] = useState(
-    cardsData.length
-      ? cardsData
-      : [
-          {
-            id: 1,
-            img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format",
-          },
-          {
-            id: 2,
-            img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format",
-          },
-          {
-            id: 3,
-            img: "https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format",
-          },
-          {
-            id: 4,
-            img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format",
-          },
-        ],
-  );
+  const [cards, setCards] = useState<{ id: number; img: string }[]>([]);
+
+  useEffect(() => {
+    setCards(cardsData);
+  }, [cardsData]);
 
   const sendToBack = (id: number) => {
     setCards((prev) => {
@@ -111,7 +94,7 @@ export default function Stack({
             sensitivity={sensitivity}
           >
             <motion.div
-              className="overflow-hidden rounded-2xl "
+              className="overflow-hidden rounded-2xl"
               onClick={() => sendToBackOnClick && sendToBack(card.id)}
               animate={{
                 rotateZ: (cards.length - index - 1) * 4 + randomRotate,

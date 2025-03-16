@@ -2,13 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import {
-  MoveRight,
-  Leaf,
-  Recycle,
-  ShoppingCartIcon,
-  ArrowRightIcon,
-} from "lucide-react";
+import { MoveRight, Leaf, Recycle, ArrowRightIcon } from "lucide-react";
 import { SpinningText } from "@/components/magicui/spinning-text";
 import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
 import { AuroraText } from "@/components/magicui/aurora-text";
@@ -16,7 +10,27 @@ import { cn } from "@/lib/utils";
 import Stack from "@/components/reactbits/Stack/Stack";
 import LocalizedClientLink from "@/modules/common/components/localized-client-link";
 import { Button } from "@/components/ui/button";
-import { RainbowButton } from "@/components/magicui/rainbow-button";
+import { useEffect } from "react";
+import { useState } from "react";
+
+const defaultCards = [
+  {
+    id: 1,
+    img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format",
+  },
+  {
+    id: 2,
+    img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format",
+  },
+  {
+    id: 3,
+    img: "https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format",
+  },
+  {
+    id: 4,
+    img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format",
+  },
+];
 
 const images = [
   {
@@ -38,10 +52,21 @@ const images = [
 
 const Hero = () => {
   const t = useTranslations("HomePage");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      console.log("window.innerWidth", window.innerWidth);
+      setIsMobile(window.innerWidth < 576);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <div className="relative inset-x-0 h-[75vh] min-h-[762px] w-full border-b">
-      <div className="absolute inset-0 flex flex-col flex-nowrap items-center justify-between gap-6 py-32 lg:flex-row">
+    <div className="hero relative inset-x-0 min-h-[762px] w-full border-b pb-16">
+      <div className="inset-0 flex flex-col flex-nowrap items-center justify-between pt-16 lg:flex-row">
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +93,7 @@ const Hero = () => {
             <div className="text-3xl text-slate-700 md:text-4xl dark:text-white">
               Tamamen doğal
             </div>
-            <div className="text-3xl font-bold md:text-5xl dark:text-white">
+            <div className="text-4xl font-bold md:text-5xl dark:text-white">
               <AuroraText
                 colors={[
                   "#FF0080",
@@ -98,14 +123,17 @@ const Hero = () => {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="relative flex w-full flex-col items-center justify-center gap-16"
+          className="relative flex w-full flex-col items-center justify-center gap-2 lg:gap-8"
         >
-          <div className="relative pr-24 pl-16">
+          <div className="relative px-0">
             <Stack
               randomRotation={true}
               sensitivity={180}
               sendToBackOnClick={true}
-              cardDimensions={{ width: 388, height: 500 }}
+              cardDimensions={{
+                width: isMobile ? 291 : 388,
+                height: isMobile ? 375 : 500,
+              }}
               cardsData={images}
             />
 
@@ -128,7 +156,7 @@ const Hero = () => {
               /> */}
           </div>
 
-          <div className="max-w-3xl px-4 text-sm text-neutral-600 dark:text-neutral-400">
+          <div className="max-w-3xl text-sm text-neutral-600 dark:text-neutral-400">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div className="flex items-start">
                 <Leaf
@@ -141,7 +169,7 @@ const Hero = () => {
                   üretilen sürdürülebilir bir seçimdir.
                 </p>
               </div>
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col justify-between">
                 <div className="flex items-start">
                   <Recycle
                     className="mt-1 mr-2 flex-shrink-0 text-green-600"
@@ -152,7 +180,7 @@ const Hero = () => {
                     olduğundan çevresel etkiyi en aza indirir.
                   </p>
                 </div>
-                <div className="flex items-center justify-end gap-4">
+                <div className="flex items-center justify-end">
                   {/* <Button>
                     <ShoppingCartIcon />
                     Sepete Ekle
