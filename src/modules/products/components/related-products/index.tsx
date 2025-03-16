@@ -24,13 +24,16 @@ export default async function RelatedProducts({
     queryParams.region_id = region.id
   }
   if (product.collection_id) {
+    // @ts-ignore
     queryParams.collection_id = [product.collection_id]
   }
   if (product.tags) {
+    // @ts-ignore
     queryParams.tag_id = product.tags
       .map((t) => t.id)
       .filter(Boolean) as string[]
   }
+  // @ts-ignore
   queryParams.is_giftcard = false
 
   const products = await listProducts({
@@ -50,10 +53,10 @@ export default async function RelatedProducts({
     <div className="product-page-constraint">
       <div className="flex flex-col items-center text-center mb-16">
         <span className="text-base-regular text-gray-600 mb-6">
-          Related products
+          İlgili Ürünler
         </span>
         <p className="text-2xl-regular text-foreground max-w-lg">
-          You might also want to check out these products.
+          Bu ürünleri de inceleyebilirsiniz.
         </p>
       </div>
 

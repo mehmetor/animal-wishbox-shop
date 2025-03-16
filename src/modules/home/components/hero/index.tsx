@@ -153,15 +153,15 @@ const Hero = () => {
                   </p>
                 </div>
                 <div className="flex items-center justify-end gap-4">
-                  <Button>
+                  {/* <Button>
                     <ShoppingCartIcon />
                     Sepete Ekle
-                  </Button>
+                  </Button> */}
                   <LocalizedClientLink href="/products/princess-eco-friendly-cat-litter-flushable-lavender-6l">
-                  <Button variant="outline">
-                    <span className="ml-2"> İncele</span>
-                    <ArrowRightIcon />
-                  </Button>
+                    <Button variant="outline">
+                      <span className="ml-2"> İncele</span>
+                      <ArrowRightIcon />
+                    </Button>
                   </LocalizedClientLink>
                 </div>
               </div>

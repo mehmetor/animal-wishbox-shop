@@ -125,12 +125,12 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                 data-testid="mobile-cart-button"
               >
                 {!variant
-                  ? "Select variant"
+                  ? "Seçiniz"
                   : !inStock
-                  ? "Out of stock"
+                  ? "Stokta yok"
                   : isAdding
                   ? <Spinner className="animate-spin mx-auto" />
-                  : "Add to cart"}
+                  : "Sepete ekle"}
               </RainbowButton>
             </div>
           </div>

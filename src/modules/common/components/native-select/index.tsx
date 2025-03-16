@@ -1,5 +1,5 @@
-import { ChevronUpDown } from "@medusajs/icons"
-import { clx } from "@medusajs/ui"
+import { ChevronUpDown } from "@medusajs/icons";
+import { clx } from "@medusajs/ui";
 import {
   SelectHTMLAttributes,
   forwardRef,
@@ -7,34 +7,34 @@ import {
   useImperativeHandle,
   useRef,
   useState,
-} from "react"
+} from "react";
 
 export type NativeSelectProps = {
-  placeholder?: string
-  errors?: Record<string, unknown>
-  touched?: Record<string, unknown>
-} & SelectHTMLAttributes<HTMLSelectElement>
+  placeholder?: string;
+  errors?: Record<string, unknown>;
+  touched?: Record<string, unknown>;
+} & SelectHTMLAttributes<HTMLSelectElement>;
 
 const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
   (
     { placeholder = "Select...", defaultValue, className, children, ...props },
-    ref
+    ref,
   ) => {
-    const innerRef = useRef<HTMLSelectElement>(null)
-    const [isPlaceholder, setIsPlaceholder] = useState(false)
+    const innerRef = useRef<HTMLSelectElement>(null);
+    const [isPlaceholder, setIsPlaceholder] = useState(false);
 
     useImperativeHandle<HTMLSelectElement | null, HTMLSelectElement | null>(
       ref,
-      () => innerRef.current
-    )
+      () => innerRef.current,
+    );
 
     useEffect(() => {
       if (innerRef.current && innerRef.current.value === "") {
-        setIsPlaceholder(true)
+        setIsPlaceholder(true);
       } else {
-        setIsPlaceholder(false)
+        setIsPlaceholder(false);
       }
-    }, [innerRef.current?.value])
+    }, [innerRef.current?.value]);
 
     return (
       <div>
@@ -42,33 +42,33 @@ const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
           onFocus={() => innerRef.current?.focus()}
           onBlur={() => innerRef.current?.blur()}
           className={clx(
-            "relative flex items-center text-base-regular border border-ui-border-base bg-muted/40 rounded-md hover:bg-muted/80",
+            "text-base-regular border-ui-border-base hover:bg-muted/80 relative flex items-center rounded-md border",
             className,
             {
               "text-foreground/70": isPlaceholder,
-            }
+            },
           )}
         >
           <select
             ref={innerRef}
             defaultValue={defaultValue}
             {...props}
-            className="appearance-none flex-1 bg-transparent border-none px-4 py-2.5 transition-colors duration-150 outline-none "
+            className="flex-1 appearance-none border-none bg-transparent px-4 py-2.5 transition-colors duration-150 outline-none"
           >
             <option disabled value="">
               {placeholder}
             </option>
             {children}
           </select>
-          <span className="absolute right-4 inset-y-0 flex items-center pointer-events-none ">
+          <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
             <ChevronUpDown />
           </span>
         </div>
       </div>
-    )
-  }
-)
+    );
+  },
+);
 
-NativeSelect.displayName = "NativeSelect"
+NativeSelect.displayName = "NativeSelect";
 
-export default NativeSelect
+export default NativeSelect;

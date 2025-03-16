@@ -92,13 +92,13 @@ const CartDropdown = ({
           )}
         </Button>
       </HoverCardTrigger>
-      <HoverCardContent className="w-80" align="end">
+      <HoverCardContent className="w-80 md:w-96" align="end">
         <div className="p-4">
           <h3 className="font-semibold">{t("cart")}</h3>
         </div>
         {cartState && cartState.items?.length ? (
           <>
-            <ScrollArea className="grid h-72 grid-cols-1 gap-y-8 p-px px-4">
+            <ScrollArea className="grid h-80 grid-cols-1 px-4">
               {cartState.items
                 .sort((a, b) => {
                   return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1;
@@ -131,11 +131,11 @@ const CartDropdown = ({
                                 {item.title}
                               </LocalizedClientLink>
                             </h3>
-                            <LineItemOptions
+                            {/* <LineItemOptions
                               variant={item.variant}
                               data-testid="cart-item-variant"
                               data-value={item.variant}
-                            />
+                            /> */}
                             <span
                               data-testid="cart-item-quantity"
                               data-value={item.quantity}
@@ -162,11 +162,11 @@ const CartDropdown = ({
                   </div>
                 ))}
             </ScrollArea>
-            <div className="text-sm font-normal flex flex-col gap-y-4 p-4">
+            <div className="flex flex-col gap-y-4 p-4 text-sm font-normal">
               <div className="flex items-center justify-between">
                 <span className="text-foreground font-semibold">
                   {t("subtotal")}{" "}
-                  <span className="font-normal">({t("exclTaxes")})</span>
+                  {/* <span className="font-normal">({t("exclTaxes")})</span> */}
                 </span>
                 <span
                   className="font-semibold"
@@ -193,7 +193,7 @@ const CartDropdown = ({
         ) : (
           <div>
             <div className="flex flex-col items-center justify-center gap-y-4 py-16">
-              <div className="text-sm font-normal flex h-6 w-6 items-center justify-center rounded-full bg-gray-900 text-white">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-900 text-sm font-normal text-white">
                 <span>0</span>
               </div>
               <span>{t("emptyCart")}</span>

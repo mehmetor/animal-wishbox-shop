@@ -8,6 +8,7 @@ import PreviewPrice from "./price";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -37,11 +38,17 @@ export default async function ProductPreview({
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
-      <Card className="bg-[#ebeffd]">
+      <Card className=" gap-4">
         <CardHeader>
-          <CardTitle>{product.title}</CardTitle>
+          <CardTitle className="truncate pb-1" >
+            {product.title}
+            {product.title.length > 50 && "..."}
+          </CardTitle>
+          <CardDescription className="text-xs text-gray-500">
+            {product.description}
+          </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-0">
           <Thumbnail
             thumbnail={product.thumbnail}
             images={product.images}

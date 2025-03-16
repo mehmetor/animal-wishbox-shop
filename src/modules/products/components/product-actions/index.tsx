@@ -152,17 +152,17 @@ export default function ProductActions({
             isAdding ||
             !isValidVariant
           }
-          className="w-full text-white"
+          className="w-full text-background"
           data-testid="add-product-button"
         >
           {!selectedVariant && !options ? (
-            "Select variant"
+            "Seçiniz"
           ) : !inStock || !isValidVariant ? (
-            "Out of stock"
+            "Stokta yok"
           ) : isAdding ? (
             <Spinner className="mx-auto animate-spin" />
           ) : (
-            "Add to cart"
+            "Sepete ekle"
           )}
         </RainbowButton>
         

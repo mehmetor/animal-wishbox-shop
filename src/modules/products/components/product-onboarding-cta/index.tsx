@@ -11,7 +11,7 @@ async function ProductOnboardingCta() {
   }
 
   return (
-    <Container className="max-w-4xl h-full bg-muted/40 w-full p-8">
+    <Container className="max-w-4xl h-full  w-full p-8">
       <div className="flex flex-col gap-y-4 center">
         <Text className="text-foreground text-xl">
           Your demo product was successfully created! 🎉
