@@ -29,7 +29,7 @@ const LineItemPrice = ({
                 <span className="text-muted-foreground">Original: </span>
               )}
               <span
-                className="line-through text-foreground/70"
+                className="line-through text-foreground/70 tabular-nums"
                 data-testid="product-original-price"
               >
                 {convertToLocale({

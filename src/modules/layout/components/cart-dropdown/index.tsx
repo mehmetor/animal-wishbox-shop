@@ -92,20 +92,20 @@ const CartDropdown = ({
           )}
         </Button>
       </HoverCardTrigger>
-      <HoverCardContent className="w-80 md:w-96" align="end">
+      <HoverCardContent className="w-96 md:w-[32rem]" align="end">
         <div className="p-4">
           <h3 className="font-semibold">{t("cart")}</h3>
         </div>
         {cartState && cartState.items?.length ? (
           <>
-            <ScrollArea className="grid h-80 grid-cols-1 px-4">
+            <ScrollArea className="-mx-4 grid h-80 grid-cols-1 border-y px-2 md:h-96">
               {cartState.items
                 .sort((a, b) => {
                   return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1;
                 })
                 .map((item) => (
                   <div
-                    className="grid grid-cols-[122px_1fr] gap-x-4"
+                    className="grid grid-cols-[100px_1fr] border-b py-1"
                     key={item.id}
                     data-testid="cart-item"
                   >
@@ -122,8 +122,8 @@ const CartDropdown = ({
                     <div className="flex flex-1 flex-col justify-between">
                       <div className="flex flex-1 flex-col">
                         <div className="flex items-start justify-between">
-                          <div className="mr-4 flex w-[180px] flex-col overflow-ellipsis whitespace-nowrap">
-                            <h3 className="text-base-regular overflow-hidden text-ellipsis">
+                          <div className="mr-1 flex h-24 flex-col justify-between py-1">
+                            <h3 className="">
                               <LocalizedClientLink
                                 href={`/products/${item.product_handle}`}
                                 data-testid="product-link"
@@ -136,40 +136,50 @@ const CartDropdown = ({
                               data-testid="cart-item-variant"
                               data-value={item.variant}
                             /> */}
-                            <span
-                              data-testid="cart-item-quantity"
-                              data-value={item.quantity}
-                            >
-                              {t("quantity")}: {item.quantity}
-                            </span>
+                            <div className="flex items-center gap-x-2">
+                              <span
+                                data-testid="cart-item-quantity"
+                                data-value={item.quantity}
+                              >
+                                <span className="text-muted-foreground text-sm">
+                                  {t("quantity")}
+                                </span>
+                                :{" "}
+                                <span className="tabular-nums">
+                                  {item.quantity}
+                                </span>
+                              </span>
+                            </div>
                           </div>
-                          <div className="flex justify-end">
-                            <LineItemPrice
-                              item={item}
-                              style="tight"
-                              currencyCode={cartState.currency_code}
+                          <div className="mr-2 flex h-24 flex-col items-end justify-end py-1">
+                            <DeleteButton
+                              id={item.id}
+                              className=""
+                              data-testid="cart-item-remove-button"
+                              title={t("remove")}
                             />
+                            <div className="mt-auto">
+                              <LineItemPrice
+                                item={item}
+                                style="tight"
+                                currencyCode={cartState.currency_code}
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <DeleteButton
-                        id={item.id}
-                        className="mt-1"
-                        data-testid="cart-item-remove-button"
-                        title={t("remove")}
-                      />
                     </div>
                   </div>
                 ))}
             </ScrollArea>
-            <div className="flex flex-col gap-y-4 p-4 text-sm font-normal">
+            <div className="flex flex-col gap-y-4 p-4 font-normal">
               <div className="flex items-center justify-between">
                 <span className="text-foreground font-semibold">
                   {t("subtotal")}{" "}
                   {/* <span className="font-normal">({t("exclTaxes")})</span> */}
                 </span>
                 <span
-                  className="font-semibold"
+                  className="font-semibold tabular-nums"
                   data-testid="cart-subtotal"
                   data-value={subtotal}
                 >
