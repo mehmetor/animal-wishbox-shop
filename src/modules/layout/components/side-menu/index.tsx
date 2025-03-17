@@ -41,14 +41,20 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
         <Menu />
       </DrawerTrigger>
       <DrawerContent>
-        <div className="mx-auto flex h-full w-full max-w-sm flex-col">
+        <div className="mx-auto flex h-full w-full max-w-sm flex-col py-4">
           <DrawerHeader>
-            <DrawerTitle>Animal Wishbox</DrawerTitle>
+            <DrawerTitle>
+              <img
+                className="h-6 pl-4 md:pl-6 lg:h-7"
+                alt="Animal Wishbox"
+                src="https://mscrosugxoblkqhymkux.supabase.co/storage/v1/object/public/media//animal-wishbox-logo-black-600x72.png"
+              />
+            </DrawerTitle>
             <DrawerDescription></DrawerDescription>
           </DrawerHeader>
           <div
             data-testid="nav-menu-popup"
-            className="flex h-full flex-col justify-between p-6"
+            className="flex h-full flex-col justify-between p-12"
           >
             <ul className="flex flex-col items-start justify-start gap-6">
               {Object.entries(SideMenuItems).map(([name, href]) => {
@@ -56,7 +62,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                   <li key={name}>
                     <LocalizedClientLink
                       href={href}
-                      className="hover:text-foreground/40 text-2xl leading-10"
+                      className="hover:text-foreground/40 text-xl leading-10"
                       onClick={toggleState.close}
                       data-testid={`${name.toLowerCase()}-link`}
                     >

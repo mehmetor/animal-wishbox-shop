@@ -98,18 +98,19 @@ export default async function Nav() {
   return (
     <header className="group sticky z-50">
       <nav className="fixed inset-x-0 top-4 container mx-auto h-16 px-4 md:px-6 lg:px-8">
-        <div className="flex h-full items-center justify-between rounded-full border border-gray-500/25 bg-white/25 px-8 shadow-md backdrop-blur-lg">
-          <div className="flex flex-1">
+        <div className="flex h-full items-center justify-between rounded-full border border-gray-500/25 bg-white/25 pr-8 shadow-md backdrop-blur-lg">
+          <div className="flex grow">
             <a href="/" className="text-xl font-semibold text-slate-600">
-              <span>Animal Wishbox</span>
-              {/* <img
-                  alt=""
-                  src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                  className="h-8 w-auto"
-                /> */}
+              
+              <img
+                  className=" h-6 lg:h-7 pl-4 md:pl-6 "
+                  alt="Animal Wishbox"
+                  src="https://mscrosugxoblkqhymkux.supabase.co/storage/v1/object/public/media//animal-wishbox-logo-black-600x72.png"
+                /> 
             </a>
           </div>
-          <div className="hidden md:block">
+          
+          <div className="hidden sm:flex grow">
             <NavigationMenu>
               <NavigationMenuList>
                 {collections.sort((a, b) => a.title.localeCompare(b.title)).map((collection) => (
@@ -136,7 +137,7 @@ export default async function Nav() {
                         <ListItem
                           key={category.id}
                           title={category.name}
-                          href={`/products/${category.handle}`}
+                          href={`/categories/${category.handle}`}
                         >
                           {category.description}
                         </ListItem>

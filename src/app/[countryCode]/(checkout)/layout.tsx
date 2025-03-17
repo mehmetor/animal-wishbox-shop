@@ -12,13 +12,13 @@ export default function CheckoutLayout({
   return (
     <div
       className={cn(
-        "relative w-full bg-white sm:min-h-screen",
+        "relative w-full sm:min-h-screen",
         "bg-[url('/assets/pattern-light.svg')]",
         "dark:bg-[url('/assets/pattern-dark.svg')]",
         "px-8 sm:px-16 md:px-24",
       )}
     >
-      <div className="container mx-auto h-16 border-b bg-white">
+      <div className="container mx-auto h-16 border-b">
         <nav className="flex h-full items-center justify-between">
           <LocalizedClientLink
             href="/cart"

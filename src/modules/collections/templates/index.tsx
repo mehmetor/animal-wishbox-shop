@@ -22,13 +22,11 @@ export default function CollectionTemplate({
 
   return (
     <div className="mx-auto max-w-screen-2xl px-2 py-8 sm:px-4 md:py-12">
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[280px_1fr] lg:gap-10 xl:grid-cols-[320px_1fr]">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[200px_1fr] lg:gap-10 xl:grid-cols-[260px_1fr]">
         {/* Filtreleme bölümü */}
         <aside className="order-2 lg:order-1">
           <div className="sticky top-20 pb-10">
-            <div className="rounded-xl border border-gray-100 bg-white/50 p-5 shadow-sm backdrop-blur-sm">
-              <RefinementList sortBy={sort} />
-            </div>
+            <RefinementList sortBy={sort} />
           </div>
         </aside>
 
@@ -36,7 +34,7 @@ export default function CollectionTemplate({
         <main className="order-1 lg:order-2">
           <header className="mb-8 md:mb-10">
             <h1 className="text-2xl text-gray-900 md:text-3xl lg:text-4xl">
-              {collection.title}
+              {collection.title} Koleksiyonu
             </h1>
           </header>
 

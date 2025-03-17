@@ -21,6 +21,25 @@ import DeleteButton from "@/modules/common/components/delete-button";
 import { convertToLocale } from "@/lib/util/money";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
+// Mobil cihazları tespit etmek için useMediaQuery hook'u
+const useMediaQuery = (query: string) => {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+
+    const listener = () => setMatches(media.matches);
+    media.addEventListener("change", listener);
+    
+    return () => media.removeEventListener("change", listener);
+  }, [matches, query]);
+
+  return matches;
+};
+
 const CartDropdown = ({
   cart: cartState,
 }: {
@@ -31,9 +50,17 @@ const CartDropdown = ({
     undefined,
   );
   const [cartDropdownOpen, setCartDropdownOpen] = useState(false);
+  
+  // Mobil cihaz kontrolü
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const open = () => setCartDropdownOpen(true);
   const close = () => setCartDropdownOpen(false);
+  
+  // Mobil cihazlarda tıklama ile açma/kapama işlevi
+  const toggleCart = () => {
+    setCartDropdownOpen(!cartDropdownOpen);
+  };
 
   const totalItems =
     cartState?.items?.reduce((acc, item) => {
@@ -83,7 +110,11 @@ const CartDropdown = ({
       open={cartDropdownOpen}
     >
       <HoverCardTrigger asChild>
-        <div className="relative">
+        <div 
+          className="relative" 
+          onClick={isMobile ? toggleCart : undefined}
+          style={isMobile ? { cursor: "pointer" } : undefined}
+        >
           <ShoppingCart />
           {totalItems > 0 && (
             <div className="absolute -top-4 -right-4">

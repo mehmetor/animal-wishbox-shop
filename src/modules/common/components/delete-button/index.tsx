@@ -32,7 +32,7 @@ const DeleteButton = ({
       )}
     >
       <Button
-        variant="outline"
+        variant="ghost"
         // className="text-muted-foreground"
         size={children ? "default" : "icon"}
         onClick={() => handleDelete(id)}

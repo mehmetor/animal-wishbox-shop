@@ -1,12 +1,11 @@
 "use client";
 
-import { Button, Heading } from "@medusajs/ui";
-
 import CartTotals from "@modules/common/components/cart-totals";
 import Divider from "@modules/common/components/divider";
 import DiscountCode from "@modules/checkout/components/discount-code";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
 import { HttpTypes } from "@medusajs/types";
+import { Button } from "@/components/ui/button";
 
 type SummaryProps = {
   cart: HttpTypes.StoreCart & {
@@ -29,9 +28,7 @@ const Summary = ({ cart }: SummaryProps) => {
 
   return (
     <div className="flex flex-col gap-y-4">
-      <Heading level="h2" className="text-[2rem] leading-[2.75rem]">
-        Özet
-      </Heading>
+      <h2 className="text-[2rem] leading-[2.75rem]">Özet</h2>
       <DiscountCode cart={cart} />
       <Divider />
       <CartTotals totals={cart} />
@@ -39,7 +36,9 @@ const Summary = ({ cart }: SummaryProps) => {
         href={"/checkout?step=" + step}
         data-testid="checkout-button"
       >
-        <Button className="h-10 w-full">Ödemeye Geç</Button>
+        <Button variant="default" className="h-10 w-full">
+          Ödemeye Geç
+        </Button>
       </LocalizedClientLink>
     </div>
   );

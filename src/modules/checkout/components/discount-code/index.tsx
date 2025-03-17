@@ -57,7 +57,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
     <div className="flex w-full flex-col">
       <div className="font-medium">
         <form action={(a) => addPromotionCode(a)} className="mb-5 w-full">
-          <Label className="my-2 flex items-center gap-x-1">
+          {/*<Label className="my-2 flex items-center gap-x-1">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
@@ -67,10 +67,10 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
               Kupon Ekle
             </button>
 
-            {/* <Tooltip content="You can add multiple promotion codes">
+             <Tooltip content="You can add multiple promotion codes">
               <InformationCircleSolid color="var(--fg-muted)" />
-            </Tooltip> */}
-          </Label>
+            </Tooltip> 
+          </Label>*/}
 
           {isOpen && (
             <>
@@ -130,6 +130,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                               "percentage"
                                 ? `${promotion.application_method.value}%`
                                 : convertToLocale({
+                                    // @ts-ignore
                                     amount: promotion.application_method.value,
                                     currency_code:
                                       promotion.application_method

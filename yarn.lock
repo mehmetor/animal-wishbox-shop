@@ -5562,6 +5562,8 @@ __metadata:
     class-variance-authority: ^0.7.1
     clsx: ^2.1.1
     dotenv-cli: ^8.0.0
+    embla-carousel-autoplay: ^8.5.2
+    embla-carousel-react: ^8.5.2
     eslint: 8.10.0
     eslint-config-next: 15.0.3
     framer-motion: ^11.3.24
@@ -6266,6 +6268,43 @@ __metadata:
   version: 1.5.114
   resolution: "electron-to-chromium@npm:1.5.114"
   checksum: af696acf7c57007e3362a0a7e5fb4613210d55d6bc7c7cfee32f4000aaa604a75fce41d12b081cab7d9757eefb44cafa69c17b6f8ea450d5da938c0bf84b5697
+  languageName: node
+  linkType: hard
+
+"embla-carousel-autoplay@npm:^8.5.2":
+  version: 8.5.2
+  resolution: "embla-carousel-autoplay@npm:8.5.2"
+  peerDependencies:
+    embla-carousel: 8.5.2
+  checksum: 4a39109f82645b4ec2f41b52de644ec80334bbcd115cbe4cfd23a3ba0387188e74b1526a1a160ef1a2b544177c88ed1d51927ae98780824692ae9b4b2ac94e80
+  languageName: node
+  linkType: hard
+
+"embla-carousel-react@npm:^8.5.2":
+  version: 8.5.2
+  resolution: "embla-carousel-react@npm:8.5.2"
+  dependencies:
+    embla-carousel: 8.5.2
+    embla-carousel-reactive-utils: 8.5.2
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.1 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
+  checksum: 695e43b8675738a1257620fe5271b19bfcc61d885d56aa2d590a801c3f9d14a9bd8f1bbaf5a75b985f20edb6eee1171cccc0fa0c0a7d5cd278f72d5021354dea
+  languageName: node
+  linkType: hard
+
+"embla-carousel-reactive-utils@npm:8.5.2":
+  version: 8.5.2
+  resolution: "embla-carousel-reactive-utils@npm:8.5.2"
+  peerDependencies:
+    embla-carousel: 8.5.2
+  checksum: b2111b11ac41aed1910286ef9105c509ca531580d87d8e3531b3d73ab6adbfd58afd91542bce0440ac50ba3e0c2e7f6267b53c9554ed740cd105174d11598afd
+  languageName: node
+  linkType: hard
+
+"embla-carousel@npm:8.5.2":
+  version: 8.5.2
+  resolution: "embla-carousel@npm:8.5.2"
+  checksum: fd994984c846818ba466b0c62f4a3c2d386146705fa2082b7adeee7cf49b3b41f5c87c4f0009cb1439891ede7c5e5c854358bf4476164aa72b8b0ef45f6270bc
   languageName: node
   linkType: hard
 
