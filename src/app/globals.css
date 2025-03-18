@@ -50,6 +50,7 @@
   --white: #ffffff;
   --black: #000000;
   --transparent: transparent;
+  --primary-transparent: #0F52BA20;
 
   /* Safir Renk Paleti */
   --sapphire-50 : hsl(216 85% 97%); /* #eaf3ff */
@@ -112,7 +113,8 @@
 
   --white: #ffffff;
   --black: #000000;
-  --transparent: transparent;  
+  --transparent: transparent; 
+  --primary-transparent: #0F52BA20;
   
   /* Font Ailesi */
   --font-poppins: 'Poppins', sans-serif;
@@ -172,6 +174,7 @@
   --font-mono: var(--font-mono);
   --font-poppins: var(--font-poppins);
   --font-roboto: var(--font-roboto);
+  --primary-transparent: var(--primary-transparent);
 
   @keyframes rainbow {
     0% {

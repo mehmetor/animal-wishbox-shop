@@ -46,7 +46,10 @@ export async function retrieveCart(cartId?: string) {
       next,
       cache: "force-cache",
     })
-    .then(({ cart }) => cart)
+    .then(({ cart }) => {
+      console.log("cartx", cart)
+      return cart
+    })
     .catch(() => null)
 }
 
