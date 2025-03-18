@@ -43,7 +43,7 @@ const AccountNav = ({
             <div className="text-xl-semi mb-4 px-8">
               Hello {customer?.first_name}
             </div>
-            <div className="text-base-regular">
+            <div className="text-base">
               <ul>
                 <li>
                   <LocalizedClientLink
@@ -112,7 +112,7 @@ const AccountNav = ({
           <div className="pb-4">
             <h3 className="text-base-semi">Account</h3>
           </div>
-          <div className="text-base-regular">
+          <div className="text-base">
             <ul className="flex mb-0 justify-start items-start flex-col gap-y-4">
               <li>
                 <AccountNavLink

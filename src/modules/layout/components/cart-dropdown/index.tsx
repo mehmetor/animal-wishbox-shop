@@ -286,7 +286,7 @@ const CartDropdown = ({
                       <div className="flex flex-1 flex-col">
                         <div className="flex items-start justify-between">
                           <div className="mr-4 flex w-[180px] flex-col overflow-ellipsis whitespace-nowrap">
-                            <h3 className="text-base-regular overflow-hidden text-ellipsis">
+                            <h3 className="text-base overflow-hidden text-ellipsis">
                               <LocalizedClientLink
                                 href={`/products/${item.product_handle}`}
                                 data-testid="product-link"

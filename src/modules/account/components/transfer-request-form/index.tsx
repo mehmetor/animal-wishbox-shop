@@ -29,7 +29,7 @@ export default function TransferRequestForm() {
           <Heading level="h3" className="text-lg text-neutral-950">
             Order transfers
           </Heading>
-          <Text className="text-base-regular text-neutral-500">
+          <Text className="text-base text-neutral-500">
             Can&apos;t find the order you are looking for?
             <br /> Connect an order to your account.
           </Text>
@@ -50,7 +50,7 @@ export default function TransferRequestForm() {
         </form>
       </div>
       {!state.success && state.error && (
-        <Text className="text-base-regular text-rose-500 text-right">
+        <Text className="text-base text-rose-500 text-right">
           {state.error}
         </Text>
       )}
@@ -62,7 +62,7 @@ export default function TransferRequestForm() {
               <Text className="text-medim-pl text-neutral-950">
                 Transfer for order {state.order?.id} requested
               </Text>
-              <Text className="text-base-regular text-neutral-600">
+              <Text className="text-base text-neutral-600">
                 Transfer request email sent to {state.order?.email}
               </Text>
             </div>

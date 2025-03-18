@@ -14,6 +14,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { VariantPrice } from "@/types/global";
+import { MagicCard } from "@/components/magicui/magic-card";
 export default async function ProductPreview({
   product,
   isFeatured,
@@ -38,34 +39,35 @@ export default async function ProductPreview({
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
-      <Card className="bg-card/30 gap-1 md:gap-4 py-4 md:py-6">
-        <CardHeader>
-          <CardTitle>
-            <div className="line-clamp-2 text-sm font-semibold md:text-base">
-              {product.title}
-              {product.title.length > 50 && "..."}
+      <Card className="p-0 gap-1 md:gap-4 shadow-none">
+        <MagicCard gradientColor="var(--violet-200)" gradientFrom="var(--primary)" gradientTo="var(--secondary)" className="py-3 md:py-4">
+          <CardHeader>
+            <CardTitle>
+              <div className="line-clamp-2 text-sm font-semibold md:text-base">
+                {product.title}
+              </div>
+            </CardTitle>
+            <CardDescription className="text-xs text-gray-500">
+              {product.description}
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="p-0">
+            <Thumbnail
+              thumbnail={product.thumbnail}
+              images={product.images}
+              size="square"
+              isFeatured={isFeatured}
+            />
+          </CardContent>
+          <CardFooter className="flex justify-between text-sm md:text-base">
+            <div className="flex flex-col items-start">
+              {/* <Button>Sepete Ekle</Button> */}
             </div>
-          </CardTitle>
-          <CardDescription className="text-xs text-gray-500">
-            {product.description}
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="p-0">
-          <Thumbnail
-            thumbnail={product.thumbnail}
-            images={product.images}
-            size="square"
-            isFeatured={isFeatured}
-          />
-        </CardContent>
-        <CardFooter className="flex justify-between text-sm md:text-base">
-          <div className="flex flex-col items-start">
-            {/* <Button>Sepete Ekle</Button> */}
-          </div>
-          {cheapestPrice && (
-            <PreviewPrice price={cheapestPrice as VariantPrice} />
-          )}
-        </CardFooter>
+            {cheapestPrice && (
+              <PreviewPrice price={cheapestPrice as VariantPrice} />
+            )}
+          </CardFooter>
+        </MagicCard>
       </Card>
     </LocalizedClientLink>
   );

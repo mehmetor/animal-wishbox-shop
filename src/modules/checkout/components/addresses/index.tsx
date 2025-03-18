@@ -1,65 +1,50 @@
-"use client"
+"use client";
 
-import { setAddresses } from "@lib/data/cart"
-import compareAddresses from "@lib/util/compare-addresses"
-import { CheckCircleSolid } from "@medusajs/icons"
-import { HttpTypes } from "@medusajs/types"
-import { Heading, Text, useToggleState } from "@medusajs/ui"
-import Divider from "@modules/common/components/divider"
-import Spinner from "@modules/common/icons/spinner"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { useActionState } from "react"
-import BillingAddress from "../billing_address"
-import ErrorMessage from "../error-message"
-import ShippingAddress from "../shipping-address"
-import { SubmitButton } from "../submit-button"
+import { useActionState } from "react";
+import { CheckCircle, Pencil } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { setAddresses } from "@lib/data/cart";
+import compareAddresses from "@lib/util/compare-addresses";
+import { HttpTypes } from "@medusajs/types";
+import { useToggleState } from "@medusajs/ui";
+import Divider from "@modules/common/components/divider";
+import Spinner from "@modules/common/icons/spinner";
+import BillingAddress from "../billing_address";
+import ErrorMessage from "../error-message";
+import ShippingAddress from "../shipping-address";
+import { SubmitButton } from "../submit-button";
+import { Button } from "@/components/ui/button";
 
 const Addresses = ({
   cart,
   customer,
 }: {
-  cart: HttpTypes.StoreCart | null
-  customer: HttpTypes.StoreCustomer | null
+  cart: HttpTypes.StoreCart | null;
+  customer: HttpTypes.StoreCustomer | null;
 }) => {
-  const searchParams = useSearchParams()
-  const router = useRouter()
-  const pathname = usePathname()
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const isOpen = searchParams.get("step") === "address"
+  const isOpen = searchParams.get("step") === "address";
 
   const { state: sameAsBilling, toggle: toggleSameAsBilling } = useToggleState(
     cart?.shipping_address && cart?.billing_address
       ? compareAddresses(cart?.shipping_address, cart?.billing_address)
-      : true
-  )
+      : true,
+  );
 
   const handleEdit = () => {
-    router.push(pathname + "?step=address")
-  }
+    router.push(pathname + "?step=address");
+  };
 
-  const [message, formAction] = useActionState(setAddresses, null)
+  const [message, formAction] = useActionState(setAddresses, null);
 
   return (
-    <div className="bg-white">
-      <div className="flex flex-row items-center justify-between mb-6">
-        <Heading
-          level="h2"
-          className="flex flex-row text-3xl-regular gap-x-2 items-baseline"
-        >
-          Shipping Address
-          {!isOpen && <CheckCircleSolid />}
-        </Heading>
-        {!isOpen && cart?.shipping_address && (
-          <Text>
-            <button
-              onClick={handleEdit}
-              className="text-primary hover:text-primary/80"
-              data-testid="edit-address-button"
-            >
-              Edit
-            </button>
-          </Text>
-        )}
+    <div className="">
+      <div className="mt-4 mb-8 flex flex-row items-center justify-between">
+        <h2 className="flex flex-row gap-x-2 text-2xl">Teslimat Adresi</h2>
+        {!isOpen && <CheckCircle />}
       </div>
       {isOpen ? (
         <form action={formAction}>
@@ -73,18 +58,15 @@ const Addresses = ({
 
             {!sameAsBilling && (
               <div>
-                <Heading
-                  level="h2"
-                  className="text-3xl-regular gap-x-4 pb-6 pt-8"
-                >
-                  Billing address
-                </Heading>
+                <h2 className="text-3xl-regular gap-x-4 pt-8 pb-6">
+                  Fatura Adresi
+                </h2>
 
                 <BillingAddress cart={cart} />
               </div>
             )}
             <SubmitButton className="mt-6" data-testid="submit-address-button">
-              Continue to delivery
+              Devam et
             </SubmitButton>
             <ErrorMessage error={message} data-testid="address-error-message" />
           </div>
@@ -94,75 +76,75 @@ const Addresses = ({
           <div className="text-sm font-normal">
             {cart && cart.shipping_address ? (
               <div className="flex items-start gap-x-8">
-                <div className="flex items-start gap-x-1 w-full">
+                <div className="flex w-full items-start gap-x-1">
                   <div
-                    className="flex flex-col w-1/3"
+                    className="flex w-1/3 flex-col"
                     data-testid="shipping-address-summary"
                   >
-                    <Text className="font-semibold text-foreground mb-1">
-                      Shipping Address
-                    </Text>
-                    <Text className="font-medium text-muted-foreground">
+                    <p className="text-foreground mb-1 font-semibold">
+                      Teslimat Adresi
+                    </p>
+                    <p className="text-muted-foreground font-medium">
                       {cart.shipping_address.first_name}{" "}
                       {cart.shipping_address.last_name}
-                    </Text>
-                    <Text className="font-medium text-muted-foreground">
+                    </p>
+                    <p className="text-muted-foreground font-medium">
                       {cart.shipping_address.address_1}{" "}
                       {cart.shipping_address.address_2}
-                    </Text>
-                    <Text className="font-medium text-muted-foreground">
+                    </p>
+                    <p className="text-muted-foreground font-medium">
                       {cart.shipping_address.postal_code},{" "}
                       {cart.shipping_address.city}
-                    </Text>
-                    <Text className="font-medium text-muted-foreground">
+                    </p>
+                    <p className="text-muted-foreground font-medium">
                       {cart.shipping_address.country_code?.toUpperCase()}
-                    </Text>
+                    </p>
                   </div>
 
                   <div
-                    className="flex flex-col w-1/3 "
+                    className="flex w-1/3 flex-col"
                     data-testid="shipping-contact-summary"
                   >
-                    <Text className="font-semibold text-foreground mb-1">
-                      Contact
-                    </Text>
-                    <Text className="font-medium text-muted-foreground">
+                    <p className="text-foreground mb-1 font-semibold">
+                      İletişim
+                    </p>
+                    <p className="text-muted-foreground font-medium">
                       {cart.shipping_address.phone}
-                    </Text>
-                    <Text className="font-medium text-muted-foreground">
+                    </p>
+                    <p className="text-muted-foreground font-medium">
                       {cart.email}
-                    </Text>
+                    </p>
                   </div>
 
                   <div
-                    className="flex flex-col w-1/3"
+                    className="flex w-1/3 flex-col"
                     data-testid="billing-address-summary"
                   >
-                    <Text className="font-semibold text-foreground mb-1">
-                      Billing Address
-                    </Text>
+                    <p className="text-foreground mb-1 font-semibold">
+                      Fatura Adresi
+                    </p>
 
                     {sameAsBilling ? (
-                      <Text className="font-medium text-muted-foreground">
-                        Billing- and delivery address are the same.
-                      </Text>
+                      <p className="text-muted-foreground font-medium">
+                        Fatura ve teslimat adresi aynı.
+                      </p>
                     ) : (
                       <>
-                        <Text className="font-medium text-muted-foreground">
+                        <p className="text-muted-foreground font-medium">
                           {cart.billing_address?.first_name}{" "}
                           {cart.billing_address?.last_name}
-                        </Text>
-                        <Text className="font-medium text-muted-foreground">
+                        </p>
+                        <p className="text-muted-foreground font-medium">
                           {cart.billing_address?.address_1}{" "}
                           {cart.billing_address?.address_2}
-                        </Text>
-                        <Text className="font-medium text-muted-foreground">
+                        </p>
+                        <p className="text-muted-foreground font-medium">
                           {cart.billing_address?.postal_code},{" "}
                           {cart.billing_address?.city}
-                        </Text>
-                        <Text className="font-medium text-muted-foreground">
+                        </p>
+                        <p className="text-muted-foreground font-medium">
                           {cart.billing_address?.country_code?.toUpperCase()}
-                        </Text>
+                        </p>
                       </>
                     )}
                   </div>
@@ -176,9 +158,22 @@ const Addresses = ({
           </div>
         </div>
       )}
+      {!isOpen && cart?.shipping_address && (
+        <div className="flex justify-end">
+          <Button
+            onClick={handleEdit}
+            // className="text-primary hover:text-primary/80"
+            variant="outline"
+            data-testid="edit-address-button"
+          >
+            <Pencil />
+            Düzenle
+          </Button>
+        </div>
+      )}
       <Divider className="mt-8" />
     </div>
-  )
-}
+  );
+};
 
-export default Addresses
+export default Addresses;

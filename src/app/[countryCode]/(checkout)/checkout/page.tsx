@@ -1,30 +1,36 @@
-import { retrieveCart } from "@lib/data/cart"
-import { retrieveCustomer } from "@lib/data/customer"
-import PaymentWrapper from "@modules/checkout/components/payment-wrapper"
-import CheckoutForm from "@modules/checkout/templates/checkout-form"
-import CheckoutSummary from "@modules/checkout/templates/checkout-summary"
-import { Metadata } from "next"
-import { notFound } from "next/navigation"
+import { Card, CardContent } from "@/components/ui/card";
+import { retrieveCart } from "@lib/data/cart";
+import { retrieveCustomer } from "@lib/data/customer";
+import PaymentWrapper from "@modules/checkout/components/payment-wrapper";
+import CheckoutForm from "@modules/checkout/templates/checkout-form";
+import CheckoutSummary from "@modules/checkout/templates/checkout-summary";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Checkout",
-}
+};
 
 export default async function Checkout() {
-  const cart = await retrieveCart()
+  const cart = await retrieveCart();
 
   if (!cart) {
-    return notFound()
+    return notFound();
   }
 
-  const customer = await retrieveCustomer()
+  const customer = await retrieveCustomer();
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-[1fr_416px] container gap-x-40 py-12">
-      <PaymentWrapper cart={cart}>
-        <CheckoutForm cart={cart} customer={customer} />
-      </PaymentWrapper>
+    <div className="container grid grid-cols-1 gap-x-20 py-12 lg:grid-cols-[1fr_416px]">
+      <Card >
+        <CardContent>
+          <PaymentWrapper cart={cart}>
+            <CheckoutForm cart={cart} customer={customer} />
+          </PaymentWrapper>
+        </CardContent>
+      </Card>
+
       <CheckoutSummary cart={cart} />
     </div>
-  )
+  );
 }

@@ -18,7 +18,7 @@ const Login = ({ setCurrentView }: Props) => {
       data-testid="login-page"
     >
       <h1 className="font-semibold mb-6">Welcome back</h1>
-      <p className="text-center text-base-regular text-foreground mb-8">
+      <p className="text-center text-base text-foreground mb-8">
         Sign in to access an enhanced shopping experience.
       </p>
       <form className="w-full" action={formAction}>

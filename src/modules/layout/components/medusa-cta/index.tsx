@@ -1,17 +1,25 @@
-import { Text } from "@medusajs/ui"
+import { Text } from "@medusajs/ui";
 
-import Medusa from "../../../common/icons/medusa"
-import NextJs from "../../../common/icons/nextjs"
+import Medusa from "../../../common/icons/medusa";
+import NextJs from "../../../common/icons/nextjs";
 
 const MedusaCTA = () => {
   return (
-    <Text className="flex gap-x-2 txt-compact-small-plus items-center">
+    <Text className="txt-compact-small-plus flex items-center gap-x-2">
       Powered by
-      <a href="https://wishfulgeneraltrading.com/" target="_blank" rel="noreferrer">
-        <Medusa fill="#9ca3af" className="fill-[#9ca3af]" />
+      <a
+        href="https://wishfulgeneraltrading.com/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img
+          className="h-6"
+          alt="Animal Wishbox"
+          src="https://mscrosugxoblkqhymkux.supabase.co/storage/v1/object/public/media//animal-wishbox-logo-small-72x72.png"
+        />
       </a>
     </Text>
-  )
-}
+  );
+};
 
-export default MedusaCTA
+export default MedusaCTA;

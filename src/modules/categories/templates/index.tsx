@@ -62,7 +62,7 @@ export default function CategoryTemplate({
           </h1>
         </div>
         {category.description && (
-          <div className="text-base-regular mb-8">
+          <div className="text-base mb-8">
             <p>{category.description}</p>
           </div>
         )}

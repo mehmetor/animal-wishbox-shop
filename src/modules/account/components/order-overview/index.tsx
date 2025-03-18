@@ -28,7 +28,7 @@ const OrderOverview = ({ orders }: { orders: HttpTypes.StoreOrder[] }) => {
       data-testid="no-orders-container"
     >
       <h2 className="font-semibold">Nothing to see here</h2>
-      <p className="text-base-regular">
+      <p className="text-base">
         You don&apos;t have any orders yet, let us change that {":)"}
       </p>
       <div className="mt-4">

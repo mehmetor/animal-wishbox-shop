@@ -20,7 +20,7 @@ const LineItemPrice = ({
   const hasReducedPrice = currentPrice < originalPrice
 
   return (
-    <div className="flex flex-col gap-x-2 text-muted-foreground items-end">
+    <div className="flex flex-col gap-x-2 items-end">
       <div className="text-left">
         {hasReducedPrice && (
           <>
@@ -46,7 +46,7 @@ const LineItemPrice = ({
           </>
         )}
         <span
-          className={clx("text-base-regular", {
+          className={clx("text-base font-mono", {
             "text-primary": hasReducedPrice,
           })}
           data-testid="product-price"

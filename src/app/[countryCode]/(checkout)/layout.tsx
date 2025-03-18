@@ -8,7 +8,6 @@ export default function CheckoutLayout({
 }: {
   children: React.ReactNode;
 }) {
-  console.log("app/[countryCode]/(checkout)/layout.tsx");
   return (
     <div
       className={cn(
@@ -22,23 +21,22 @@ export default function CheckoutLayout({
         <nav className="flex h-full items-center justify-between">
           <LocalizedClientLink
             href="/cart"
-            className="text-small-semi text-foreground flex flex-1 basis-0 items-center gap-x-2 uppercase"
+            className="text-small-semi text-foreground flex flex-1 basis-0 items-center gap-x-2"
             data-testid="back-to-cart-link"
           >
             <ChevronDown className="rotate-90" size={16} />
-            <span className="txt-compact-plus text-muted-foreground mt-px hidden sm:block">
-              Back to shopping cart
-            </span>
-            <span className="txt-compact-plus text-muted-foreground hover:text-foreground mt-px block sm:hidden">
-              Back
-            </span>
+            <span className="text-muted-foreground mt-px">Sepete dön</span>
           </LocalizedClientLink>
           <LocalizedClientLink
             href="/"
-            className="txt-compact-xlarge-plus text-muted-foreground uppercase"
+            className="txt-compact-xlarge-plus text-muted-foreground"
             data-testid="store-link"
           >
-            Animal Wishbox
+            <img
+              className="h-6 pl-4 md:pl-6 lg:h-7"
+              alt="Animal Wishbox"
+              src="https://mscrosugxoblkqhymkux.supabase.co/storage/v1/object/public/media//animal-wishbox-logo-black-600x72.png"
+            />
           </LocalizedClientLink>
           <div className="flex-1 basis-0" />
         </nav>

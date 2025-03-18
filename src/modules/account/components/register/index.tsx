@@ -23,7 +23,7 @@ const Register = ({ setCurrentView }: Props) => {
       <h1 className="font-semibold mb-6">
         Become a Animal Wishbox Member
       </h1>
-      <p className="text-center text-base-regular text-foreground mb-4">
+      <p className="text-center text-base text-foreground mb-4">
         Create your Animal Wishbox Member profile, and get access to an enhanced
         shopping experience.
       </p>
