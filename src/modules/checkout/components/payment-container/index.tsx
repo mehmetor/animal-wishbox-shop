@@ -1,20 +1,16 @@
 import { Radio as RadioGroupOption } from "@headlessui/react";
-import { Text, clx } from "@medusajs/ui";
 import React, { useContext, useMemo, useState, type JSX } from "react";
 
 import Radio from "@modules/common/components/radio";
-
 import { isManual } from "@lib/constants";
 import SkeletonCardDetails from "@modules/skeletons/components/skeleton-card-details";
 import { CardElement } from "@stripe/react-stripe-js";
 import { StripeCardElementOptions } from "@stripe/stripe-js";
-import PaymentTest from "../payment-test";
 import { StripeContext } from "../payment-wrapper/stripe-wrapper";
-import { MagicSwitchCard } from "@/components/magicui/magic-switch-card";
-import PaymentBankTransfer from "../payment-bank-transfer";
+import PaymentBankTransfer from "../../../common/components/payment-bank-transfer";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircleIcon } from "lucide-react";
-
+import { cn } from "@/lib/utils";
 type PaymentContainerProps = {
   paymentProviderId: string;
   selectedPaymentOptionId: string | null;
@@ -60,18 +56,6 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
           <PaymentBankTransfer className="hidden sm:block" />
         )}
       </div>
-      <div className="mt-4">
-        <Alert variant="warning">
-          <AlertCircleIcon className="h-4 w-4" />
-          <AlertTitle>
-            Lütfen Havale/EFT yaparken sipariş numaranızı açıklama kısmına
-            ekleyiniz.
-          </AlertTitle>
-          <AlertDescription>
-            Şipariş numaranız işlemler tamamlandığında görüntülenecektir.
-          </AlertDescription>
-        </Alert>
-      </div>
     </>
   );
 
@@ -80,7 +64,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
       key={paymentProviderId}
       value={paymentProviderId}
       disabled={disabled}
-      className={clx(
+      className={cn(
         "rounded-rounded hover:shadow-borders-interactive-with-active mb-2 flex cursor-pointer flex-col gap-y-2 border px-8 py-4 font-normal",
         {
           "border-ui-border-interactive":
@@ -91,9 +75,9 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
           <Radio checked={selectedPaymentOptionId === paymentProviderId} />
-          <Text className="text-base">
+          <p className="text-base">
             {paymentInfoMap[paymentProviderId]?.title || paymentProviderId}
-          </Text>
+          </p>
           {isManual(paymentProviderId) && (
             <PaymentBankTransfer className="hidden sm:block" />
           )}
@@ -157,9 +141,9 @@ export const StripeCardContainer = ({
       {selectedPaymentOptionId === paymentProviderId &&
         (stripeReady ? (
           <div className="my-4 transition-all duration-150 ease-in-out">
-            <Text className="text-foreground mb-1 font-semibold">
-              Enter your card details:
-            </Text>
+            <p className="text-foreground mb-1 font-semibold">
+              Kart bilgilerinizi giriniz:
+            </p>
             <CardElement
               options={useOptions as StripeCardElementOptions}
               onChange={(e) => {

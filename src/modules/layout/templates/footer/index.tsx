@@ -110,6 +110,46 @@ export default async function Footer() {
                 </ul>
               </div>
             )}
+            
+            <div className="flex flex-1 flex-col gap-8">
+              <span className="text-sm font-medium text-gray-900">
+                Bağlantılar
+              </span>
+              <ul className="grid grid-cols-1 gap-2 text-sm text-gray-500">
+                <li>
+                  <LocalizedClientLink
+                    className="hover:text-gray-900"
+                    href="/store"
+                  >
+                    Mağaza
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    className="hover:text-gray-900"
+                    href="/contact"
+                  >
+                    İletişim
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    className="hover:text-gray-900"
+                    href="/content/privacy-policy"
+                  >
+                    Gizlilik Politikası
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    className="hover:text-gray-900"
+                    href="/content/terms-of-use"
+                  >
+                    Kullanım Şartları
+                  </LocalizedClientLink>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 

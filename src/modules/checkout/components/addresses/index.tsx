@@ -59,7 +59,7 @@ const Addresses = ({
 
             {!sameAsBilling && (
               <div>
-                <h2 className="text-3xl-regular gap-x-4 pt-8 pb-6">
+                <h2 className="text-2xl gap-x-4 pt-8 pb-6">
                   Fatura Adresi
                 </h2>
 

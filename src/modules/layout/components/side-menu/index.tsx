@@ -23,6 +23,8 @@ import { ArrowRightFromLineIcon, Menu, Minus } from "lucide-react";
 
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Divider from "@/modules/common/components/divider";
+
 const SideMenuItems = {
   home: "/",
   store: "/store",
@@ -56,7 +58,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
             data-testid="nav-menu-popup"
             className="flex h-full flex-col justify-between p-12"
           >
-            <ul className="flex flex-col items-start justify-start gap-6">
+            <ul className="flex h-full flex-col items-start justify-start gap-6">
               {Object.entries(SideMenuItems).map(([name, href]) => {
                 return (
                   <li key={name}>
@@ -71,6 +73,14 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                   </li>
                 );
               })}
+              <div className="grow" />
+              <Divider />
+
+              <li>
+                <LocalizedClientLink href="/contact" passHref>
+                  İletişim
+                </LocalizedClientLink>
+              </li>
             </ul>
             <div className="flex hidden flex-col gap-y-6">
               <div
@@ -92,7 +102,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
           </div>
 
           <DrawerFooter className="flex items-center justify-between">
-            <DrawerTitle className="font-thin">
+            <DrawerTitle className="text-sm font-light">
               © {new Date().getFullYear()} Animal Wishbox.{" "}
               {t("allRightsReserved")}
             </DrawerTitle>

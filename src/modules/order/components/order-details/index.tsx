@@ -1,64 +1,70 @@
-import { HttpTypes } from "@medusajs/types"
-import { Text } from "@medusajs/ui"
+import { useLocale } from "next-intl";
+import OrderNumber from "@/modules/common/components/order-number";
+import { HttpTypes } from "@medusajs/types";
 
 type OrderDetailsProps = {
-  order: HttpTypes.StoreOrder
-  showStatus?: boolean
-}
+  order: HttpTypes.StoreOrder;
+  showStatus?: boolean;
+};
 
 const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
-  const formatStatus = (str: string) => {
-    const formatted = str.split("_").join(" ")
+  const locale = useLocale();
 
-    return formatted.slice(0, 1).toUpperCase() + formatted.slice(1)
-  }
+  const formatStatus = (str: string) => {
+    const formatted = str.split("_").join(" ");
+
+    return formatted.slice(0, 1).toUpperCase() + formatted.slice(1);
+  };
 
   return (
     <div>
-      <Text>
-        We have sent the order confirmation details to{" "}
+      <p>
+        Sipariş onay detaylarını{" "}
         <span
           className="text-foreground/85 font-semibold"
           data-testid="order-email"
         >
           {order.email}
-        </span>
-        .
-      </Text>
-      <Text className="mt-2">
-        Order date:{" "}
+        </span>{" "}
+        adresine gönderdik.
+      </p>
+      <p className="mt-2">
+        <span className="text-muted-foreground">Sipariş tarihi:</span>{" "}
         <span data-testid="order-date">
-          {new Date(order.created_at).toDateString()}
+          {new Date(order.created_at).toLocaleDateString(locale)}
         </span>
-      </Text>
-      <Text className="mt-2 text-primary">
-        Order number: <span data-testid="order-id">{order.display_id}</span>
-      </Text>
+      </p>
+      <div className="text-primary mt-2">
+        <OrderNumber id={order.display_id} />
+      </div>
 
-      <div className="flex items-center text-compact-small gap-x-4 mt-4">
+      <div className="text-compact-small mt-4 flex items-center gap-x-4">
         {showStatus && (
           <>
-            <Text>
-              Order status:{" "}
-              <span className="text-muted-foreground " data-testid="order-status">
-                {/* TODO: Check where the statuses should come from */}
-                {/* {formatStatus(order.fulfillment_status)} */}
-              </span>
-            </Text>
-            <Text>
-              Payment status:{" "}
+            <p>
+              Sipariş durumu:{" "}
               <span
-                className="text-muted-foreground "
+                className="text-muted-foreground"
+                data-testid="order-status"
+              >
+                {/* TODO: Check where the statuses should come from */}
+                {formatStatus(order.fulfillment_status)}
+              </span>
+            </p>
+            <p>
+              Ödeme durumu:{" "}
+              <span
+                className="text-muted-foreground"
                 sata-testid="order-payment-status"
               >
-                {/* {formatStatus(order.payment_status)} */}
+                {formatStatus(order.payment_status)}
               </span>
-            </Text>
+            </p>
           </>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default OrderDetails
+export default OrderDetails;
