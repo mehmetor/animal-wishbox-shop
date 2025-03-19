@@ -12,6 +12,7 @@ import ProductPrice from "../product-price";
 import MobileActions from "./mobile-actions";
 import { RainbowButton } from "@/components/magicui/rainbow-button";
 import Spinner from "@/modules/common/icons/spinner";
+import { toast } from "@/components/ui/sonner";
 
 type ProductActionsProps = {
   product: HttpTypes.StoreProduct;
@@ -105,15 +106,27 @@ export default function ProductActions({
   const handleAddToCart = async () => {
     if (!selectedVariant?.id) return null;
 
-    setIsAdding(true);
+    try {
+      setIsAdding(true);
 
-    await addToCart({
-      variantId: selectedVariant.id,
-      quantity: 1,
-      countryCode,
-    });
+      await addToCart({
+        variantId: selectedVariant.id,
+        quantity: 1,
+        countryCode,
+      });
 
-    setIsAdding(false);
+      setIsAdding(false);
+    } catch (error: any) {
+      if (
+        error?.message?.indexOf("not associated with any stock location") >
+        -1
+      ) {
+        toast.error("Bu ürün stokta yok");
+      } else {
+        toast.error(error?.message);
+      }
+      setIsAdding(false);
+    }
   };
 
   return (
@@ -152,7 +165,7 @@ export default function ProductActions({
             isAdding ||
             !isValidVariant
           }
-          className="w-full text-background"
+          className="text-background w-full"
           data-testid="add-product-button"
         >
           {!selectedVariant && !options ? (
@@ -165,7 +178,7 @@ export default function ProductActions({
             "Sepete ekle"
           )}
         </RainbowButton>
-        
+
         <MobileActions
           product={product}
           variant={selectedVariant}

@@ -83,6 +83,23 @@ const ShippingAddress = ({
     }
   }, [cart]); // Add cart as a dependency
 
+  // Ülke değeri başka bir yerde hardcoded olarak bulunabilir
+  // Bu değeri sadece ilk kez çalıştığında ata ve formData'da ülke kodu yoksa
+  useEffect(() => {
+    // Form verileri başlatıldığında ülke kodu için bir değer olduğundan emin olalım
+    // ülke kodu yoksa default ülke kodunu ata
+    if (cart?.region?.countries && 
+        cart.region.countries.length > 0 && 
+        !formData["shipping_address.country_code"]) {
+      const defaultCountry = cart.region.countries[0].iso_2;
+      console.log("Ülke değeri yoktu, otomatik ayarlandı:", defaultCountry);
+      setFormData(prevData => ({
+        ...prevData,
+        "shipping_address.country_code": defaultCountry
+      }));
+    }
+  }, [cart?.region, formData["shipping_address.country_code"]]);
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -98,9 +115,11 @@ const ShippingAddress = ({
   const handleCountryChange = (e: {
     target: { name: string; value: string };
   }) => {
+    const value = e.target.value.trim();
+    console.log("Ülke değişti:", e.target.name, value);
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     });
   };
 

@@ -29,5 +29,25 @@
     "cart": "Sepetim",
     "store": "Mağaza",
     "close": "Kapat"
-  }  
+  },
+  "metadata": {
+    "legal": {
+      "privacy_policy": {
+        "title": "Gizlilik Politikası",
+        "description": "Animal Wishbox'un gizlilik politikası ve kişisel verilerin korunması hakkında bilgiler."
+      },
+      "terms_of_use": {
+        "title": "Kullanım Şartları",
+        "description": "Animal Wishbox web sitesi ve hizmetlerinin kullanım şartları."
+      },
+      "terms_of_sale": {
+        "title": "Satış Şartları",
+        "description": "Animal Wishbox ürünlerinin satış şartları ve koşulları."
+      },
+      "refund_policy": {
+        "title": "İade Politikası",
+        "description": "Animal Wishbox ürünleri için iade ve değişim koşulları."
+      }
+    }
+  }
 }

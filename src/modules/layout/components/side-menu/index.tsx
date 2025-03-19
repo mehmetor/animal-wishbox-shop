@@ -56,9 +56,9 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
           </DrawerHeader>
           <div
             data-testid="nav-menu-popup"
-            className="flex h-full flex-col justify-between p-12"
+            className="flex h-full flex-col justify-between px-12 py-8"
           >
-            <ul className="flex h-full flex-col items-start justify-start gap-6">
+            <ul className="flex h-full flex-col items-start justify-start gap-2">
               {Object.entries(SideMenuItems).map(([name, href]) => {
                 return (
                   <li key={name}>
@@ -74,15 +74,38 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                 );
               })}
               <div className="grow" />
-              <Divider />
 
+              <Divider />
               <li>
                 <LocalizedClientLink href="/contact" passHref>
                   İletişim
                 </LocalizedClientLink>
               </li>
+              <Divider />
+              <li className="text-sm">
+                <LocalizedClientLink href="/legal/privacy-policy" passHref>
+                  Gizlilik Politikası
+                </LocalizedClientLink>
+              </li>
+
+              <li className="text-sm">
+                <LocalizedClientLink href="/legal/terms-of-use" passHref>
+                  Kullanım Şartları
+                </LocalizedClientLink>
+              </li>
+              <li className="text-sm">
+                <LocalizedClientLink href="/legal/terms-of-sale" passHref>
+                  Satış Şartları
+                </LocalizedClientLink>
+              </li>
+              <li className="text-sm">
+                <LocalizedClientLink href="/legal/refund-policy" passHref>
+                  İade Politikası
+                </LocalizedClientLink>
+              </li>
             </ul>
-            <div className="flex hidden flex-col gap-y-6">
+            <div className="flex flex-col gap-y-6">
+              <Divider />
               <div
                 className="flex justify-between"
                 onMouseEnter={toggleState.open}

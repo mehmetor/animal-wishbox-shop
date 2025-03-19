@@ -2,13 +2,13 @@ import { Components } from "react-markdown";
 
 const MarkdownComponentStyles: Components = {
   h1: ({node, ...props}) => (
-    <h1 className="text-xl font-semibold mb-3 mt-5" {...props} />
+    <h1 className="text-2xl font-semibold mb-3 mt-5" {...props} />
   ),
   h2: ({node, ...props}) => (
-    <h2 className="text-lg font-semibold mb-2 mt-4" {...props} />
+    <h2 className="text-xl font-semibold mb-2 mt-4" {...props} />
   ),
   h3: ({node, ...props}) => (
-    <h3 className="text-base font-semibold mb-2 mt-3" {...props} />
+    <h3 className="text-lg font-semibold mb-2 mt-3" {...props} />
   ),
   hr: ({node, ...props}) => (
     <hr className="my-4" {...props} />
@@ -35,4 +35,4 @@ const MarkdownComponentStyles: Components = {
   ),
 };
 
-export default MarkdownComponentStyles;
+export default MarkdownComponentStyles; 

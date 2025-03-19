@@ -1,5 +1,11 @@
 import { Radio as RadioGroupOption } from "@headlessui/react";
-import React, { useContext, useMemo, useState, type JSX } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type JSX,
+} from "react";
 
 import Radio from "@modules/common/components/radio";
 import { isManual } from "@lib/constants";
@@ -8,9 +14,8 @@ import { CardElement } from "@stripe/react-stripe-js";
 import { StripeCardElementOptions } from "@stripe/stripe-js";
 import { StripeContext } from "../payment-wrapper/stripe-wrapper";
 import PaymentBankTransfer from "../../../common/components/payment-bank-transfer";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { AlertCircleIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+
 type PaymentContainerProps = {
   paymentProviderId: string;
   selectedPaymentOptionId: string | null;
@@ -28,12 +33,6 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
   onCheckedChange,
   children,
 }) => {
-  console.log(
-    "paymentInfoMap",
-    paymentProviderId == "pp_system_default",
-    paymentInfoMap,
-  );
-
   const title =
     paymentProviderId == "pp_system_default"
       ? "Havale/EFT ile Ödeme (Banka Transferi)"
@@ -48,15 +47,20 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
     onCheckedChange(paymentProviderId);
   };
 
+  useEffect(() => {
+    handleCheckedChange(true);
+  }, []);
+
   return (
-    <>
-      <div className="flex flex-col justify-between rounded-xl border p-4">
-        {title}
-        {isManual(paymentProviderId) && (
-          <PaymentBankTransfer className="hidden sm:block" />
-        )}
-      </div>
-    </>
+    <div className="flex flex-col justify-between rounded-xl border p-4">
+      <span className="pb-4">{title}</span>
+      <span className="text-muted-foreground pb-4">
+        Sipariş tutarını aşağıdaki banka hesabına transfer ediniz.
+      </span>
+      {isManual(paymentProviderId) && (
+        <PaymentBankTransfer className="hidden sm:block" />
+      )}
+    </div>
   );
 
   return (

@@ -29,5 +29,25 @@
     "cart": "Cart",
     "store": "Store",
     "close": "Close"
+  },
+  "metadata": {
+    "legal": {
+      "privacy_policy": {
+        "title": "Privacy Policy",
+        "description": "Information about Animal Wishbox's privacy policy and personal data protection."
+      },
+      "terms_of_use": {
+        "title": "Terms of Use",
+        "description": "Terms of use for Animal Wishbox website and services."
+      },
+      "terms_of_sale": {
+        "title": "Terms of Sale",
+        "description": "Terms and conditions for the sale of Animal Wishbox products."
+      },
+      "refund_policy": {
+        "title": "Refund Policy",
+        "description": "Return and exchange conditions for Animal Wishbox products."
+      }
+    }
   }
 }

@@ -184,10 +184,11 @@ const Payment = ({
             data-testid="submit-payment-button"
           >
             {isLoading && <Loader className="animate-spin" />}
-            {!activeSession
+            {/* {!activeSession
               ? // && isStripeFunc(selectedPaymentMethod)
-                " Kart bilgilerini giriniz"
-              : "Devam et"}
+                "Kart bilgilerinizi giriniz"
+              : "Devam et"} */}
+            Devam et
           </Button>
         </div>
 
@@ -215,17 +216,11 @@ const Payment = ({
                   className="text-muted-foreground flex items-center gap-2 font-medium"
                   data-testid="payment-details-summary"
                 >
-                  <div className="flex h-7 w-fit items-center p-2">
-                    {/* {paymentInfoMap[selectedPaymentMethod]?.icon || (
-                      <SendHorizontal />
-                    )} */}
-                    <SendHorizontal />
-                  </div>
-                  <p>
+                 
                     {isStripeFunc(selectedPaymentMethod) && cardBrand
                       ? cardBrand
                       : "Banka Transferi"}
-                  </p>
+                 
                 </div>
               </div>
 

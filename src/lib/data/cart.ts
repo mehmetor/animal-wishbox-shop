@@ -344,6 +344,26 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
       throw new Error("No existing cart found when setting addresses")
     }
 
+    // FormData içeriğini görelim
+    console.log("FormData içeriği:");
+    for (const [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+
+    // Country code değerlerini alıp kontrol edelim
+    let shippingCountryCode = formData.get("shipping_address.country_code");
+    const billingCountryCode = formData.get("billing_address.country_code");
+
+    console.log("Shipping Country Code:", shippingCountryCode);
+    console.log("Shipping Country Code type:", typeof shippingCountryCode);
+    console.log("Billing Country Code:", billingCountryCode);
+
+    // Eğer formData'dan ülke kodu gelmezse, TR varsayalım
+    if (!shippingCountryCode || shippingCountryCode === "") {
+      console.error("Ülke kodu bulunamadı, varsayılan değer TR kullanılacak");
+      shippingCountryCode = "tr";
+    }
+
     const data = {
       shipping_address: {
         first_name: formData.get("shipping_address.first_name"),
@@ -353,17 +373,23 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
         company: formData.get("shipping_address.company"),
         postal_code: formData.get("shipping_address.postal_code"),
         city: formData.get("shipping_address.city"),
-        country_code: formData.get("shipping_address.country_code"),
+        country_code: shippingCountryCode,
         province: formData.get("shipping_address.province"),
         phone: formData.get("shipping_address.phone"),
       },
       email: formData.get("email"),
     } as any
+    
+    console.log("formData", data, formData)
 
     const sameAsBilling = formData.get("same_as_billing")
     if (sameAsBilling === "on") data.billing_address = data.shipping_address
 
-    if (sameAsBilling !== "on")
+    if (sameAsBilling !== "on") {
+      if (!billingCountryCode || billingCountryCode === "") {
+        throw new Error("Lütfen fatura adresi için bir ülke seçiniz");
+      }
+      
       data.billing_address = {
         first_name: formData.get("billing_address.first_name"),
         last_name: formData.get("billing_address.last_name"),
@@ -372,10 +398,11 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
         company: formData.get("billing_address.company"),
         postal_code: formData.get("billing_address.postal_code"),
         city: formData.get("billing_address.city"),
-        country_code: formData.get("billing_address.country_code"),
+        country_code: billingCountryCode,
         province: formData.get("billing_address.province"),
         phone: formData.get("billing_address.phone"),
       }
+    }
     await updateCart(data)
   } catch (e: any) {
     return e.message

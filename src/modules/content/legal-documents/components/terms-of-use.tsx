@@ -2,16 +2,17 @@
 
 import ReactMarkdown from "react-markdown";
 import MarkdownComponentStyles from "./markdown-component-styles";
-import { useLegalDocument } from "./use-legal-document";
+import { useLegalDocument } from "../hooks/use-legal-document";
+import { SkeletonTypography } from "@/components/ui/skeleton";
 
 export const TermsOfUse = () => {
   const { content, isLoading, error } = useLegalDocument(
     "/api/legal-documents/kullanim-sartlari",
-    "kullanim-sartlari"
+    "kullanim-sartlari",
   );
 
   if (isLoading) {
-    return <div>Yükleniyor...</div>;
+    return <SkeletonTypography />;
   }
 
   if (error) {

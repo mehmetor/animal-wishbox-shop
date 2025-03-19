@@ -4,6 +4,7 @@ import { listCollections } from "@lib/data/collections";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
 import MedusaCTA from "@modules/layout/components/medusa-cta";
 import { ExternalLink } from "lucide-react";
+import LegalDocuments from "@/modules/content/legal-documents/templates";
 
 export default async function Footer() {
   const { collections } = await listCollections({
@@ -110,7 +111,7 @@ export default async function Footer() {
                 </ul>
               </div>
             )}
-            
+
             <div className="flex flex-1 flex-col gap-8">
               <span className="text-sm font-medium text-gray-900">
                 Bağlantılar
@@ -135,7 +136,7 @@ export default async function Footer() {
                 <li>
                   <LocalizedClientLink
                     className="hover:text-gray-900"
-                    href="/content/privacy-policy"
+                    href="/legal/privacy-policy"
                   >
                     Gizlilik Politikası
                   </LocalizedClientLink>
@@ -143,9 +144,25 @@ export default async function Footer() {
                 <li>
                   <LocalizedClientLink
                     className="hover:text-gray-900"
-                    href="/content/terms-of-use"
+                    href="/legal/terms-of-use"
                   >
                     Kullanım Şartları
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    className="hover:text-gray-900"
+                    href="/legal/terms-of-sale"
+                  >
+                    Satış Şartları
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    className="hover:text-gray-900"
+                    href="/legal/refund-policy"
+                  >
+                    İade Politikası
                   </LocalizedClientLink>
                 </li>
               </ul>
@@ -155,10 +172,9 @@ export default async function Footer() {
 
         <div className="mt-8 flex w-full justify-between text-xs text-gray-500">
           <div className="flex flex-col">
-            <p>© {new Date().getFullYear()} Animal Wishbox. v0.1.3</p>
-            <p>
-              <span>Tüm hakları saklıdır.</span>
-            </p>
+            <p>© {new Date().getFullYear()} Animal Wishbox.</p>
+            <p>Tüm hakları saklıdır.</p>
+            <p>v0.1.3</p>
 
             <ul className="mt-2">
               <li>

@@ -20,72 +20,100 @@ Mevcut klasör yapısı:
 ## Yapılacak İşler
 
 ### 1. Yeni Modül Yapısı Oluşturma
-- [ ] `src/modules/content/` ana modül klasörünü oluştur
-- [ ] `src/modules/content/legal-documents/` alt modül klasörünü oluştur
-- [ ] Alt klasörleri oluştur:
-  - [ ] `src/modules/content/legal-documents/components/` - Bileşenler için
-  - [ ] `src/modules/content/legal-documents/templates/` - Şablonlar için
-  - [ ] `src/modules/content/legal-documents/hooks/` - Custom hook'lar için
-  - [ ] `src/modules/content/legal-documents/documents/` - Markdown dosyaları için
+- [x] `src/modules/content/` ana modül klasörünü oluştur
+- [x] `src/modules/content/legal-documents/` alt modül klasörünü oluştur
+- [x] Alt klasörleri oluştur:
+  - [x] `src/modules/content/legal-documents/components/` - Bileşenler için
+  - [x] `src/modules/content/legal-documents/templates/` - Şablonlar için
+  - [x] `src/modules/content/legal-documents/hooks/` - Custom hook'lar için
+  - [x] `src/modules/content/legal-documents/documents/` - Markdown dosyaları için
 
 ### 2. Dosya Taşıma İşlemleri
-- [ ] Hook dosyasını taşı: 
+- [x] Hook dosyasını taşı: 
   - `src/modules/checkout/templates/legal-documents/use-legal-document.ts` → `src/modules/content/legal-documents/hooks/use-legal-document.ts`
-- [ ] Stil dosyasını taşı: 
+- [x] Stil dosyasını taşı: 
   - `src/modules/checkout/templates/legal-documents/markdown-component-styles.tsx` → `src/modules/content/legal-documents/components/markdown-component-styles.tsx`
-- [ ] Markdown dosyalarını taşı:
-  - [ ] `gizlilik-politikasi.md` → `src/modules/content/legal-documents/documents/`
-  - [ ] `satis-sartlari.md` → `src/modules/content/legal-documents/documents/`
-  - [ ] `kullanim-sartlari.md` → `src/modules/content/legal-documents/documents/`
-  - [ ] `iade-politikasi.md` → `src/modules/content/legal-documents/documents/`
-- [ ] Komponent dosyalarını taşı:
-  - [ ] `privacy-policy.tsx` → `src/modules/content/legal-documents/components/`
-  - [ ] `terms-of-sale.tsx` → `src/modules/content/legal-documents/components/`
-  - [ ] `terms-of-use.tsx` → `src/modules/content/legal-documents/components/`
-  - [ ] `refund-policy.tsx` → `src/modules/content/legal-documents/components/`
+- [x] Markdown dosyalarını taşı:
+  - [x] `gizlilik-politikasi.md` → `src/modules/content/legal-documents/documents/`
+  - [x] `satis-sartlari.md` → `src/modules/content/legal-documents/documents/`
+  - [x] `kullanim-sartlari.md` → `src/modules/content/legal-documents/documents/`
+  - [x] `iade-politikasi.md` → `src/modules/content/legal-documents/documents/`
+- [x] Komponent dosyalarını taşı:
+  - [x] `privacy-policy.tsx` → `src/modules/content/legal-documents/components/`
+  - [x] `terms-of-sale.tsx` → `src/modules/content/legal-documents/components/`
+  - [x] `terms-of-use.tsx` → `src/modules/content/legal-documents/components/`
+  - [x] `refund-policy.tsx` → `src/modules/content/legal-documents/components/`
 
 ### 3. Popup/Modal Bileşeni Oluşturma
-- [ ] `src/modules/content/legal-documents/components/legal-document-modal.tsx` dosyasını oluştur
-- [ ] Modal/Dialog yapısını implement et
-- [ ] Markdown içeriğini modal içinde gösterme mantığını ekle
-- [ ] Modalın açılıp kapanmasını kontrol eden state ve fonksiyonları ekle
+- [x] `src/modules/content/legal-documents/components/legal-document-modal.tsx` dosyasını oluştur
+- [x] Modal/Dialog yapısını implement et
+- [x] Markdown içeriğini modal içinde gösterme mantığını ekle
+- [x] Modalın açılıp kapanmasını kontrol eden state ve fonksiyonları ekle
 
 ### 4. Template Dosyasını Güncelleme
-- [ ] `index.tsx` dosyasını `src/modules/content/legal-documents/templates/` altına taşı
-- [ ] Modal/popup yapısını entegre et
-- [ ] URL parametrelerine göre ilgili dokümanın gösterilmesini sağla
-- [ ] Import pathlerini güncelle
+- [x] `index.tsx` dosyasını `src/modules/content/legal-documents/templates/` altına taşı
+- [x] Modal/popup yapısını entegre et
+- [x] URL parametrelerine göre ilgili dokümanın gösterilmesini sağla
+- [x] Import pathlerini güncelle
 
 ### 5. Sayfa Rotaları Oluşturma
-- [ ] `src/app/[countryCode]/(main)/legal/` klasörünü oluştur
-- [ ] Her yasal doküman türü için ayrı sayfa oluştur:
-  - [ ] `privacy-policy/page.tsx`
-  - [ ] `terms-of-use/page.tsx`
-  - [ ] `terms-of-sale/page.tsx`
-  - [ ] `refund-policy/page.tsx`
-- [ ] Sayfa metadata tanımlarını ekle
+- [x] `src/app/[countryCode]/(main)/legal/` klasörünü oluştur
+- [x] Her yasal doküman türü için ayrı sayfa oluştur:
+  - [x] `privacy-policy/page.tsx`
+  - [x] `terms-of-use/page.tsx`
+  - [x] `terms-of-sale/page.tsx`
+  - [x] `refund-policy/page.tsx`
+- [x] Sayfa metadata tanımlarını ekle
 
 ### 6. Navigasyon Bağlantılarını Ekleme
-- [ ] Footer'a bağlantılar ekleme:
-  - [ ] `src/modules/layout/templates/footer/index.tsx` dosyasını güncelle
-  - [ ] Yasal dokümanlar için bağlantılar ekle
-  - [ ] Popup açma fonksiyonalitesini ekle
-- [ ] Side menu'ye bağlantılar ekleme:
-  - [ ] `src/modules/layout/components/side-menu/index.tsx` dosyasını güncelle
-  - [ ] Yasal dokümanlar için bağlantılar ekle
-  - [ ] Popup açma fonksiyonalitesini ekle
+- [x] Footer'a bağlantılar ekleme:
+  - [x] `src/modules/layout/templates/footer/index.tsx` dosyasını güncelle
+  - [x] Yasal dokümanlar için bağlantılar ekle
+  - [x] Popup açma fonksiyonalitesini ekle
+- [x] Side menu'ye bağlantılar ekleme:
+  - [x] `src/modules/layout/components/side-menu/index.tsx` dosyasını güncelle
+  - [x] Yasal dokümanlar için bağlantılar ekle
+  - [x] Popup açma fonksiyonalitesini ekle
 
 ### 7. Import Yollarını Güncelleme
-- [ ] Tüm dosyalarda import pathlerini yeni yapıya göre düzenle
-- [ ] API çağrılarını kontrol et ve gerekirse güncelle
-- [ ] Hook içindeki endpoint pathlerini güncelle
+- [x] Tüm dosyalarda import pathlerini yeni yapıya göre düzenle
+- [x] API çağrılarını kontrol et ve gerekirse güncelle
+- [x] Hook içindeki endpoint pathlerini güncelle
 
 ### 8. Test ve Hata Düzeltme
-- [ ] Tüm sayfaları ve bağlantıları test et
-- [ ] Modal açılma/kapanma işlemlerini kontrol et
-- [ ] Markdown içeriğinin doğru görüntülendiğini doğrula
+- [x] Tüm sayfaları ve bağlantıları test et
+- [x] Modal açılma/kapanma işlemlerini kontrol et
+- [x] Markdown içeriğinin doğru görüntülendiğini doğrula
 - [ ] Responsive tasarımı kontrol et
-- [ ] Klavye navigasyonunu (ESC tuşu ile kapatma vb.) test et
+- [x] Klavye navigasyonunu (ESC tuşu ile kapatma vb.) test et
+
+## Tespit Edilen Sorunlar ve Ek Görevler
+
+### 1. Modal Entegrasyonu Sorunları
+- [x] Side menu'deki modal state'i ile LegalDocuments bileşeni arasında bağlantı oluştur
+- [x] Footer ve side menu'de tutarlı modal açma mantığı sağla
+- [x] LegalDocuments bileşenine harici modal state kontrolü ekle
+
+### 2. API Endpoint Yolları
+- [x] Hook dosyasındaki (`use-legal-document.ts`) API endpoint yollarını güncelle
+- [x] API çağrılarında yeni klasör yapısına uygun URL'ler kullan
+- [x] Markdown dosyalarına erişim için endpoint'lerin doğru çalıştığını kontrol et
+
+### 3. Çeviri ve Metin Tutarlılığı
+- [ ] Sayfa başlıkları için çeviri desteği ekle
+- [ ] Statik olarak tanımlanmış Türkçe metinleri çeviri sistemine entegre et
+- [ ] Tüm dil dosyalarında eksik çeviri tanımlarını ekle
+
+### 4. Tasarım ve Stil Tutarlılığı
+- [ ] Modal ve sayfa içeriklerinin stil tutarlılığını sağla
+- [ ] "prose" sınıfının projede doğru yapılandırıldığını kontrol et
+- [ ] Modal'ın responsive davranışını tüm ekran boyutlarında test et
+- [ ] Mobil görünüm için özel stil ayarlamaları ekle
+
+### 5. SEO ve Erişilebilirlik
+- [ ] Sayfa metadatalarının SEO açısından optimize edildiğini kontrol et
+- [ ] Modalların erişilebilirlik standartlarına uygun çalıştığını test et (klavye navigasyonu)
+- [ ] Screen reader uyumluluğunu kontrol et
 
 ## Teknik Detaylar
 

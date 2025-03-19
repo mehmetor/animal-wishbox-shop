@@ -15,6 +15,7 @@ import ShippingAddress from "../shipping-address";
 import { SubmitButton } from "../submit-button";
 import { Button } from "@/components/ui/button";
 import EditButton from "../edit-button";
+import { cn } from "@/lib/utils";
 
 const Addresses = ({
   cart,
@@ -44,7 +45,13 @@ const Addresses = ({
   return (
     <div className="">
       <div className="mt-4 mb-8 flex flex-row items-center justify-between">
-        <h2 className="flex flex-row gap-x-2 text-2xl">Teslimat Adresi</h2>
+        <h2
+          className={cn("flex flex-row items-baseline gap-x-2 text-2xl", {
+            "pointer-events-none select-none": !isOpen,
+          })}
+        >
+          Teslimat Adresi
+        </h2>
         {!isOpen && <CheckCircle />}
       </div>
       {isOpen ? (
@@ -59,9 +66,7 @@ const Addresses = ({
 
             {!sameAsBilling && (
               <div>
-                <h2 className="text-2xl gap-x-4 pt-8 pb-6">
-                  Fatura Adresi
-                </h2>
+                <h2 className="gap-x-4 pt-8 pb-6 text-2xl">Fatura Adresi</h2>
 
                 <BillingAddress cart={cart} />
               </div>

@@ -3,15 +3,19 @@ import React from "react";
 
 const Help = () => {
   return (
-    <div className="mt-6">
-      <h2 className="text-xl">Yardım</h2>
+    <div className="">
+      <div className="mt-4 mb-8 flex flex-row items-center justify-between">
+        <h2 className="flex flex-row items-baseline gap-x-2 text-2xl">
+          Yardım
+        </h2>
+      </div>
       <div className="my-2 text-base">
         <ul className="flex flex-col gap-y-2 pl-4">
           <li>
             <LocalizedClientLink href="/contact">İletişim</LocalizedClientLink>
           </li>
           <li>
-            <LocalizedClientLink href="/contact">
+            <LocalizedClientLink href="/legal/refund-policy">
               İade & Değişim
             </LocalizedClientLink>
           </li>

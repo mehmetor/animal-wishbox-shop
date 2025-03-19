@@ -1,10 +1,9 @@
 "use client";
 
-import { Heading, Text, clx } from "@medusajs/ui";
-
-import PaymentButton from "../payment-button";
 import { useSearchParams } from "next/navigation";
-import LegalDocuments from "@modules/checkout/templates/legal-documents";
+import LegalDocuments from "@/modules/content/legal-documents/templates";
+import { cn } from "@/lib/utils";
+import PaymentButton from "../payment-button";
 
 const Review = ({ cart }: { cart: any }) => {
   const searchParams = useSearchParams();
@@ -21,9 +20,9 @@ const Review = ({ cart }: { cart: any }) => {
 
   return (
     <div className="">
-      <div className="mb-6 flex flex-row items-center justify-between">
+      <div className="mt-4 mb-8 flex flex-row items-center justify-between">
         <h2
-          className={clx("flex flex-row items-baseline gap-x-2 text-2xl", {
+          className={cn("flex flex-row items-baseline gap-x-2 text-2xl", {
             "pointer-events-none opacity-50 select-none": !isOpen,
           })}
         >
@@ -36,7 +35,7 @@ const Review = ({ cart }: { cart: any }) => {
             <div className="w-full">
               <span className="text-foreground mb-1">
                 <strong>Siparişi Tamamla</strong> düğmesine tıklayarak 
-                <LegalDocuments /> sözleşmelerini okuduğunuzu, anladığınızı ve
+                <LegalDocuments variant="inline" /> sözleşmelerini okuduğunuzu, anladığınızı ve
                 kabul ettiğinizi onaylamış olursunuz.
               </span>
             </div>
