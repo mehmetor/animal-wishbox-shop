@@ -13,6 +13,8 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Switch } from "@/components/ui/switch";
 import { MagicCard } from "@/components/magicui/magic-card";
+import { MagicSwitchCard } from "@/components/magicui/magic-switch-card";
+import EditButton from "../edit-button";
 
 const PICKUP_OPTION_ON = "__PICKUP_ON";
 const PICKUP_OPTION_OFF = "__PICKUP_OFF";
@@ -194,55 +196,41 @@ const Shipping: React.FC<ShippingProps> = ({
                     !isLoadingPrices &&
                     typeof calculatedPricesMap[option.id] !== "number";
 
+                  const price =
+                    option.price_type === "flat"
+                      ? convertToLocale({
+                          amount: option.amount!,
+                          currency_code: cart?.currency_code,
+                        })
+                      : calculatedPricesMap[option.id]
+                        ? convertToLocale({
+                            amount: calculatedPricesMap[option.id],
+                            currency_code: cart?.currency_code,
+                          })
+                        : "-";
+
                   return (
-                    <MagicCard className="rounded-lg border">
-                      <div
-                        key={option.id}
-                        onClick={() =>
-                          handleShippingMethodToggle(
-                            option.id,
-                            !enabledShippingMethods[option.id],
-                          )
-                        }
-                        data-testid="delivery-option-switch"
-                        className="flex cursor-pointer flex-row items-center justify-between p-4 "
-                      >
-                        <div className="space-y-0.5">
-                          <span className="text-foreground font-medium">
-                            {option.name}
-                          </span>
-                          <p className="text-muted-foreground text-sm">
-                            Standart teslimat süresi: 2-4 iş günü
-                          </p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-foreground justify-self-end font-medium">
-                            {option.price_type === "flat" ? (
-                              convertToLocale({
-                                amount: option.amount!,
-                                currency_code: cart?.currency_code,
-                              })
-                            ) : calculatedPricesMap[option.id] ? (
-                              convertToLocale({
-                                amount: calculatedPricesMap[option.id],
-                                currency_code: cart?.currency_code,
-                              })
-                            ) : isLoadingPrices ? (
-                              <Loader />
-                            ) : (
-                              "-"
-                            )}
-                          </span>
-                          <Switch
-                            checked={!!enabledShippingMethods[option.id]}
-                            onCheckedChange={(checked) =>
-                              handleShippingMethodToggle(option.id, checked)
-                            }
-                            disabled={isDisabled}
-                          />
-                        </div>
-                      </div>
-                    </MagicCard>
+                    <MagicSwitchCard
+                      key={option.id}
+                      title={option.name}
+                      description="Standart teslimat süresi: 2-4 iş günü"
+                      rightContent={price}
+                      checked={!!enabledShippingMethods[option.id]}
+                      onCheckedChange={(checked) =>
+                        handleShippingMethodToggle(option.id, checked)
+                      }
+                      onClick={() =>
+                        handleShippingMethodToggle(
+                          option.id,
+                          !enabledShippingMethods[option.id],
+                        )
+                      }
+                      disabled={isDisabled}
+                      isLoading={
+                        isLoadingPrices && option.price_type === "calculated"
+                      }
+                      testId="delivery-option-switch"
+                    />
                   );
                 })}
 
@@ -259,39 +247,32 @@ const Shipping: React.FC<ShippingProps> = ({
 
                     {_pickupMethods?.map((option) => {
                       return (
-                        <div
+                        <MagicSwitchCard
                           key={option.id}
-                          data-testid="pickup-option-switch"
-                          className="mt-4 flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm"
-                        >
-                          <div className="space-y-0.5">
-                            <span className="text-base font-medium">
-                              {option.name}
-                            </span>
-                            <p className="text-muted-foreground text-sm">
-                              {formatAddress(
-                                // @ts-ignore
-                                option.service_zone?.fulfillment_set?.location
-                                  ?.address,
-                              )}
-                            </p>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-foreground justify-self-end font-medium">
-                              {convertToLocale({
-                                amount: option.amount!,
-                                currency_code: cart?.currency_code,
-                              })}
-                            </span>
-                            <Switch
-                              checked={!!enabledShippingMethods[option.id]}
-                              onCheckedChange={(checked) =>
-                                handleShippingMethodToggle(option.id, checked)
-                              }
-                              disabled={option.insufficient_inventory}
-                            />
-                          </div>
-                        </div>
+                          title={option.name}
+                          description={formatAddress(
+                            // @ts-ignore
+                            option.service_zone?.fulfillment_set?.location
+                              ?.address,
+                          )}
+                          rightContent={convertToLocale({
+                            amount: option.amount!,
+                            currency_code: cart?.currency_code,
+                          })}
+                          checked={!!enabledShippingMethods[option.id]}
+                          onCheckedChange={(checked) =>
+                            handleShippingMethodToggle(option.id, checked)
+                          }
+                          onClick={() =>
+                            handleShippingMethodToggle(
+                              option.id,
+                              !enabledShippingMethods[option.id],
+                            )
+                          }
+                          disabled={option.insufficient_inventory}
+                          className="mt-4"
+                          testId="pickup-option-switch"
+                        />
                       );
                     })}
                   </div>
@@ -319,40 +300,32 @@ const Shipping: React.FC<ShippingProps> = ({
         </>
       ) : (
         <div className="flex flex-row justify-between">
-          <div className="text-sm font-normal">
-            {cart && (cart.shipping_methods?.length ?? 0) > 0 && (
-              <div className="flex flex-col">
-                <p className="text-foreground mb-1 font-semibold">Yöntem</p>
-                <p className="text-muted-foreground font-medium">
-                  {cart.shipping_methods?.at(-1)?.name}
-                  {": "}
-                  <span className="font-mono text-base">
-                    {convertToLocale({
-                      // @ts-ignore
-                      amount: cart.shipping_methods.at(-1)?.amount!,
-                      currency_code: cart?.currency_code,
-                    })}
-                  </span>
-                </p>
-              </div>
-            )}
-          </div>
-          {!isOpen &&
-            cart?.shipping_address &&
-            cart?.billing_address &&
-            cart?.email && (
-              <div className="flex items-end justify-end">
-                <Button
-                  onClick={handleEdit}
-                  // className="text-primary hover:text-primary/80"
-                  variant="outline"
-                  data-testid="edit-address-button"
-                >
-                  <Pencil />
-                  Düzenle
-                </Button>
-              </div>
-            )}
+          {cart && (cart.shipping_methods?.length ?? 0) > 0 && (
+            <div className="flex flex-col">
+              <p className="text-foreground mb-1 font-semibold">Yöntem</p>
+              <p className="text-muted-foreground font-medium">
+                {cart.shipping_methods?.at(-1)?.name}
+                {": "}
+                <span className="font-mono text-lg">
+                  {convertToLocale({
+                    // @ts-ignore
+                    amount: cart.shipping_methods.at(-1)?.amount!,
+                    currency_code: cart?.currency_code,
+                  })}
+                </span>
+              </p>
+            </div>
+          )}
+
+          <EditButton
+            handleEdit={handleEdit}
+            visible={
+              !isOpen &&
+              cart?.shipping_address &&
+              cart?.billing_address &&
+              !!cart?.email
+            }
+          />
         </div>
       )}
       <Divider className="mt-8" />

@@ -10,7 +10,7 @@ const withNextIntl = createNextIntlPlugin()
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   logging: {
     fetches: {
       fullUrl: true,

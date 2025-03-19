@@ -8,6 +8,7 @@ import CartMismatchBanner from "@modules/layout/components/cart-mismatch-banner"
 import Footer from "@modules/layout/templates/footer";
 import Nav from "@modules/layout/templates/nav";
 import FreeShippingPriceNudge from "@modules/shipping/components/free-shipping-price-nudge";
+import { Toaster } from "@medusajs/ui";
 // import { AuroraBackground } from "@/components/ui/aurora-background";
 
 export const metadata: Metadata = {

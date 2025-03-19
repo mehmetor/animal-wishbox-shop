@@ -14,6 +14,7 @@ import ErrorMessage from "../error-message";
 import ShippingAddress from "../shipping-address";
 import { SubmitButton } from "../submit-button";
 import { Button } from "@/components/ui/button";
+import EditButton from "../edit-button";
 
 const Addresses = ({
   cart,
@@ -158,19 +159,12 @@ const Addresses = ({
           </div>
         </div>
       )}
-      {!isOpen && cart?.shipping_address && (
-        <div className="flex justify-end">
-          <Button
-            onClick={handleEdit}
-            // className="text-primary hover:text-primary/80"
-            variant="outline"
-            data-testid="edit-address-button"
-          >
-            <Pencil />
-            Düzenle
-          </Button>
-        </div>
-      )}
+
+      <EditButton
+        handleEdit={handleEdit}
+        visible={!isOpen && !!cart?.shipping_address}
+      />
+
       <Divider className="mt-8" />
     </div>
   );
