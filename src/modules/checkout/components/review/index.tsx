@@ -27,7 +27,7 @@ const Review = ({ cart }: { cart: any }) => {
             "pointer-events-none opacity-50 select-none": !isOpen,
           })}
         >
-          Siparişinizin Tamamlandı
+          Siparişiniz Tamamlandı
         </h2>
       </div>
       {isOpen && previousStepsCompleted && (

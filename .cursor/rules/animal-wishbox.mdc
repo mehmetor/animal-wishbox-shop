@@ -3,7 +3,7 @@ description:
 globs: 
 alwaysApply: true
 ---
- # Animal Wishbox Geliştirme Kuralları
+# Animal Wishbox Geliştirme Kuralları
 
 ## Proje Yapısı
 
@@ -51,7 +51,9 @@ alwaysApply: true
 - Link yapılarında `LocalizedClientLink` komponenti kullanılmalıdır
 
 ## API ve Veri İşlemleri
-- Medusa verilerinin çekilmesi için src\lib\data klasöründe model bazlı sınıflar oluşturulur.
+- Veri çekme işlemleri için React Query veya SWR kullanılmalıdır
+- Form işlemleri için React Hook Form tercih edilmelidir
+- API çağrıları için axios veya fetch kullanılmalıdır
 
 ## Sayfa Yapısı Standartları
 - Her sayfa için responsive tasarım uygulanmalıdır
@@ -67,4 +69,3 @@ alwaysApply: true
 - Kodun okunabilirliği için kısa açıklamalar tercih edilmelidir
 
 Bu doküman Animal Wishbox projesinin geliştirme kurallarını içermektedir. Yeni sayfalar ve özellikler eklerken bu kurallara uyulması, projenin tutarlılığı açısından önemlidir.
-
