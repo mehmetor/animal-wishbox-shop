@@ -213,7 +213,7 @@ const Shipping: React.FC<ShippingProps> = ({
                     <MagicSwitchCard
                       key={option.id}
                       title={option.name}
-                      description="Standart teslimat süresi: 2-4 iş günü"
+                      description="Standart teslimat süresi: 2-5 iş günüdür. Stokta sorunu olabilecek ürünler için temin süresi 30 güne kadar uzayabilir. Bu durumda kargo takibi üzerinden bilgilendirme yapılacaktır."
                       rightContent={price}
                       checked={!!enabledShippingMethods[option.id]}
                       onCheckedChange={(checked) =>

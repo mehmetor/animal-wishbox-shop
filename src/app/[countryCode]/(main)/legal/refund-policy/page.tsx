@@ -4,12 +4,14 @@ import { RefundPolicy } from "@/modules/content/legal-documents/components/refun
 import { Container } from "@medusajs/ui";
 
 type Props = {
-  params: { countryCode: string };
+  params: Promise<{ countryCode: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
+  
   const t = await getTranslations({
-    locale: params.countryCode,
+    locale: resolvedParams.countryCode,
     namespace: "metadata",
   });
 

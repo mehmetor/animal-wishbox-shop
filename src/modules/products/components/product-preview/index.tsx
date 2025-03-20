@@ -40,7 +40,7 @@ export default async function ProductPreview({
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
       <Card className="p-0 gap-1 md:gap-4 shadow-none">
-        <MagicCard gradientColor="var(--violet-200)" gradientFrom="var(--primary)" gradientTo="var(--secondary)" className="py-3 md:py-4">
+        <MagicCard  className="py-3 md:py-4">
           <CardHeader>
             <CardTitle>
               <div className="line-clamp-2 text-sm font-semibold md:text-base">

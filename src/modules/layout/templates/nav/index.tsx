@@ -2,11 +2,12 @@ import React from "react";
 import { listRegions } from "@lib/data/regions";
 import { listCollections } from "@lib/data/collections";
 import { listCategories } from "@/lib/data/categories";
+import { retrieveCustomer } from "@lib/data/customer";
 import { StoreRegion } from "@medusajs/types";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
 import CartButton from "@modules/layout/components/cart-button";
 import SideMenu from "@modules/layout/components/side-menu";
-import { User } from "lucide-react";
+import UserAvatar from "@modules/common/components/user-avatar";
 
 import {
   NavigationMenu,
@@ -91,9 +92,10 @@ ListItem.displayName = "ListItem";
 export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions);
   const { collections } = await listCollections({
-    fields: "*products"    
+    fields: "*products",
   });
   const productCategories = await listCategories();
+  const customer = await retrieveCustomer().catch(() => null);
 
   return (
     <header className="group sticky z-50">
@@ -101,34 +103,38 @@ export default async function Nav() {
         <div className="flex h-full items-center justify-between rounded-full border border-gray-500/25 bg-white/25 pr-8 shadow-md backdrop-blur-lg">
           <div className="flex grow">
             <a href="/" className="text-xl font-semibold text-slate-600">
-              
               <img
-                  className=" h-6 lg:h-7 pl-4 md:pl-6 "
-                  alt="Animal Wishbox"
-                  src="https://mscrosugxoblkqhymkux.supabase.co/storage/v1/object/public/media//animal-wishbox-logo-black-600x72.png"
-                /> 
+                className="h-6 pl-4 md:pl-6 lg:h-7"
+                alt="Animal Wishbox"
+                src="https://mscrosugxoblkqhymkux.supabase.co/storage/v1/object/public/media//animal-wishbox-logo-black-600x72.png"
+              />
             </a>
           </div>
-          
-          <div className="hidden sm:flex grow">
+
+          <div className="hidden grow sm:flex">
             <NavigationMenu>
               <NavigationMenuList>
-                {collections.sort((a, b) => a.title.localeCompare(b.title)).map((collection) => (
-                  <NavigationMenuItem key={collection.id} className="text-foreground/80">
-                    <Link
-                      href={`/collections/${collection.handle}`}
-                      legacyBehavior
-                      passHref
+                {collections
+                  .sort((a, b) => a.title.localeCompare(b.title))
+                  .map((collection) => (
+                    <NavigationMenuItem
+                      key={collection.id}
+                      className="text-foreground/80"
                     >
-                      <NavigationMenuLink>
-                        {collection.title}
-                      </NavigationMenuLink>
-                    </Link>
-                  </NavigationMenuItem>
-                ))}
+                      <Link
+                        href={`/collections/${collection.handle}`}
+                        legacyBehavior
+                        passHref
+                      >
+                        <NavigationMenuLink>
+                          {collection.title}
+                        </NavigationMenuLink>
+                      </Link>
+                    </NavigationMenuItem>
+                  ))}
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent px-2 font-normal text-foreground/80">
+                  <NavigationMenuTrigger className="text-foreground/80 bg-transparent px-2 font-normal">
                     Katagoriler
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -151,9 +157,7 @@ export default async function Nav() {
             </NavigationMenu>
           </div>
           <div className="flex flex-1 items-center justify-end gap-4 md:gap-6">
-            <LocalizedClientLink href="/account" data-testid="nav-account-link">
-              <User />
-            </LocalizedClientLink>
+            <UserAvatar customer={customer} />
             <CartButton />
             <SideMenu regions={regions} />
           </div>

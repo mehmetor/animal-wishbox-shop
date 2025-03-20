@@ -16,4 +16,4 @@ export default async function ContactPage(props: Params) {
   const params = await props.params;
 
   return <ContactTemplate countryCode={params.countryCode} />;
-} 
+}

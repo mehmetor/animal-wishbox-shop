@@ -130,7 +130,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                   ? "Stokta yok"
                   : isAdding
                   ? <Spinner className="animate-spin mx-auto" />
-                  : "Sepete ekle"}
+                  : "Sepete Ekle"}
               </RainbowButton>
             </div>
           </div>

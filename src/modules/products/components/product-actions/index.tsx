@@ -175,7 +175,7 @@ export default function ProductActions({
           ) : isAdding ? (
             <Spinner className="mx-auto animate-spin" />
           ) : (
-            "Sepete ekle"
+            "Sepete Ekle"
           )}
         </RainbowButton>
 
