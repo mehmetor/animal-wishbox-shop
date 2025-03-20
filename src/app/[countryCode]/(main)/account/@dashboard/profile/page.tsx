@@ -41,8 +41,9 @@ export default async function Profile() {
         <Divider />
         <ProfilePhone customer={customer} />
         <Divider />
-        <ProfilePassword customer={customer} />
-        <Divider />
+        {/* TODO: E-Posta gönderim işlemleri tamamlandığında, şifre sıfırlama postası gönderilerek halledilecek */}
+        {/* <ProfilePassword customer={customer} />
+        <Divider /> */}
         <ProfileBillingAddress customer={customer} regions={regions} />
       </div>
     </div>
