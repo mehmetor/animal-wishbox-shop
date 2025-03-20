@@ -1,6 +1,6 @@
 {
   "name": "animal-wishbox",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "private": true,
   "packageManager": "yarn@3.2.3",
   "author": "Mehmet Akif ORAKCI",
@@ -16,7 +16,12 @@
     "build": "next build",
     "start": "next start -p 8000",
     "lint": "next lint",
-    "analyze": "ANALYZE=true next build"
+    "analyze": "ANALYZE=true next build",
+    "version:patch": "node version-bump.js patch",
+    "version:minor": "node version-bump.js minor",
+    "version:major": "node version-bump.js major",
+    "version:patch:commit": "node version-bump.js patch --commit",
+    "version:patch:commit:push": "node version-bump.js patch --commit --push"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
