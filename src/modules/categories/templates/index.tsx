@@ -43,7 +43,7 @@ export default function CategoryTemplate({
     >
       <RefinementList sortBy={sort} data-testid="sort-by-container" />
       <div className="w-full">
-        <div className="text-2xl-semi mb-4 flex flex-row gap-4">
+        <div className="text-2xl mb-4 flex flex-row gap-4">
           {parents &&
             parents.map((parent) => (
               <span key={parent.id} className="text-muted-foreground">

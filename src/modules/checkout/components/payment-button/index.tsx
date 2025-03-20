@@ -7,7 +7,7 @@ import { useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useState } from "react";
 import ErrorMessage from "../error-message";
 import { Button } from "@/components/ui/button";
-import { Loader, Loader2, Send } from "lucide-react";
+import { Loader } from "lucide-react";
 import { RainbowButton } from "@/components/magicui/rainbow-button";
 
 type PaymentButtonProps = {

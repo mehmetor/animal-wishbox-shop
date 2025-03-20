@@ -29,9 +29,9 @@ const ProfilePassword: React.FC<MyInformationProps> = ({ customer }) => {
       className="w-full"
     >
       <AccountInfo
-        label="Password"
+        label="Şifre"
         currentInfo={
-          <span>The password is not shown for security reasons</span>
+          <span className="text-muted-foreground">Güvenlik nedeniyle şifre görünmez</span>
         }
         isSuccess={successState}
         isError={false}
@@ -41,21 +41,21 @@ const ProfilePassword: React.FC<MyInformationProps> = ({ customer }) => {
       >
         <div className="grid grid-cols-2 gap-4">
           <Input
-            label="Old password"
+            label="Eski Şifre"
             name="old_password"
             required
             type="password"
             data-testid="old-password-input"
           />
           <Input
-            label="New password"
+            label="Yeni Şifre"
             type="password"
             name="new_password"
             required
             data-testid="new-password-input"
           />
           <Input
-            label="Confirm password"
+            label="Şifreyi Doğrula"
             type="password"
             name="confirm_password"
             required

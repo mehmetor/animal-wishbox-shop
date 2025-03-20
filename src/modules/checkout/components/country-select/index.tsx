@@ -22,7 +22,7 @@ type CountrySelectProps = {
   region?: HttpTypes.StoreRegion;
   value?: string;
   required?: boolean;
-  onChange: (e: { target: { name: string; value: string } }) => void;
+  onChange?: (e: { target: { name: string; value: string } }) => void;
   "data-testid"?: string;
 };
 
@@ -83,7 +83,7 @@ const CountrySelect = forwardRef<HTMLButtonElement, CountrySelectProps>(
       // Sadece kullanıcı seçim değişikliği yaptığında çağrılır
       if (selectedCountry) {
         console.log("CountrySelect - onChange çağrılıyor:", selectedCountry);
-        onChange({ target: { name, value: selectedCountry } });
+        onChange?.({ target: { name, value: selectedCountry } });
       }
     }, [selectedCountry]);
 

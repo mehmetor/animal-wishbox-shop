@@ -39,8 +39,8 @@ export default async function ProductPreview({
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
-      <Card className="p-0 gap-1 md:gap-4 shadow-none">
-        <MagicCard  className="py-3 md:py-4">
+      <Card className="ml-2 my-3">
+        <MagicCard>
           <CardHeader>
             <CardTitle>
               <div className="line-clamp-2 text-sm font-semibold md:text-base">

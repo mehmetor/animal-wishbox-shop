@@ -64,13 +64,11 @@ export default async function ProductRail({
             .map((product) => (
               <CarouselItem
                 key={product.id}
-                className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 "
-            >
-              <div className="p-1">
+                className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+              >
                 <ProductPreview product={product} region={region} isFeatured />
-              </div>
-            </CarouselItem>
-          ))}
+              </CarouselItem>
+            ))}
         </CarouselContent>
         <CarouselPrevious />
         <CarouselNext />

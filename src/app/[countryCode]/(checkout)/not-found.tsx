@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default async function NotFound() {
   return (
     <div className="flex flex-col gap-4 items-center justify-center min-h-[calc(100vh-64px)]">
-      <h1 className="text-2xl-semi text-foreground">Page not found</h1>
+      <h1 className="text-2xl text-foreground">Page not found</h1>
       <p className="text-sm font-normal text-foreground">
         The page you tried to access does not exist.
       </p>

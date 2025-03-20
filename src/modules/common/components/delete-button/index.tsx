@@ -1,5 +1,5 @@
 import { deleteLineItem } from "@lib/data/cart";
-import { Loader2, Trash } from "lucide-react";
+import { Loader, Trash } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -41,7 +41,7 @@ const DeleteButton = ({
       >
         {isDeleting ? (
           <>
-            <Loader2 className="animate-spin" />
+            <Loader className="animate-spin" />
           </>
         ) : (
           <>
