@@ -78,7 +78,7 @@ export function MagicCard({
   return (
     <div
       ref={cardRef}
-      className={cn("group relative rounded-[inherit]", className)}
+      className={cn("group relative rounded-[inherit] h-full", className)}
     >
       <motion.div
         className="pointer-events-none absolute inset-0 rounded-[inherit] bg-border duration-300 group-hover:opacity-100"
@@ -102,7 +102,7 @@ export function MagicCard({
           opacity: gradientOpacity,
         }}
       />
-      <div className="relative">{children}</div>
+      <div className="relative flex flex-col justify-between h-full">{children}</div>
     </div>
   );
 }

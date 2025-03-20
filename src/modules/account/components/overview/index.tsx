@@ -85,7 +85,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                         >
                           <Card>
                             <MagicCard>
-                              <CardContent className="flex items-center justify-between">
+                              <CardContent className="flex flex-row items-center justify-between">
                                 <div className="grid flex-1 grid-cols-3 grid-rows-2 gap-x-2 text-sm font-normal">
                                   <span className="font-semibold">Tarih</span>
                                   <span className="font-semibold">

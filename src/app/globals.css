@@ -32,7 +32,7 @@
   --info-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.929 0.013 255.508);
   --input: oklch(0.929 0.013 255.508);
-  --ring: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi */
+  --ring: hsla(216, 85%, 39%, 0.5); /* #0F52BA - Safir Mavisi */
   --chart-1: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi */
   --chart-2: oklch(0.55 0.22 350); /* Pembe - Biraz Daha Açık Ton */
   --chart-3: oklch(0.5 0.18 290); /* Mor Tonu */
@@ -56,7 +56,7 @@
   --white: #ffffff;
   --black: #000000;
   --transparent: transparent;
-  --primary-transparent: #0F52BA15;
+  --primary-transparent: hsla(216, 85%, 39%, 0.1);
 
   /* Safir Renk Paleti */
   --sapphire-50 : hsl(216 85% 97%); /* #eaf3ff */
@@ -107,7 +107,7 @@
   --info-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.279 0.041 260.031);
   --input: oklch(0.279 0.041 260.031);
-  --ring: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi (Daha Parlak) */
+  --ring: hsla(216, 85%, 39%, 0.5); /* #0F52BA - Safir Mavisi (Daha Parlak) */
   --chart-1: hsl(216, 85%, 39%); /* #0F52BA - Safir Mavisi (Daha Parlak) */
   --chart-2: oklch(0.6 0.25 350); /* Pembe - Biraz Daha Açık Ton (Daha Parlak) */
   --chart-3: oklch(0.55 0.2 290); /* Mor Tonu (Daha Parlak) */

@@ -1,7 +1,5 @@
 "use client";
 
-import { Plus } from "@medusajs/icons";
-import { Button, Heading } from "@medusajs/ui";
 import { useEffect, useState, useActionState } from "react";
 
 import useToggleState from "@lib/hooks/use-toggle-state";
@@ -11,6 +9,10 @@ import Modal from "@modules/common/components/modal";
 import { SubmitButton } from "@modules/checkout/components/submit-button";
 import { HttpTypes } from "@medusajs/types";
 import { addCustomerAddress } from "@lib/data/customer";
+import { Card, CardContent } from "@/components/ui/card";
+import { Plus } from "lucide-react";
+import { MagicCard } from "@/components/magicui/magic-card";
+import { Button } from "@/components/ui/button";
 
 const AddAddress = ({
   region,
@@ -48,22 +50,24 @@ const AddAddress = ({
 
   return (
     <>
-      <button
-        className="border-ui-border-base flex h-full min-h-[220px] w-full flex-col justify-between rounded border p-5"
+      <Card
+        className="flex w-full cursor-pointer"
         onClick={open}
         data-testid="add-address-button"
       >
-        <span className="text-base-semi">Yeni adres</span>
-        <Plus />
-      </button>
+        <MagicCard>
+          <CardContent className="flex h-full min-h-[280px] flex-col items-center justify-evenly gap-y-2">
+            <span className="font-semibold">Yeni Adres</span>
+            <Plus size={64} color="gray" strokeWidth={1} />
+          </CardContent>
+        </MagicCard>
+      </Card>
 
       <Modal isOpen={state} close={close} data-testid="add-address-modal">
-        <Modal.Title>
-          <Heading className="mb-2">Adres Ekle</Heading>
-        </Modal.Title>
         <form action={formAction}>
+          <Modal.Title>Adres Ekle</Modal.Title>
           <Modal.Body>
-            <div className="flex flex-col gap-y-2">
+            <div className="flex w-full flex-col gap-y-2">
               <div className="grid grid-cols-2 gap-x-2">
                 <Input
                   label="İsim"
@@ -144,18 +148,15 @@ const AddAddress = ({
             )}
           </Modal.Body>
           <Modal.Footer>
-            <div className="mt-6 flex gap-3">
-              <Button
-                type="reset"
-                variant="secondary"
-                onClick={close}
-                className="h-10"
-                data-testid="cancel-button"
-              >
-                İptal
-              </Button>
-              <SubmitButton data-testid="save-button">Kaydet</SubmitButton>
-            </div>
+            <Button
+              type="reset"
+              variant="outline"
+              onClick={close}
+              data-testid="cancel-button"
+            >
+              İptal
+            </Button>
+            <SubmitButton data-testid="save-button">Kaydet</SubmitButton>
           </Modal.Footer>
         </form>
       </Modal>
