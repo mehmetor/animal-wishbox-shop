@@ -88,14 +88,16 @@ const ShippingAddress = ({
   useEffect(() => {
     // Form verileri başlatıldığında ülke kodu için bir değer olduğundan emin olalım
     // ülke kodu yoksa default ülke kodunu ata
-    if (cart?.region?.countries && 
-        cart.region.countries.length > 0 && 
-        !formData["shipping_address.country_code"]) {
+    if (
+      cart?.region?.countries &&
+      cart.region.countries.length > 0 &&
+      !formData["shipping_address.country_code"]
+    ) {
       const defaultCountry = cart.region.countries[0].iso_2;
       console.log("Ülke değeri yoktu, otomatik ayarlandı:", defaultCountry);
-      setFormData(prevData => ({
+      setFormData((prevData) => ({
         ...prevData,
-        "shipping_address.country_code": defaultCountry
+        "shipping_address.country_code": defaultCountry,
       }));
     }
   }, [cart?.region, formData["shipping_address.country_code"]]);
@@ -204,7 +206,7 @@ const ShippingAddress = ({
         </div>
         <div className="flex flex-col gap-1">
           <Label htmlFor="shipping_address.city">
-            Şehir {<span className="text-destructive">*</span>}
+            İlçe {<span className="text-destructive">*</span>}
           </Label>
           <Input
             id="shipping_address.city"
@@ -217,13 +219,17 @@ const ShippingAddress = ({
           />
         </div>
         <div className="flex flex-col gap-1">
-          <Label htmlFor="shipping_address.province">Şehir</Label>
+          <Label htmlFor="shipping_address.province">
+            Şehir
+            {<span className="text-destructive">*</span>}
+          </Label>
           <Input
             id="shipping_address.province"
             name="shipping_address.province"
             autoComplete="address-level1"
             value={formData["shipping_address.province"]}
             onChange={handleChange}
+            required
             data-testid="shipping-province-input"
           />
         </div>

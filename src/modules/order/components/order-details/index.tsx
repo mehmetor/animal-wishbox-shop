@@ -1,6 +1,14 @@
-import { useLocale } from "next-intl";
+"use client";
+
+import { useLocale, useTranslations } from "next-intl";
 import OrderNumber from "@/modules/common/components/order-number";
 import { HttpTypes } from "@medusajs/types";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { InfoIcon } from "lucide-react";
 
 type OrderDetailsProps = {
   order: HttpTypes.StoreOrder;
@@ -9,12 +17,46 @@ type OrderDetailsProps = {
 
 const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
   const locale = useLocale();
+  const t = useTranslations("Order");
 
-  const formatStatus = (str: string) => {
-    const formatted = str.split("_").join(" ");
-
-    return formatted.slice(0, 1).toUpperCase() + formatted.slice(1);
+  const formatFulfillmentStatus = (status: string) => {
+    try {
+      const key = status.toLowerCase();
+      return {
+        label: t(`fulfillmentStatus.${key}`),
+        description: t(`fulfillmentStatus.${key}_description`),
+      };
+    } catch (error) {
+      // Fallback if translation is not found
+      const formatted = status.split("_").join(" ");
+      return {
+        label: formatted.slice(0, 1).toUpperCase() + formatted.slice(1),
+        description: "",
+      };
+    }
   };
+
+  const formatPaymentStatus = (status: string) => {
+    try {
+      const key = status.toLowerCase();
+      return {
+        label: t(`paymentStatus.${key}`),
+        description: t(`paymentStatus.${key}_description`),
+      };
+    } catch (error) {
+      // Fallback if translation is not found
+      const formatted = status.split("_").join(" ");
+      return {
+        label: formatted.slice(0, 1).toUpperCase() + formatted.slice(1),
+        description: "",
+      };
+    }
+  };
+
+  const fulfillmentStatusInfo = formatFulfillmentStatus(
+    order.fulfillment_status,
+  );
+  const paymentStatusInfo = formatPaymentStatus(order.payment_status);
 
   return (
     <div>
@@ -38,28 +80,45 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
         <OrderNumber id={order.display_id} />
       </div>
 
-      <div className="text-compact-small mt-4 flex items-center gap-x-4">
+      <div className="mt-4 flex flex-col gap-2">
         {showStatus && (
           <>
-            <p>
-              Sipariş durumu:{" "}
-              <span
-                className="text-muted-foreground"
-                data-testid="order-status"
-              >
-                {/* TODO: Check where the statuses should come from */}
-                {formatStatus(order.fulfillment_status)}
-              </span>
-            </p>
-            <p>
-              Ödeme durumu:{" "}
-              <span
-                className="text-muted-foreground"
-                sata-testid="order-payment-status"
-              >
-                {formatStatus(order.payment_status)}
-              </span>
-            </p>
+            <div className="flex items-center gap-1">
+              <p className="text-muted-foreground">
+                Sipariş durumu:{" "}
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span
+                      className="text-foreground font-medium"
+                      data-testid="order-status"
+                    >
+                      {fulfillmentStatusInfo.label}
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent side="right" className="max-w-[240px]">
+                    {fulfillmentStatusInfo.description}
+                  </TooltipContent>
+                </Tooltip>
+              </p>
+            </div>
+            <div className="flex items-center gap-1">
+              <p className="text-muted-foreground">
+                Ödeme durumu:{" "}
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span
+                      className="text-foreground font-medium"
+                      data-testid="order-payment-status"
+                    >
+                      {paymentStatusInfo.label}
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent side="right" className="max-w-[240px]">
+                    {paymentStatusInfo.description}
+                  </TooltipContent>
+                </Tooltip>
+              </p>
+            </div>
           </>
         )}
       </div>

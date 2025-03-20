@@ -30,6 +30,44 @@
     "store": "Mağaza",
     "close": "Kapat"
   },
+  "Order": {
+    "fulfillmentStatus": {
+      "not_fulfilled": "Hazırlanmadı",
+      "not_fulfilled_description": "Sipariş verildiğinde varsayılan durum, siparişteki ürünlerin henüz hazırlanmadığını gösterir.",
+      "partially_fulfilled": "Kısmen Hazırlandı",
+      "partially_fulfilled_description": "Siparişteki bazı ürünler hazırlandı, ancak tümü değil.",
+      "fulfilled": "Hazırlandı",
+      "fulfilled_description": "Siparişteki tüm ürünler hazırlandı.",
+      "partially_shipped": "Kısmen Kargolandı",
+      "partially_shipped_description": "Siparişteki bazı ürünler kargolandı, ancak tümü değil.",
+      "shipped": "Kargolandı",
+      "shipped_description": "Siparişteki tüm ürünler kargolandı.",
+      "partially_delivered": "Kısmen Teslim Edildi",
+      "partially_delivered_description": "Siparişteki bazı ürünler teslim edildi veya alındı olarak işaretlendi, ancak tümü değil.",
+      "delivered": "Teslim Edildi",
+      "delivered_description": "Siparişteki tüm ürünler teslim edildi veya alındı olarak işaretlendi.",
+      "partially_returned": "Kısmen İade Edildi",
+      "partially_returned_description": "Siparişteki bazı ürünler iade edildi, ancak tümü değil.",
+      "returned": "İade Edildi",
+      "returned_description": "Siparişteki tüm ürünler iade edildi.",
+      "canceled": "İptal Edildi",
+      "canceled_description": "Tüm sipariş hazırlıkları iptal edildi."
+    },
+    "paymentStatus": {
+      "authorized": "Yetkilendirildi",
+      "authorized_description": "Ödeme sağlayıcısı otomatik olarak ödemeyi tahsil etmek üzere yapılandırılmadıkça, bir sipariş verildiğinde varsayılan durum.",
+      "partially_authorized": "Kısmen Yetkilendirildi",
+      "partially_authorized_description": "Bir sipariş değiştiğinde gerçekleşen, ödemenin bir kısmı yetkilendirildi. Örneğin, bir sipariş düzenlendiyse ve yeni ödeme gerekiyorsa.",
+      "captured": "Tahsil Edildi",
+      "captured_description": "Ödeme tahsil edildi ve ödeme sağlayıcısı ile işlendi.",
+      "partially_captured": "Kısmen Tahsil Edildi",
+      "partially_captured_description": "Ödemenin bir kısmı tahsil edildi. Bu, bir siparişin ödemesi daha önce tahsil edildiğinde, ancak durumdaki bir değişiklik, örneğin bir değişim, ek ödeme gerektirdiğinde olur.",
+      "refunded": "İade Edildi",
+      "refunded_description": "Ödeme müşteriye iade edildi.",
+      "partially_refunded": "Kısmen İade Edildi",
+      "partially_refunded_description": "Ödemenin bir kısmı iade edildi."
+    }
+  },
   "metadata": {
     "legal": {
       "privacy_policy": {

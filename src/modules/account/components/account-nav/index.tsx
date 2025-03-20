@@ -6,6 +6,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import { HttpTypes } from "@medusajs/types";
 import { signout } from "@lib/data/customer";
 import { ChevronDown, LogOut, User, MapPin, Package } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const AccountNav = ({
   customer,
@@ -104,8 +105,8 @@ const AccountNav = ({
       </div>
       <div className="hidden sm:block" data-testid="account-nav">
         <div>
-          <div className="pb-4">
-            <h3 className="text-base-semi">Hesabım</h3>
+          <div className="pb-4 mb-4">
+            <h3 className="text-2xl">Hesabım</h3>
           </div>
           <div className="text-base">
             <ul className="mb-0 flex flex-col items-start justify-start gap-y-4">
@@ -145,14 +146,14 @@ const AccountNav = ({
                   Siparişlerim
                 </AccountNavLink>
               </li>
-              <li className="text-grey-700">
-                <button
-                  type="button"
+              <li className="text-grey-700 border-t pt-2 -ml-4">
+                <Button
+                  variant="link"
                   onClick={handleLogout}
                   data-testid="logout-button"
                 >
                   Çıkış Yap
-                </button>
+                </Button>
               </li>
             </ul>
           </div>
