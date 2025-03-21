@@ -1,54 +1,50 @@
-import { EllipseMiniSolid } from "@medusajs/icons"
-import { Label, RadioGroup, Text, clx } from "@medusajs/ui"
+import React from "react"
+import { Label } from "@/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
-type FilterRadioGroupProps = {
+type FilterRadioGroupProps<T extends string> = {
   title: string
-  items: {
-    value: string
+  items: Array<{
+    value: T
     label: string
-  }[]
-  value: any
-  handleChange: (...args: any[]) => void
+  }>
+  value: T
+  handleChange: (value: T) => void
   "data-testid"?: string
 }
 
-const FilterRadioGroup = ({
+const FilterRadioGroup = <T extends string>({
   title,
   items,
   value,
   handleChange,
   "data-testid": dataTestId,
-}: FilterRadioGroupProps) => {
+}: FilterRadioGroupProps<T>) => {
   return (
-    <div className="flex gap-x-3 flex-col gap-y-3">
-      <Text className="txt-compact-small-plus text-ui-fg-muted">{title}</Text>
-      <RadioGroup data-testid={dataTestId} onValueChange={handleChange}>
-        {items?.map((i) => (
+    <div className="flex flex-col space-y-4">
+      <p className="text-sm font-medium ">{title}</p>
+      <RadioGroup 
+        value={value} 
+        onValueChange={handleChange}
+        data-testid={dataTestId}
+      >
+        {items?.map((item) => (
           <div
-            key={i.value}
-            className={clx("flex gap-x-2 items-center", {
-              "ml-[-23px]": i.value === value,
-            })}
+            key={item.value}
+            className="flex items-center space-x-2"
           >
-            {i.value === value && <EllipseMiniSolid />}
-            <RadioGroup.Item
-              checked={i.value === value}
-              className="hidden peer"
-              id={i.value}
-              value={i.value}
-            />
-            <Label
-              htmlFor={i.value}
-              className={clx(
-                "!txt-compact-small !transform-none text-ui-fg-subtle hover:cursor-pointer",
-                {
-                  "text-ui-fg-base": i.value === value,
-                }
-              )}
+            <RadioGroupItem value={item.value} id={item.value} />
+            <Label 
+              htmlFor={item.value}
+              className={`text-sm cursor-pointer transition-colors ${
+                item.value === value 
+                  ? "text-gray-900 font-medium" 
+                  : "text-gray-500 hover:text-gray-700"
+              }`}
               data-testid="radio-label"
-              data-active={i.value === value}
+              data-active={item.value === value}
             >
-              {i.label}
+              {item.label}
             </Label>
           </div>
         ))}

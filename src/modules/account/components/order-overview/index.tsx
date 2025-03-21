@@ -1,45 +1,41 @@
-"use client"
+"use client";
 
-import { Button } from "@medusajs/ui"
-
-import OrderCard from "../order-card"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { HttpTypes } from "@medusajs/types"
+import OrderCard from "../order-card";
+import LocalizedClientLink from "@modules/common/components/localized-client-link";
+import { HttpTypes } from "@medusajs/types";
+import { RainbowButton } from "@/components/magicui/rainbow-button";
 
 const OrderOverview = ({ orders }: { orders: HttpTypes.StoreOrder[] }) => {
   if (orders?.length) {
     return (
-      <div className="flex flex-col gap-y-8 w-full">
+      <div className="flex w-full flex-col gap-y-8">
         {orders.map((o) => (
-          <div
-            key={o.id}
-            className="border-b border-gray-200 pb-6 last:pb-0 last:border-none"
-          >
+          <div key={o.id} className="border-b pb-0 last:border-none last:pb-0">
             <OrderCard order={o} />
           </div>
         ))}
       </div>
-    )
+    );
   }
 
   return (
     <div
-      className="w-full flex flex-col items-center gap-y-4"
+      className="flex w-full flex-col items-center gap-y-4 py-16"
       data-testid="no-orders-container"
     >
-      <h2 className="text-large-semi">Nothing to see here</h2>
-      <p className="text-base-regular">
-        You don&apos;t have any orders yet, let us change that {":)"}
+      <h2 className="pb-16 text-2xl">Burada görülecek bir şey yok</h2>
+      <p className="text-muted-foreground">
+        Henüz bir siparişiniz yok, bunu değiştirelim mi? {":)"}
       </p>
-      <div className="mt-4">
+      <div className="my-4">
         <LocalizedClientLink href="/" passHref>
-          <Button data-testid="continue-shopping-button">
-            Continue shopping
-          </Button>
+          <RainbowButton data-testid="continue-shopping-button">
+            Alışverişe devam et
+          </RainbowButton>
         </LocalizedClientLink>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default OrderOverview
+export default OrderOverview;

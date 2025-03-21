@@ -1,55 +1,50 @@
-"use client"
+"use client";
 
-import { Heading, Text, clx } from "@medusajs/ui"
-
-import PaymentButton from "../payment-button"
-import { useSearchParams } from "next/navigation"
+import { useSearchParams } from "next/navigation";
+import LegalDocuments from "@/modules/content/legal-documents/templates";
+import { cn } from "@/lib/utils";
+import PaymentButton from "../payment-button";
 
 const Review = ({ cart }: { cart: any }) => {
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
 
-  const isOpen = searchParams.get("step") === "review"
+  const isOpen = searchParams.get("step") === "review";
 
   const paidByGiftcard =
-    cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0
+    cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0;
 
   const previousStepsCompleted =
     cart.shipping_address &&
     cart.shipping_methods.length > 0 &&
-    (cart.payment_collection || paidByGiftcard)
+    (cart.payment_collection || paidByGiftcard);
 
   return (
-    <div className="bg-white">
-      <div className="flex flex-row items-center justify-between mb-6">
-        <Heading
-          level="h2"
-          className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
-            {
-              "opacity-50 pointer-events-none select-none": !isOpen,
-            }
-          )}
+    <div className="">
+      <div className="mt-4 mb-8 flex flex-row items-center justify-between">
+        <h2
+          className={cn("flex flex-row items-baseline gap-x-2 text-2xl", {
+            "pointer-events-none opacity-50 select-none": !isOpen,
+          })}
         >
-          Review
-        </Heading>
+          Siparişiniz Tamamlandı
+        </h2>
       </div>
       {isOpen && previousStepsCompleted && (
         <>
-          <div className="flex items-start gap-x-1 w-full mb-6">
+          <div className="mb-6 flex w-full items-start gap-x-1">
             <div className="w-full">
-              <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                By clicking the Place Order button, you confirm that you have
-                read, understand and accept our Terms of Use, Terms of Sale and
-                Returns Policy and acknowledge that you have read Medusa
-                Store&apos;s Privacy Policy.
-              </Text>
+              <span className="text-foreground mb-1">
+                <strong>Siparişi Tamamla</strong> düğmesine tıklayarak 
+                <LegalDocuments variant="inline" /> sözleşmelerini okuduğunuzu, anladığınızı ve
+                kabul ettiğinizi onaylamış olursunuz.
+              </span>
             </div>
           </div>
           <PaymentButton cart={cart} data-testid="submit-order-button" />
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Review
+export default Review;

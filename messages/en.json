@@ -1,0 +1,91 @@
+{
+  "HomePage": {
+    "title": "Hello world!",
+    "comingSoon": "Coming soon!",
+    "emptyCart": "Your shopping bag is empty.",
+    "goToCart": "Go to cart",
+    "exclTaxes": "excl. taxes",
+    "inclTaxes": "incl. taxes",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "goToAllProductsPage": "Go to all products page",
+    "exploreProducts": "Explore products",
+    "quantity": "Quantity",
+    "cart": "Cart",
+    "cartTransferError": "Something went wrong when we tried to transfer your cart",
+    "runTransferAgain": "Run transfer again",
+    "transferring": "Transferring..."
+  },
+  "Components": {
+    "variant": "Variant"
+  },
+  "SideMenu": {
+    "allRightsReserved": "All rights reserved.",
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "account": "Account",
+    "cart": "Cart",
+    "store": "Store",
+    "close": "Close"
+  },
+  "Order": {
+    "fulfillmentStatus": {
+      "not_fulfilled": "Not Fulfilled",
+      "not_fulfilled_description": "The default status when an order is placed, indicating that the items in the order haven't been fulfilled yet.",
+      "partially_fulfilled": "Partially Fulfilled",
+      "partially_fulfilled_description": "Some items in the order have been fulfilled, but not all.",
+      "fulfilled": "Fulfilled",
+      "fulfilled_description": "All items in the order have been fulfilled.",
+      "partially_shipped": "Partially Shipped",
+      "partially_shipped_description": "Some items in the order have been shipped, but not all.",
+      "shipped": "Shipped",
+      "shipped_description": "All items in the order have been shipped.",
+      "partially_delivered": "Partially Delivered",
+      "partially_delivered_description": "Some items in the order have been marked as delivered or picked-up, but not all.",
+      "delivered": "Delivered",
+      "delivered_description": "All items in the order have been marked as delivered or picked-up.",
+      "partially_returned": "Partially Returned",
+      "partially_returned_description": "Some items in the order have been returned, but not all.",
+      "returned": "Returned",
+      "returned_description": "All items in the order have been returned.",
+      "canceled": "Canceled",
+      "canceled_description": "All order fulfillments have been canceled."
+    },
+    "paymentStatus": {
+      "authorized": "Authorized",
+      "authorized_description": "The default status when an order is placed, unless the payment provider is configured to automatically capture the payment.",
+      "partially_authorized": "Partially Authorized",
+      "partially_authorized_description": "Part of the payment is authorized, which happens if an order has changed. For example, if an order was edited and new payment is required.",
+      "captured": "Captured",
+      "captured_description": "The payment has been captured and processed with the payment provider.",
+      "partially_captured": "Partially Captured",
+      "partially_captured_description": "A part of the payment has been captured. This happens when an order's payment was previously captured, but a change to the status, such as an exchange, requires additional payment.",
+      "refunded": "Refunded",
+      "refunded_description": "The payment has been refunded to the customer.",
+      "partially_refunded": "Partially Refunded",
+      "partially_refunded_description": "A part of the payment has been refunded."
+    }
+  },
+  "metadata": {
+    "legal": {
+      "privacy_policy": {
+        "title": "Privacy Policy",
+        "description": "Information about Animal Wishbox's privacy policy and personal data protection."
+      },
+      "terms_of_use": {
+        "title": "Terms of Use",
+        "description": "Terms of use for Animal Wishbox website and services."
+      },
+      "terms_of_sale": {
+        "title": "Terms of Sale",
+        "description": "Terms and conditions for the sale of Animal Wishbox products."
+      },
+      "refund_policy": {
+        "title": "Refund Policy",
+        "description": "Return and exchange conditions for Animal Wishbox products."
+      }
+    }
+  }
+}

@@ -1,42 +1,57 @@
-import { deleteLineItem } from "@lib/data/cart"
-import { Spinner, Trash } from "@medusajs/icons"
-import { clx } from "@medusajs/ui"
-import { useState } from "react"
+import { deleteLineItem } from "@lib/data/cart";
+import { Loader, Trash } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const DeleteButton = ({
   id,
   children,
   className,
+  title,
 }: {
-  id: string
-  children?: React.ReactNode
-  className?: string
+  id: string;
+  children?: React.ReactNode;
+  className?: string;
+  title?: string;
 }) => {
-  const [isDeleting, setIsDeleting] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleDelete = async (id: string) => {
-    setIsDeleting(true)
+    setIsDeleting(true);
     await deleteLineItem(id).catch((err) => {
-      setIsDeleting(false)
-    })
-  }
+      setIsDeleting(false);
+    });
+  };
 
   return (
     <div
-      className={clx(
-        "flex items-center justify-between text-small-regular",
-        className
+      className={cn(
+        "text-sm font-normal flex items-center justify-between",
+        className,
       )}
     >
-      <button
-        className="flex gap-x-1 text-ui-fg-subtle hover:text-ui-fg-base cursor-pointer"
+      <Button
+        variant="ghost"
+        // className="text-muted-foreground"
+        size={children ? "default" : "icon"}
         onClick={() => handleDelete(id)}
+        disabled={isDeleting}
+        title={title}
       >
-        {isDeleting ? <Spinner className="animate-spin" /> : <Trash />}
-        <span>{children}</span>
-      </button>
+        {isDeleting ? (
+          <>
+            <Loader className="animate-spin" />
+          </>
+        ) : (
+          <>
+            <Trash />
+            {children}
+          </>
+        )}
+      </Button>
     </div>
-  )
-}
+  );
+};
 
-export default DeleteButton
+export default DeleteButton;

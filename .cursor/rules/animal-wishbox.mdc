@@ -1,0 +1,71 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Animal Wishbox Geliştirme Kuralları
+
+## Proje Yapısı
+
+### Route Yapısı
+- Next.js App Router kullanılmaktadır
+- Tüm sayfalar `src/app/[countryCode]/(main)/` altında oluşturulmalıdır
+- Siparaiş ödeme ve diğer işlemleri için `src\app\[countryCode]\(checkout)`
+- Sayfaların metadata tanımları page.tsx dosyasında yapılmalıdır
+
+### Modül Yapısı
+- Modüller `src/modules/` altında organize edilmelidir
+- Her modül kendi klasöründe bulunmalıdır (örn: `src/modules/contact/`)
+- Modül klasörleri şu yapıda olmalıdır:
+  - `components/`: Modüle özel bileşenler
+  - `templates/`: Sayfa şablonları
+  - `hooks/`: Modüle özel hook'lar (gerekiyorsa)
+
+## Dosya Düzeni
+- Her bileşen kendi klasöründe `index.tsx` olarak oluşturulmalıdır
+- Karmaşık bileşenler alt bileşenlere bölünmelidir
+- Stil tanımları Tailwind CSS ile yapılmalıdır
+
+## Kod Yazım Kuralları
+
+### Genel
+- TypeScript kullanılmalıdır
+- Tüm bileşenler için tip tanımları yapılmalıdır
+- ESLint ve Prettier kurallarına uyulmalıdır
+- Anlaşılır değişken ve fonksiyon isimleri kullanılmalıdır
+
+### Bileşenler
+- Client komponentlerde "use client" direktifi dosya başına eklenmelidir
+- Props için interface kullanılmalıdır
+- React Fragment (<> </>) gereksizse kullanılmamalıdır
+
+### UI Bileşenleri
+- Tailwind için dizayn sistemi yapısına uyulmalıdır
+- UI bileşenleri için `src/components/ui/` altındaki mevcut bileşenler kullanılmalıdır
+- Özel UI bileşenleri için `className` prop ile özelleştirme yapılmalıdır
+- Responsive tasarım için Tailwind breakpoint'leri kullanılmalıdır
+
+## Dil ve Metin İşlemleri
+- Tüm metinler Türkçe olarak eklenir
+- Gerektiğinde çoklu dil desteği için `next-intl` kütüphanesi kullanılacaktır
+- Link yapılarında `LocalizedClientLink` komponenti kullanılmalıdır
+
+## API ve Veri İşlemleri
+- Veri çekme işlemleri için React Query veya SWR kullanılmalıdır
+- Form işlemleri için React Hook Form tercih edilmelidir
+- API çağrıları için axios veya fetch kullanılmalıdır
+
+## Sayfa Yapısı Standartları
+- Her sayfa için responsive tasarım uygulanmalıdır
+- Ana içerik max genişliği `max-w-screen-2xl` ile sınırlanmalıdır
+- Sayfa başlıkları `h1` elementi olmalı ve uygun sınıflar uygulanmalıdır
+
+## Navigasyon ve Footer
+- Yeni sayfalar için navigasyon ve footer'a link eklemek gerekebilir
+- İletişim sayfasında olduğu gibi nav ve footer'a link eklerken aynı stil ve yapı kullanılmalıdır
+
+## Açıklamalar
+- Karmaşık kod blokları için açıklama satırları eklenmelidir
+- Kodun okunabilirliği için kısa açıklamalar tercih edilmelidir
+
+Bu doküman Animal Wishbox projesinin geliştirme kurallarını içermektedir. Yeni sayfalar ve özellikler eklerken bu kurallara uyulması, projenin tutarlılığı açısından önemlidir.

@@ -10,6 +10,8 @@ import { getProductPrice } from "@lib/util/get-product-price"
 import OptionSelect from "./option-select"
 import { HttpTypes } from "@medusajs/types"
 import { isSimpleProduct } from "@lib/util/product"
+import { RainbowButton } from "@/components/magicui/rainbow-button"
+import Spinner from "@/modules/common/icons/spinner"
 
 type MobileActionsProps = {
   product: HttpTypes.StoreProduct
@@ -55,7 +57,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
   return (
     <>
       <div
-        className={clx("lg:hidden inset-x-0 bottom-0 fixed", {
+        className={clx("lg:hidden inset-x-0 bottom-0 fixed z-10", {
           "pointer-events-none": !show,
         })}
       >
@@ -77,17 +79,17 @@ const MobileActions: React.FC<MobileActionsProps> = ({
               <span data-testid="mobile-title">{product.title}</span>
               <span>—</span>
               {selectedPrice ? (
-                <div className="flex items-end gap-x-2 text-ui-fg-base">
+                <div className="flex items-end gap-x-2 text-foreground">
                   {selectedPrice.price_type === "sale" && (
                     <p>
-                      <span className="line-through text-small-regular">
+                      <span className="line-through text-sm font-normal">
                         {selectedPrice.original_price}
                       </span>
                     </p>
                   )}
                   <span
                     className={clx({
-                      "text-ui-fg-interactive":
+                      "text-primary":
                         selectedPrice.price_type === "sale",
                     })}
                   >
@@ -116,19 +118,20 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                   <ChevronDown />
                 </div>
               </Button>}
-              <Button
+              <RainbowButton
                 onClick={handleAddToCart}
-                disabled={!inStock || !variant}
+                disabled={!inStock || !variant || isAdding}
                 className="w-full"
-                isLoading={isAdding}
                 data-testid="mobile-cart-button"
               >
                 {!variant
-                  ? "Select variant"
+                  ? "Seçiniz"
                   : !inStock
-                  ? "Out of stock"
-                  : "Add to cart"}
-              </Button>
+                  ? "Stokta yok"
+                  : isAdding
+                  ? <Spinner className="animate-spin mx-auto" />
+                  : "Sepete Ekle"}
+              </RainbowButton>
             </div>
           </div>
         </Transition>
@@ -165,7 +168,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                   <div className="w-full flex justify-end pr-6">
                     <button
                       onClick={close}
-                      className="bg-white w-12 h-12 rounded-full text-ui-fg-base flex justify-center items-center"
+                      className="bg-white w-12 h-12 rounded-full text-foreground flex justify-center items-center"
                       data-testid="close-modal-button"
                     >
                       <X />

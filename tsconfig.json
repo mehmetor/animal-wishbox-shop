@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -16,6 +16,7 @@
     "incremental": true,
     "baseUrl": "./src",
     "paths": {
+      "@/*": ["*"],
       "@lib/*": ["lib/*"],
       "@modules/*": ["modules/*"],
       "@pages/*": ["pages/*"]
@@ -30,6 +31,12 @@
   "exclude": [
     "node_modules",
     ".next",
+    ".cursor",
+    ".vscode",
+    ".git",
+    ".github",
+    ".yarn",
+    "docs",
     ".nyc_output",
     "coverage",
     "jest-coverage"
