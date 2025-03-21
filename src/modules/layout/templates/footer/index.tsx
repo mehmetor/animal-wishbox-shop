@@ -174,7 +174,7 @@ export default async function Footer() {
           <div className="flex flex-col">
             <p>© {new Date().getFullYear()} Animal Wishbox.</p>
             <p>Tüm hakları saklıdır.</p>
-            <p>v0.1.3</p>
+            <p>v0.0.4</p>
 
             <ul className="mt-2">
               <li>
