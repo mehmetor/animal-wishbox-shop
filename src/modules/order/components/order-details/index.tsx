@@ -59,8 +59,8 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
   const paymentStatusInfo = formatPaymentStatus(order.payment_status);
 
   return (
-    <div>
-      <p>
+    <div className="flex flex-col gap-6">
+      <p className="">
         Sipariş onay detaylarını{" "}
         <span
           className="text-foreground/85 font-semibold"
@@ -70,37 +70,20 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
         </span>{" "}
         adresine gönderdik.
       </p>
-      <p className="mt-2">
-        <span className="text-muted-foreground">Sipariş tarihi:</span>{" "}
-        <span data-testid="order-date">
-          {new Date(order.created_at).toLocaleDateString(locale)}
-        </span>
-      </p>
-      <div className="text-primary mt-2">
+
+      <div className="flex flex-col gap-2">
+        <p className="text-primary">
+          <span className="text-muted-foreground">Sipariş tarihi:</span>{" "}
+          <span data-testid="order-date">
+            {new Date(order.created_at).toLocaleDateString(locale)}
+          </span>
+        </p>
         <OrderNumber id={order.display_id} />
       </div>
 
-      <div className="mt-4 flex flex-col gap-2">
-        {showStatus && (
+      {showStatus && (
+        <div className="flex flex-col gap-2">
           <>
-            <div className="flex items-center gap-1">
-              <p className="text-muted-foreground">
-                Sipariş durumu:{" "}
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <span
-                      className="text-foreground font-medium"
-                      data-testid="order-status"
-                    >
-                      {fulfillmentStatusInfo.label}
-                    </span>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" className="max-w-[240px]">
-                    {fulfillmentStatusInfo.description}
-                  </TooltipContent>
-                </Tooltip>
-              </p>
-            </div>
             <div className="flex items-center gap-1">
               <p className="text-muted-foreground">
                 Ödeme durumu:{" "}
@@ -119,9 +102,27 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
                 </Tooltip>
               </p>
             </div>
+            <div className="flex items-center gap-1">
+              <p className="text-muted-foreground">
+                Sipariş durumu:{" "}
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span
+                      className="text-foreground font-medium"
+                      data-testid="order-status"
+                    >
+                      {fulfillmentStatusInfo.label}
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent side="right" className="max-w-[240px]">
+                    {fulfillmentStatusInfo.description}
+                  </TooltipContent>
+                </Tooltip>
+              </p>
+            </div>
           </>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

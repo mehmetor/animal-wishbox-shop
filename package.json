@@ -12,7 +12,7 @@
     "dev": "next dev -p 8000",
     "dev:turbo": "next dev --turbopack -p 8000",
     "dev:prod": "npx dotenv -e .env -- next dev -p 8000",
-    "dev:staging": "npx dotenv -e .env.local -- next dev -p 8000",
+    "dev:staging": "npx dotenv -e .env.staging -- next dev -p 8000",
     "build": "next build",
     "start": "next start -p 8000",
     "lint": "next lint",

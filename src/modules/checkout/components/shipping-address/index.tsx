@@ -131,7 +131,7 @@ const ShippingAddress = ({
   return (
     <>
       {customer && (addressesInRegion?.length || 0) > 0 && (
-        <Container className="mb-6 flex flex-col gap-y-4 p-5">
+        <Container className="mb-6 flex flex-col gap-y-4 px-0 py-4">
           <p className="text-sm font-normal">
             {`Merhaba ${customer.first_name}, kayıtlı adreslerinizden birini kullanmak ister misiniz?`}
           </p>
