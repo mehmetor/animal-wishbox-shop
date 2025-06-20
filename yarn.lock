@@ -731,6 +731,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@internationalized/date@npm:^3.8.2":
+  version: 3.8.2
+  resolution: "@internationalized/date@npm:3.8.2"
+  dependencies:
+    "@swc/helpers": ^0.5.0
+  checksum: d364413fe6a2ab5b376bb7449a120262d839cd35554a06b331984ce7f9e1d9c3ca7e5a07a6126193eae246fcea4fefafe08e56dea07ebdb585b671305917f712
+  languageName: node
+  linkType: hard
+
 "@internationalized/message@npm:^3.1.6":
   version: 3.1.6
   resolution: "@internationalized/message@npm:3.1.6"
@@ -5712,6 +5721,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.17.5
     "@headlessui/react": ^2.2.0
+    "@internationalized/date": ^3.8.2
     "@medusajs/js-sdk": latest
     "@medusajs/types": latest
     "@medusajs/ui": latest
