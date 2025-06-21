@@ -829,6 +829,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@medusajs/icons@npm:^2.8.4":
+  version: 2.8.4
+  resolution: "@medusajs/icons@npm:2.8.4"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
+  checksum: 14cf7fc2ab43c4f1ce2c601faa184504fac1069d8baec8e71feb82400e88a93edc124747b2b784be9deeed6f833424b18d553b9227b1ae62648a0173c9cf9553
+  languageName: node
+  linkType: hard
+
 "@medusajs/js-sdk@latest":
   version: 2.6.1
   resolution: "@medusajs/js-sdk@npm:2.6.1"
@@ -5846,6 +5855,7 @@ __metadata:
     "@babel/core": ^7.17.5
     "@headlessui/react": ^2.2.0
     "@internationalized/date": ^3.8.2
+    "@medusajs/icons": ^2.8.4
     "@medusajs/js-sdk": latest
     "@medusajs/types": latest
     "@medusajs/ui": latest

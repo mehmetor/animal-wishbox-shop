@@ -26,6 +26,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@internationalized/date": "^3.8.2",
+    "@medusajs/icons": "^2.8.4",
     "@medusajs/js-sdk": "latest",
     "@medusajs/ui": "latest",
     "@radix-ui/react-accordion": "^1.2.3",
