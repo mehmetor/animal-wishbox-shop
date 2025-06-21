@@ -8,6 +8,9 @@
   "keywords": [
     "animal-wishbox"
   ],
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "next dev -p 8000",
     "dev:turbo": "next dev --turbopack -p 8000",
