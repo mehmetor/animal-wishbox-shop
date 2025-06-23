@@ -70,21 +70,25 @@
   },
   "metadata": {
     "legal": {
-      "privacy_policy": {
-        "title": "Privacy Policy",
-        "description": "Information about Animal Wishbox's privacy policy and personal data protection."
+      "return_cancellation_policy": {
+        "title": "Return – Cancellation – Exchange Policy",
+        "description": "Detailed information about our return, cancellation, and exchange processes and conditions."
       },
-      "terms_of_use": {
-        "title": "Terms of Use",
-        "description": "Terms of use for Animal Wishbox website and services."
+      "kvkk_disclosure": {
+        "title": "KVKK Disclosure Statement",
+        "description": "Detailed information about personal data protection and disclosure statement."
       },
-      "terms_of_sale": {
-        "title": "Terms of Sale",
-        "description": "Terms and conditions for the sale of Animal Wishbox products."
+      "distance_sales_contract": {
+        "title": "Distance Sales Contract",
+        "description": "Detailed information about the distance sales contract and the rights of the parties."
       },
-      "refund_policy": {
-        "title": "Refund Policy",
-        "description": "Return and exchange conditions for Animal Wishbox products."
+      "preliminary_information_form": {
+        "title": "Preliminary Information Form",
+        "description": "Detailed information about the pre-sales information form and customer rights."
+      },
+      "consent_document": {
+        "title": "Consent Document",
+        "description": "Consent document regarding the processing of personal data."
       }
     }
   }

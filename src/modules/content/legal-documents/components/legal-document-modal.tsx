@@ -1,24 +1,20 @@
 "use client";
 
-import { useState } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { PrivacyPolicy } from "./privacy-policy";
-import { TermsOfUse } from "./terms-of-use";
-import { TermsOfSale } from "./terms-of-sale";
-import { RefundPolicy } from "./refund-policy";
+import { ReturnCancellationPolicy } from "./return-cancellation-policy";
+import { KvkkDisclosure } from "./kvkk-disclosure";
+import { ConsentDocument } from "./consent-document";
+import { DistanceSalesContract } from "./distance-sales-contract";
+import { PreliminaryInformationForm } from "./preliminary-information-form";
 
 export type LegalDocumentType =
-  | "terms-of-use"
-  | "terms-of-sale"
-  | "refund-policy"
-  | "privacy-policy";
+  | "return-cancellation-policy"
+  | "kvkk-disclosure"
+  | "distance-sales-contract"
+  | "preliminary-information-form"
+  | "consent-document";
 
 interface LegalDocumentModalProps {
   open: boolean;
@@ -28,14 +24,16 @@ interface LegalDocumentModalProps {
 
 const renderDocument = (documentType: LegalDocumentType | null) => {
   switch (documentType) {
-    case "terms-of-use":
-      return <TermsOfUse />;
-    case "terms-of-sale":
-      return <TermsOfSale />;
-    case "refund-policy":
-      return <RefundPolicy />;
-    case "privacy-policy":
-      return <PrivacyPolicy />;
+    case "return-cancellation-policy":
+      return <ReturnCancellationPolicy />;
+    case "kvkk-disclosure":
+      return <KvkkDisclosure />;
+    case "distance-sales-contract":
+      return <DistanceSalesContract />;
+    case "preliminary-information-form":
+      return <PreliminaryInformationForm />;
+    case "consent-document":
+      return <ConsentDocument />;
     default:
       return null;
   }
@@ -43,14 +41,16 @@ const renderDocument = (documentType: LegalDocumentType | null) => {
 
 const getDocumentTitle = (documentType: LegalDocumentType | null) => {
   switch (documentType) {
-    case "terms-of-use":
-      return "Kullanım Şartları";
-    case "terms-of-sale":
-      return "Satış Şartları";
-    case "refund-policy":
-      return "İade Politikası";
-    case "privacy-policy":
-      return "Gizlilik Politikası";
+    case "return-cancellation-policy":
+      return "İade – İptal – Değişim Politikası";
+    case "kvkk-disclosure":
+      return "KVKK Aydınlatma Metni";
+    case "distance-sales-contract":
+      return "Mesafeli Satış Sözleşmesi";
+    case "preliminary-information-form":
+      return "Ön Bilgilendirme Formu";
+    case "consent-document":
+      return "Açık Rıza Metni";
     default:
       return "";
   }

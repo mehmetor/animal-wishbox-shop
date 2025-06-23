@@ -5,10 +5,10 @@ import MarkdownComponentStyles from "./markdown-component-styles";
 import { useLegalDocument } from "../hooks/use-legal-document";
 import { SkeletonTypography } from "@/components/ui/skeleton";
 
-export const RefundPolicy = () => {
+export const DistanceSalesContract = () => {
   const { content, isLoading, error } = useLegalDocument(
-    "/api/legal-documents/iade-politikasi",
-    "iade-politikasi",
+    "/api/legal-documents/mesafeli-satis-sozlesmesi",
+    "mesafeli-satis-sozlesmesi"
   );
 
   if (isLoading) {
@@ -24,4 +24,4 @@ export const RefundPolicy = () => {
       {content}
     </ReactMarkdown>
   );
-};
+}; 

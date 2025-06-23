@@ -7,7 +7,7 @@ export async function GET() {
     const filePath = path.join(
       process.cwd(),
       "src/modules/content/legal-documents/documents",
-      "satis-sartlari.md"
+      "iade-iptal-degisim-politikasi.md"
     );
     const content = await readFile(filePath, "utf8");
     return new NextResponse(content, {
@@ -16,7 +16,7 @@ export async function GET() {
       },
     });
   } catch (error) {
-    console.error("Satış şartları dosyası okunamadı:", error);
+    console.error("İade-iptal-değişim politikası dosyası okunamadı:", error);
     return new NextResponse("Dosya bulunamadı", { status: 404 });
   }
 } 

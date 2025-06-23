@@ -23,34 +23,16 @@ const LegalDocuments = ({ variant = "inline" }: LegalDocumentsProps) => {
   if (variant === "footer") {
     return (
       <div className="flex flex-wrap gap-2 text-sm">
-        <LegalDocumentLink
-          documentType="privacy-policy"
-          text="Gizlilik Politikası"
-          onClick={handleOpenDocument}
-        />
+        <LegalDocumentLink documentType="return-cancellation-policy" text="İade, İptal, Değişim Politikası" onClick={handleOpenDocument} />
         <span>•</span>
-        <LegalDocumentLink
-          documentType="terms-of-use"
-          text="Kullanım Şartları"
-          onClick={handleOpenDocument}
-        />
+        <LegalDocumentLink documentType="kvkk-disclosure" text="KVKK Aydınlatma Metni" onClick={handleOpenDocument} />
         <span>•</span>
-        <LegalDocumentLink
-          documentType="terms-of-sale"
-          text="Satış Şartları"
-          onClick={handleOpenDocument}
-        />
+        <LegalDocumentLink documentType="distance-sales-contract" text="Mesafeli Satış Sözleşmesi" onClick={handleOpenDocument} />
         <span>•</span>
-        <LegalDocumentLink
-          documentType="refund-policy"
-          text="İade Politikası"
-          onClick={handleOpenDocument}
-        />
-        <LegalDocumentModal
-          open={open}
-          onOpenChange={setOpen}
-          documentType={activeDocument}
-        />
+        <LegalDocumentLink documentType="preliminary-information-form" text="Ön Bilgilendirme Formu" onClick={handleOpenDocument} />
+        <span>•</span>
+        <LegalDocumentLink documentType="consent-document" text="Açık Rıza Metni" onClick={handleOpenDocument} />
+        <LegalDocumentModal open={open} onOpenChange={setOpen} documentType={activeDocument} />
       </div>
     );
   }
@@ -60,26 +42,32 @@ const LegalDocuments = ({ variant = "inline" }: LegalDocumentsProps) => {
       <span className="text-base">
         &nbsp;
         <LegalDocumentLink
-          documentType="terms-of-use"
-          text="Kullanım Şartları"
+          documentType="return-cancellation-policy"
+          text="İade – İptal – Değişim Politikası"
           onClick={handleOpenDocument}
         />
         <span>,&nbsp;</span>
         <LegalDocumentLink
-          documentType="terms-of-sale"
-          text="Satış Şartları"
+          documentType="kvkk-disclosure"
+          text="KVKK Aydınlatma Metni"
           onClick={handleOpenDocument}
         />
         <span>,&nbsp;</span>
         <LegalDocumentLink
-          documentType="refund-policy"
-          text="İade Politikası"
+          documentType="distance-sales-contract"
+          text="Mesafeli Satış Sözleşmesi"
           onClick={handleOpenDocument}
         />
         <span>&nbsp;ve&nbsp;</span>
         <LegalDocumentLink
-          documentType="privacy-policy"
-          text="Gizlilik Politikası"
+          documentType="preliminary-information-form"
+          text="Ön Bilgilendirme Formu"
+          onClick={handleOpenDocument}
+        />
+        <span>,&nbsp;</span>
+        <LegalDocumentLink
+          documentType="consent-document"
+          text="Açık Rıza Metni"
           onClick={handleOpenDocument}
         />
         &nbsp;

@@ -7,7 +7,7 @@ export async function GET() {
     const filePath = path.join(
       process.cwd(),
       "src/modules/content/legal-documents/documents",
-      "gizlilik-politikasi.md"
+      "acik-riza-metni.md"
     );
     const content = await readFile(filePath, "utf8");
     return new NextResponse(content, {
@@ -16,7 +16,7 @@ export async function GET() {
       },
     });
   } catch (error) {
-    console.error("Gizlilik politikası dosyası okunamadı:", error);
+    console.error("Açık rıza metni dosyası okunamadı:", error);
     return new NextResponse("Dosya bulunamadı", { status: 404 });
   }
 } 

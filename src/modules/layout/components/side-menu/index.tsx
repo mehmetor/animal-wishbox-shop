@@ -83,28 +83,32 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
               </li>
               <Divider />
               <li className="text-sm">
-                <LocalizedClientLink href="/legal/privacy-policy" passHref>
-                  Gizlilik Politikası
-                </LocalizedClientLink>
-              </li>
-
-              <li className="text-sm">
-                <LocalizedClientLink href="/legal/terms-of-use" passHref>
-                  Kullanım Şartları
+                <LocalizedClientLink href="/yasal/iade-iptal-degisim-politikasi" passHref>
+                  İade – İptal – Değişim Politikası
                 </LocalizedClientLink>
               </li>
               <li className="text-sm">
-                <LocalizedClientLink href="/legal/terms-of-sale" passHref>
-                  Satış Şartları
+                <LocalizedClientLink href="/yasal/kvkk-aydinlatma-metni" passHref>
+                  KVKK Aydınlatma Metni
                 </LocalizedClientLink>
               </li>
               <li className="text-sm">
-                <LocalizedClientLink href="/legal/refund-policy" passHref>
-                  İade Politikası
+                <LocalizedClientLink href="/yasal/mesafeli-satis-sozlesmesi" passHref>
+                  Mesafeli Satış Sözleşmesi
+                </LocalizedClientLink>
+              </li>
+              <li className="text-sm">
+                <LocalizedClientLink href="/yasal/on-bilgilendirme-formu" passHref>
+                  Ön Bilgilendirme Formu
+                </LocalizedClientLink>
+              </li>
+              <li className="text-sm">
+                <LocalizedClientLink href="/yasal/acik-riza-metni" passHref>
+                  Açık Rıza Metni
                 </LocalizedClientLink>
               </li>
             </ul>
-            <div className="flex flex-col gap-y-6">
+            <div className="flex flex-col gap-y-6 hidden">
               <Divider />
               <div
                 className="flex justify-between"

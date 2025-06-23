@@ -70,21 +70,25 @@
   },
   "metadata": {
     "legal": {
-      "privacy_policy": {
-        "title": "Gizlilik Politikası",
-        "description": "Animal Wishbox'un gizlilik politikası ve kişisel verilerin korunması hakkında bilgiler."
+      "return_cancellation_policy": {
+        "title": "İade – İptal – Değişim Politikası",
+        "description": "İade, iptal ve değişim süreçlerimiz ve koşullarımız hakkında detaylı bilgi."
       },
-      "terms_of_use": {
-        "title": "Kullanım Şartları",
-        "description": "Animal Wishbox web sitesi ve hizmetlerinin kullanım şartları."
+      "kvkk_disclosure": {
+        "title": "KVKK Aydınlatma Metni",
+        "description": "Kişisel verilerin korunması ve aydınlatma metni hakkında detaylı bilgi."
       },
-      "terms_of_sale": {
-        "title": "Satış Şartları",
-        "description": "Animal Wishbox ürünlerinin satış şartları ve koşulları."
+      "distance_sales_contract": {
+        "title": "Mesafeli Satış Sözleşmesi",
+        "description": "Mesafeli satış sözleşmesi ve tarafların hakları hakkında detaylı bilgi."
       },
-      "refund_policy": {
-        "title": "İade Politikası",
-        "description": "Animal Wishbox ürünleri için iade ve değişim koşulları."
+      "preliminary_information_form": {
+        "title": "Ön Bilgilendirme Formu",
+        "description": "Satış öncesi bilgilendirme formu ve müşteri hakları hakkında detaylı bilgi."
+      },
+      "consent_document": {
+        "title": "Açık Rıza Metni",
+        "description": "Kişisel verilerin işlenmesine ilişkin açık rıza metni."
       }
     }
   }

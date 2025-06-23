@@ -4,7 +4,6 @@ import { listCollections } from "@lib/data/collections";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
 import MedusaCTA from "@modules/layout/components/medusa-cta";
 import { ExternalLink } from "lucide-react";
-import LegalDocuments from "@/modules/content/legal-documents/templates";
 
 export default async function Footer() {
   const { collections } = await listCollections({
@@ -136,33 +135,41 @@ export default async function Footer() {
                 <li>
                   <LocalizedClientLink
                     className="hover:text-gray-900"
-                    href="/legal/privacy-policy"
+                    href="/yasal/iade-iptal-degisim-politikasi"
                   >
-                    Gizlilik Politikası
+                    İade – İptal – Değişim Politikası
                   </LocalizedClientLink>
                 </li>
                 <li>
                   <LocalizedClientLink
                     className="hover:text-gray-900"
-                    href="/legal/terms-of-use"
+                    href="/yasal/kvkk-aydinlatma-metni"
                   >
-                    Kullanım Şartları
+                    KVKK Aydınlatma Metni
                   </LocalizedClientLink>
                 </li>
                 <li>
                   <LocalizedClientLink
                     className="hover:text-gray-900"
-                    href="/legal/terms-of-sale"
+                    href="/yasal/mesafeli-satis-sozlesmesi"
                   >
-                    Satış Şartları
+                    Mesafeli Satış Sözleşmesi
                   </LocalizedClientLink>
                 </li>
                 <li>
                   <LocalizedClientLink
                     className="hover:text-gray-900"
-                    href="/legal/refund-policy"
+                    href="/yasal/on-bilgilendirme-formu"
                   >
-                    İade Politikası
+                    Ön Bilgilendirme Formu
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    className="hover:text-gray-900"
+                    href="/yasal/acik-riza-metni"
+                  >
+                    Açık Rıza Metni
                   </LocalizedClientLink>
                 </li>
               </ul>

@@ -5,10 +5,10 @@ import MarkdownComponentStyles from "./markdown-component-styles";
 import { useLegalDocument } from "../hooks/use-legal-document";
 import { SkeletonTypography } from "@/components/ui/skeleton";
 
-export const TermsOfUse = () => {
+export const KvkkDisclosure = () => {
   const { content, isLoading, error } = useLegalDocument(
-    "/api/legal-documents/kullanim-sartlari",
-    "kullanim-sartlari",
+    "/api/legal-documents/kvkk-aydinlatma-metni",
+    "kvkk-aydinlatma-metni"
   );
 
   if (isLoading) {
@@ -24,4 +24,4 @@ export const TermsOfUse = () => {
       {content}
     </ReactMarkdown>
   );
-};
+}; 
