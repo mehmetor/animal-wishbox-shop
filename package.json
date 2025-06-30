@@ -79,7 +79,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
-    "@medusajs/types": "latest",
+    "@medusajs/types": "^2.8.6",
     "@medusajs/ui-preset": "latest",
     "@tailwindcss/postcss": "^4.0.12",
     "@types/lodash": "^4.14.195",
