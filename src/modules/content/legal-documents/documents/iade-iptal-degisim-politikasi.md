@@ -53,17 +53,3 @@ Lütfen iade talebinizi iletmek için bizimle iletişime geçin:
 **Yayın Tarihi: [26.05.2025]**
 
 Bu metin, mevzuat değişikliklerine göre güncellenebilir.
-
-
-
-
-
-
-
-
-
-
-
-
-
-![](Aspose.Words.3650bb00-7df6-458a-b7cd-2d84e36cbb3b.001.png)![](Aspose.Words.3650bb00-7df6-458a-b7cd-2d84e36cbb3b.002.png)

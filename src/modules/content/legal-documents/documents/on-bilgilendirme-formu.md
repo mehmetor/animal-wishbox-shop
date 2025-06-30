@@ -46,5 +46,3 @@ Sipariş veren müşteri, bu bilgilendirme formunu okuyup kabul ettiğini ve Mes
 **Yayın Tarihi: 26.05.2025**
 
 Bu metin, mevzuat değişikliklerine göre güncellenebilir.
-
-
