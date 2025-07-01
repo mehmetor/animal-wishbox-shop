@@ -13,6 +13,7 @@ import {
   removeAuthToken,
   setAuthToken,
 } from "./cookies"
+import { cookies } from "next/headers"
 
 export const retrieveCustomer =
   async (): Promise<HttpTypes.StoreCustomer | null> => {
@@ -254,4 +255,47 @@ export const updateCustomerAddress = async (
     .catch((err) => {
       return { success: false, error: err.toString() }
     })
+}
+
+export async function requestPasswordReset(
+  previousState: string | null,
+  formData: FormData
+): Promise<string | null> {
+  const email = formData.get("email") as string;
+
+  if (!email) {
+    return "Lütfen e-posta adresinizi girin.";
+  }
+
+  try {
+    await sdk.auth.resetPassword("customer", "emailpass", { identifier: email });
+  } catch (error: any) {
+    return error.toString();
+  }
+
+  return "Girmiş olduğunuz e-posta adresine sahip bir hesap varsa, şifre sıfırlama talimatlarını içeren bir e-posta gönderilecektir.";
+}
+
+export async function resetPassword(
+  previousState: string | null,
+  formData: FormData
+): Promise<string | null> {
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
+  const token = formData.get("token") as string;
+
+  if (!email || !password || !token) {
+    return "Lütfen tüm alanları doldurun.";
+  }
+
+  try {
+    await sdk.auth.updateProvider("customer", "emailpass", { email, password }, token);
+  } catch (error: any) {
+    return error.toString();
+  }
+
+  const customerCacheTag = await getCacheTag("customers");
+  revalidateTag(customerCacheTag);
+  
+  redirect(`/${formData.get("countryCode")}/account`);
 }

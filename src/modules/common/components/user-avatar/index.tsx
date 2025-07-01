@@ -16,7 +16,11 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
   className = "",
 }) => {
   if (!customer) {
-    return <User className={`hover:text-gray-700 ${className}`} />;
+    return (
+      <LocalizedClientLink href="/account" data-testid="nav-account-link">
+        <User className={`hover:text-gray-700 ${className}`} />
+      </LocalizedClientLink>
+    );
   }
 
   const initials =

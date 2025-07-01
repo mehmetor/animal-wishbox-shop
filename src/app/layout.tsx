@@ -22,6 +22,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} data-mode="light">
+      <head>
+        <link rel="icon" href="/icon.png" type="image/png" sizes="any" />
+      </head>
       <body>
         <NextIntlClientProvider messages={messages}>
           {children}

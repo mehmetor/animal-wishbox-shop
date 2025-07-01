@@ -36,6 +36,18 @@ const Register = ({ setCurrentView }: Props) => {
       <p className="text-foreground mb-4 text-center text-base">
         Üye profilinizi oluşturun ve gelişmiş bir alışveriş deneyimine erişin.
       </p>
+      {/* <div className="text-foreground my-4 w-full rounded-md bg-amber-100 p-4 text-center text-sm">
+        <span className="font-semibold">Önemli:</span> Daha önce misafir olarak
+        sipariş verdiyseniz, siparişlerinizi görüntülemek için{" "}
+        <button
+          onClick={() => setCurrentView(LOGIN_VIEW.RESET_PASSWORD)}
+          className="text-primary font-semibold underline"
+        >
+          şifre oluşturmanız
+        </button>{" "}
+        gerekmektedir. Yeni üyelik oluşturmak, eski siparişlerinize erişim
+        sağlamaz.
+      </div> */}
       <form className="flex w-full flex-col" action={formAction}>
         <div className="flex w-full flex-col gap-y-2">
           <Input
@@ -81,7 +93,7 @@ const Register = ({ setCurrentView }: Props) => {
           Üye olarak, Animal Wishbox&apos;ın{" "}
           <button
             type="button"
-            onClick={() => handleOpenDocument("privacy-policy")}
+            onClick={() => handleOpenDocument("kvkk-disclosure")}
             className="text-primary underline"
           >
             Gizlilik Politikası
@@ -89,12 +101,12 @@ const Register = ({ setCurrentView }: Props) => {
           ve{" "}
           <button
             type="button"
-            onClick={() => handleOpenDocument("terms-of-use")}
+            onClick={() => handleOpenDocument("distance-sales-contract")}
             className="text-primary underline"
           >
             Kullanım Sözleşmesi
           </button>
-          .
+          'ni kabul etmiş olursunuz.
         </span>
         <SubmitButton className="mt-6 w-full" data-testid="register-button">
           Üye Ol
@@ -104,11 +116,17 @@ const Register = ({ setCurrentView }: Props) => {
         Zaten üye misiniz?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
-          className="underline"
+          className="text-primary underline"
         >
           Giriş Yap
         </button>
-        .
+        {" | "}
+        <button
+          onClick={() => setCurrentView(LOGIN_VIEW.RESET_PASSWORD)}
+          className="text-primary underline"
+        >
+          Şifremi Unuttum
+        </button>
       </span>
 
       <LegalDocumentModal
