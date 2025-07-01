@@ -23,6 +23,7 @@ Bu doküman, müşteri tarafından yapılan testler sonucunda iletilen geri bild
 3.  **Telefon Bilgisi Zorunluluğu:** Teslimat adresinde telefon bilgisinin zorunlu alan olması gerekiyor.
 4.  [x] **Teslimat Adresi Kaydetme Hatası:** Mobildekiyle aynı şekilde, ilk denemede hata alınıp ana sayfaya yönlendiriliyor.
 5.  **Sipariş Akışı UI/UX:** Teslimat adresi sonrası adımlar (Ödeme, Onay) ayrı sayfalar gibi sunulabilir. Kullanıcının "Sipariş Tamamlandı" yazısını en sonda görmesi daha iyi bir deneyim olabilir.
+    - **Cevap:** Sipariş Tamamlandı yazısı zaten en son görünüyor, daha sonra yine de gerekirse yeni ekran konusunu programa alırız.
 
 ---
 
@@ -30,17 +31,21 @@ Bu doküman, müşteri tarafından yapılan testler sonucunda iletilen geri bild
 
 1.  **Ödeme Yöntemleri:** "Havale" seçeneğinin yanında, henüz aktif olmasa bile "Sanal POS" gibi bir seçeneğin görsel olarak eklenmesi.
 2.  [x] **Kargo Bilgisi:** Kargo bölümünde "Aras Kargo" gibi spesifik bir firma adının belirtilmesi.
-3.  [x] **Yasal Metin Onayları:** Sipariş tamamlama aşamasında "Gizlilik Politikası", "İade ve Cayma Hakkı Koşulları", "Mesafeli Satış Sözleşmesi" ve "Açık Rıza (KVKK)" metinlerinin ayrı ayrı sunularak kullanıcı tarafından "okudum, kabul ettim" şeklinde aktif olarak işaretlenmesi gereken bir checkbox ile onaylatılması.
-4.  [x] **Ana Sayfa Metni:** Ana sayfadaki "Kataloğu Keşfet" ifadesinin "Tüm Ürünleri Keşfet" olarak değiştirilmesi.
-5.  [x] **Server Component Hatası:** Zaman zaman "An error occurred in the Server Components render..." hatası alınıyor.
-6.  [x] **Katalog Sayfası Ürün Görselleri:** Katalog sayfasındaki ürün görsellerinin çerçeve boyutlarının eşitlenmesi.
-7.  [x] **Fiyat Gösterimi:** Ürün listeleme (katalog) sayfasında fiyatların görünmemesi, sadece ürün detayına tıklandığında gösterilmesi.
-8.  **Ürün Gramaj Bilgisi:** Katalog sayfasında, fiyatlar kaldırılırsa onların yerine ürün gramajlarının yazılması.
-9.  [x] **İade Politikası Mail Adresi:** İade politikasındaki `iletişim@animalwishbox.com` adresinin `destek@animalwishbox.com` olarak güncellenmesi.
-10. **Çerez Onayı:** `stripe_mid` ve `stripe_sid` çerezleri için siteye girişte bir çerez onay mekanizması eklenmesi. (Ayrıca "Çerezlere İlişkin Aydınlatma Metni" hazırlanacak).
-11. **Footer Linkleri:** Websitesi en altındaki "Portal" ve "Dokümantasyon" linklerinin gerekliliğinin değerlendirilmesi.
-12. **Sipariş Numarası Oluşturma:** Sipariş numaralarının sıralı artan olmak yerine rastgele (random) bir kod olarak oluşturulması.
-13. **Stok Yönetimi:** Stokta son 1 kalan ürünün birden fazla kullanıcı tarafından aynı anda alınması senaryosunun nasıl yönetildiğinin incelenmesi.
+    - **Cevap** Sadece Yurtiçi Kargo seçili
+4.  [x] **Yasal Metin Onayları:** Sipariş tamamlama aşamasında "Gizlilik Politikası", "İade ve Cayma Hakkı Koşulları", "Mesafeli Satış Sözleşmesi" ve "Açık Rıza (KVKK)" metinlerinin ayrı ayrı sunularak kullanıcı tarafından "okudum, kabul ettim" şeklinde aktif olarak işaretlenmesi gereken bir checkbox ile onaylatılması.
+    - **Cevap:** Düzeltildi ama buradaki doküman adları ve sayısı ile bize daha önce gelenler arasında fark var.
+5.  [x] **Ana Sayfa Metni:** Ana sayfadaki "Kataloğu Keşfet" ifadesinin "Tüm Ürünleri Keşfet" olarak değiştirilmesi.
+6.  [x] **Server Component Hatası:** Zaman zaman "An error occurred in the Server Components render..." hatası alınıyor.
+7.  [x] **Katalog Sayfası Ürün Görselleri:** Katalog sayfasındaki ürün görsellerinin çerçeve boyutlarının eşitlenmesi.
+8.  [x] **Fiyat Gösterimi:** Ürün listeleme (katalog) sayfasında fiyatların görünmemesi, sadece ürün detayına tıklandığında gösterilmesi.
+9.  **Ürün Gramaj Bilgisi:** Katalog sayfasında, fiyatlar kaldırılırsa onların yerine ürün gramajlarının yazılması.
+10. [x] **İade Politikası Mail Adresi:** İade politikasındaki `iletişim@animalwishbox.com` adresinin `destek@animalwishbox.com` olarak güncellenmesi.
+11. **Çerez Onayı:** `stripe_mid` ve `stripe_sid` çerezleri için siteye girişte bir çerez onay mekanizması eklenmesi. (Ayrıca "Çerezlere İlişkin Aydınlatma Metni" hazırlanacak).
+12. **Footer Linkleri:** Websitesi en altındaki "Portal" ve "Dokümantasyon" linklerinin gerekliliğinin değerlendirilmesi.
+13. [x] **Sipariş Numarası Oluşturma:** Sipariş numaralarının sıralı artan olmak yerine rastgele (random) bir kod olarak oluşturulması.
+    - **Cevap:** 152123'den başlayacak (W00152123). Bu sayede numaralar artık tahmin edilebilir ve düşük olmayacak, yönetim panelinde de ek bir geliştirme gerekmeyecektir. 
+14. [x] **Stok Yönetimi:** Stokta son 1 kalan ürünün birden fazla kullanıcı tarafından aynı anda alınması senaryosunun nasıl yönetildiğinin incelenmesi.
+    - **Cevap:** Uygulama varyantın yeterli stok miktarına sahip olup olmadığını kontrol eder. Eğer stokta yeterli miktar yoksa (örneğin stokta sadece 1 adet varsa ve iki kullanıcı aynı anda eklemeye çalışıyorsa), stok yetersizliği hata fırlatılır ve ürün sepete eklenmez. Bu kontrol, sepete ekleme işlemi sırasında gerçekleşir ve stok miktarı gerçek zamanlı olarak güncellenir. Böylece, stokta kalan son ürünün birden fazla kullanıcıya satılması engellenir.
 
 ---
 
