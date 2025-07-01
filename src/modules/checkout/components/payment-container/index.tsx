@@ -58,7 +58,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
         Sipariş tutarını aşağıdaki banka hesabına transfer ediniz.
       </span>
       {isManual(paymentProviderId) && (
-        <PaymentBankTransfer className="hidden sm:block" />
+        <PaymentBankTransfer />
       )}
     </div>
   );

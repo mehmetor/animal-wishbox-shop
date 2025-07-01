@@ -146,7 +146,7 @@ const ShippingAddress = ({
           />
         </Container>
       )}
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1">
           <Label htmlFor="shipping_address.first_name">
             Ad {<span className="text-destructive">*</span>}
@@ -175,7 +175,7 @@ const ShippingAddress = ({
             data-testid="shipping-last-name-input"
           />
         </div>
-        <div className="col-span-full flex flex-col gap-1">
+        <div className="col-span-1 md:col-span-2 flex flex-col gap-1">
           <Label htmlFor="shipping_address.address_1">
             Adres {<span className="text-destructive">*</span>}
           </Label>
@@ -244,7 +244,7 @@ const ShippingAddress = ({
             data-testid="shipping-country-select"
           />
         </div>
-        <div className="col-span-2 flex flex-col gap-1">
+        <div className="col-span-1 md:col-span-2 flex flex-col gap-1">
           <Label htmlFor="shipping_address.company">Şirket</Label>
           <Input
             id="shipping_address.company"
@@ -269,7 +269,7 @@ const ShippingAddress = ({
           Fatura adresi teslimat adresi ile aynı
         </Label>
       </div>
-      <div className="mb-4 grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+      <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1">
           <Label htmlFor="email">
             E-posta {<span className="text-destructive">*</span>}
