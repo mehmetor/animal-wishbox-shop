@@ -11,6 +11,7 @@ const withNextIntl = createNextIntlPlugin()
  */
 const nextConfig = {
   reactStrictMode: false,
+  staticPageGenerationTimeout: 300,
   logging: {
     fetches: {
       fullUrl: true,

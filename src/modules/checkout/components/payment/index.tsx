@@ -75,6 +75,7 @@ const Payment = ({
 
   const handleSubmit = async () => {
     setIsLoading(true);
+    setError(null)
     try {
       const shouldInputCard =
         isStripeFunc(selectedPaymentMethod) && !activeSession;
@@ -89,16 +90,19 @@ const Payment = ({
       }
 
       if (!shouldInputCard) {
-        return router.push(
+        router.push(
           pathname + "?" + createQueryString("step", "review"),
           {
             scroll: false,
           },
         );
+        setIsLoading(false);
+        return
       }
+
+      setIsLoading(false);
     } catch (err: any) {
       setError(err.message);
-    } finally {
       setIsLoading(false);
     }
   };
@@ -155,7 +159,7 @@ const Payment = ({
           )}
 
           {paidByGiftcard && (
-            <div className="flex w-1/3 flex-col">
+            <div className="flex w-full flex-col sm:w-1/3">
               <p className="text-foreground mb-1 font-semibold">
                 Ödeme yöntemi
               </p>
@@ -194,8 +198,8 @@ const Payment = ({
 
         <div className={isOpen ? "hidden" : "block"}>
           {cart && paymentReady && activeSession ? (
-            <div className="flex w-full items-stretch gap-x-1">
-              <div className="flex grow flex-col">
+            <div className="flex w-full items-stretch flex-col md:flex-row gap-x-1">
+              <div className="flex grow flex-col mb-4">
                 <p className="text-foreground mb-1 font-semibold">
                   Ödeme yöntemi
                 </p>
@@ -216,11 +220,9 @@ const Payment = ({
                   className="text-muted-foreground flex items-center gap-2 font-medium"
                   data-testid="payment-details-summary"
                 >
-                 
                     {isStripeFunc(selectedPaymentMethod) && cardBrand
                       ? cardBrand
                       : "Banka Transferi"}
-                 
                 </div>
               </div>
 
@@ -230,7 +232,7 @@ const Payment = ({
               />
             </div>
           ) : paidByGiftcard ? (
-            <div className="flex w-1/3 flex-col">
+            <div className="flex w-full flex-col sm:w-1/3">
               <p className="text-foreground mb-1 font-semibold">
                 Ödeme yöntemi
               </p>

@@ -36,7 +36,7 @@ const AddressSelect = ({
     <Listbox onChange={handleSelect} value={selectedAddress?.id}>
       <div className="relative">
         <Listbox.Button
-          className="relative w-full flex justify-between items-center px-4 py-[10px] text-left bg-white cursor-default focus:outline-none border rounded-rounded focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-gray-300 focus-visible:ring-offset-2 focus-visible:border-gray-300 text-base"
+          className="relative w-full flex justify-between items-center px-4 py-[10px] text-left bg-white cursor-default focus:outline-none border rounded-lg shadow-xs focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-gray-300 focus-visible:ring-offset-2 focus-visible:border-gray-300 text-base"
           data-testid="shipping-address-select"
         >
           {({ open }) => (
@@ -44,7 +44,7 @@ const AddressSelect = ({
               <span className="block truncate">
                 {selectedAddress
                   ? selectedAddress.address_1
-                  : "Choose an address"}
+                  : "Adres seçiniz"}
               </span>
               <ChevronUpDown
                 className={clx("transition-rotate duration-200", {
@@ -69,7 +69,7 @@ const AddressSelect = ({
                 <Listbox.Option
                   key={address.id}
                   value={address.id}
-                  className="cursor-default select-none relative pl-6 pr-10 hover:bg-gray-50 py-4"
+                  className="cursor-default select-none relative pl-6 pr-10 hover:bg-accent py-4"
                   data-testid="shipping-address-option"
                 >
                   <div className="flex gap-x-4 items-start">
@@ -90,15 +90,11 @@ const AddressSelect = ({
                         <span>
                           {address.address_1}
                           {address.address_2 && (
-                            <span>, {address.address_2}</span>
+                            <span> {address.address_2}</span>
                           )}
                         </span>
                         <span>
-                          {address.postal_code}, {address.city}
-                        </span>
-                        <span>
-                          {address.province && `${address.province}, `}
-                          {address.country_code?.toUpperCase()}
+                          {address.postal_code}, {address.city}, {address.province && `${address.province}, `} {address.country_code?.toUpperCase()}
                         </span>
                       </div>
                     </div>

@@ -334,6 +334,8 @@ export async function submitPromotionForm(
 
 // TODO: Pass a POJO instead of a form entity here
 export async function setAddresses(currentState: unknown, formData: FormData) {
+  let shippingCountryCode = formData.get("shipping_address.country_code");
+  
   try {
     if (!formData) {
       throw new Error("No form data found when setting addresses")
@@ -350,7 +352,6 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
     }
 
     // Country code değerlerini alıp kontrol edelim
-    let shippingCountryCode = formData.get("shipping_address.country_code");
     const billingCountryCode = formData.get("billing_address.country_code");
 
     console.log("Shipping Country Code:", shippingCountryCode);
@@ -407,8 +408,10 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
     return e.message
   }
 
+  // Redirect için güncellenmiş ülke kodunu kullan
+  const redirectCountryCode = shippingCountryCode || "tr"
   redirect(
-    `/${formData.get("shipping_address.country_code")}/checkout?step=delivery`
+    `/${redirectCountryCode}/checkout?step=delivery`
   )
 }
 

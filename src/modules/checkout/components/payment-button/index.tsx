@@ -13,18 +13,21 @@ import { RainbowButton } from "@/components/magicui/rainbow-button";
 type PaymentButtonProps = {
   cart: HttpTypes.StoreCart;
   "data-testid": string;
+  disabled?: boolean;
 };
 
 const PaymentButton: React.FC<PaymentButtonProps> = ({
   cart,
   "data-testid": dataTestId,
+  disabled = false,
 }) => {
   const notReady =
     !cart ||
     !cart.shipping_address ||
     !cart.billing_address ||
     !cart.email ||
-    (cart.shipping_methods?.length ?? 0) < 1;
+    (cart.shipping_methods?.length ?? 0) < 1 ||
+    disabled;
 
   const paymentSession = cart.payment_collection?.payment_sessions?.[0];
 
@@ -59,13 +62,13 @@ const StripePaymentButton = ({
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const onPaymentCompleted = async () => {
-    await placeOrder()
-      .catch((err) => {
-        setErrorMessage(err.message);
-      })
-      .finally(() => {
-        setSubmitting(false);
-      });
+    try {
+      await placeOrder();
+    } catch (err: any) {
+      setErrorMessage(err.message);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const stripe = useStripe();
@@ -76,7 +79,7 @@ const StripePaymentButton = ({
     (s) => s.status === "pending",
   );
 
-  const disabled = !stripe || !elements ? true : false;
+  const disabledStripe = !stripe || !elements ? true : false;
 
   const handlePayment = async () => {
     setSubmitting(true);
@@ -137,7 +140,7 @@ const StripePaymentButton = ({
   return (
     <>
       <Button
-        disabled={submitting || disabled || notReady}
+        disabled={submitting || disabledStripe || notReady}
         onClick={handlePayment}
         data-testid={dataTestId}
       >
@@ -160,13 +163,13 @@ const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const onPaymentCompleted = async () => {
-    await placeOrder()
-      .catch((err) => {
-        setErrorMessage(err.message);
-      })
-      .finally(() => {
-        setSubmitting(false);
-      });
+    try {
+      await placeOrder();
+    } catch (err: any) {
+      setErrorMessage(err.message);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handlePayment = () => {

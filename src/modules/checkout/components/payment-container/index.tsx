@@ -58,7 +58,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
         Sipariş tutarını aşağıdaki banka hesabına transfer ediniz.
       </span>
       {isManual(paymentProviderId) && (
-        <PaymentBankTransfer className="hidden sm:block" />
+        <PaymentBankTransfer />
       )}
     </div>
   );
@@ -69,7 +69,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
       value={paymentProviderId}
       disabled={disabled}
       className={cn(
-        "rounded-rounded hover:shadow-borders-interactive-with-active mb-2 flex cursor-pointer flex-col gap-y-2 border px-8 py-4 font-normal",
+        "rounded-lg hover:shadow-borders-interactive-with-active mb-2 flex cursor-pointer flex-col gap-y-2 border px-8 py-4 font-normal",
         {
           "border-ui-border-interactive":
             selectedPaymentOptionId === paymentProviderId,

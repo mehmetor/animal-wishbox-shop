@@ -1,12 +1,14 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 import LegalDocuments from "@/modules/content/legal-documents/templates";
 import { cn } from "@/lib/utils";
 import PaymentButton from "../payment-button";
 
 const Review = ({ cart }: { cart: any }) => {
   const searchParams = useSearchParams();
+  const [allLegalChecked, setAllLegalChecked] = useState(false);
 
   const isOpen = searchParams.get("step") === "review";
 
@@ -26,21 +28,24 @@ const Review = ({ cart }: { cart: any }) => {
             "pointer-events-none opacity-50 select-none": !isOpen,
           })}
         >
-          Siparişiniz Tamamlandı
+          Siparişi Onayı
         </h2>
       </div>
       {isOpen && previousStepsCompleted && (
         <>
           <div className="mb-6 flex w-full items-start gap-x-1">
             <div className="w-full">
-              <span className="text-foreground mb-1">
-                <strong>Siparişi Tamamla</strong> düğmesine tıklayarak 
-                <LegalDocuments variant="inline" /> sözleşmelerini okuduğunuzu, anladığınızı ve
-                kabul ettiğinizi onaylamış olursunuz.
-              </span>
+              <LegalDocuments
+                variant="checkout"
+                onAllCheckedChange={setAllLegalChecked}
+              />
             </div>
           </div>
-          <PaymentButton cart={cart} data-testid="submit-order-button" />
+          <PaymentButton
+            cart={cart}
+            disabled={!allLegalChecked}
+            data-testid="submit-order-button"
+          />
         </>
       )}
     </div>

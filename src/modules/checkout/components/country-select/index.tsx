@@ -4,131 +4,107 @@ import {
   useImperativeHandle,
   useMemo,
   useRef,
-  useState,
-} from "react";
-import { HttpTypes } from "@medusajs/types";
+} from "react"
+import { HttpTypes } from "@medusajs/types"
 import {
   Select,
-  SelectTrigger,
-  SelectValue,
   SelectContent,
   SelectItem,
-} from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { Label } from "@/components/ui/label"
 
 type CountrySelectProps = {
-  name: string;
-  autoComplete?: string;
-  region?: HttpTypes.StoreRegion;
-  value?: string;
-  required?: boolean;
-  onChange?: (e: { target: { name: string; value: string } }) => void;
-  "data-testid"?: string;
-};
+  name: string
+  autoComplete?: string
+  region?: HttpTypes.StoreRegion
+  value?: string
+  required?: boolean
+  onChange?: (e: { target: { name: string; value: string } }) => void
+  "data-testid"?: string
+}
 
 const CountrySelect = forwardRef<HTMLButtonElement, CountrySelectProps>(
   ({ name, region, value, onChange, required, ...props }, ref) => {
-    const innerRef = useRef<HTMLButtonElement>(null);
-    // Seçilen ülke için iç state
-    const [selectedCountry, setSelectedCountry] = useState<string>("");
-    // İlk render kontrolü için
-    const initialRenderRef = useRef(true);
+    const innerRef = useRef<HTMLButtonElement>(null)
 
     useImperativeHandle<HTMLButtonElement | null, HTMLButtonElement | null>(
       ref,
       () => innerRef.current,
-    );
+    )
 
     const countryOptions = useMemo(() => {
-      if (!region) {
-        return [];
+      if (!region?.countries) {
+        return []
       }
 
-      return region.countries?.map((country) => ({
+      return region.countries.map((country) => ({
         value: country.iso_2,
         label: country.display_name,
-      }));
-    }, [region]);
+      }))
+    }, [region])
 
-    // Component yüklendiğinde region/countries değiştiğinde sadece
-    // local state'i günceller, onChange çağırmaz
+    const selectedValue = useMemo(() => {
+      // `value` prop'u varsa ve seçenekler arasında geçerliyse onu kullan
+      if (value && countryOptions.some((o) => o.value === value)) {
+        return value
+      }
+
+      // Tek bir ülke seçeneği varsa, onu seçili değer yap
+      if (countryOptions.length === 1) {
+        return countryOptions[0].value
+      }
+
+      // Aksi halde boş bırak
+      return ""
+    }, [countryOptions, value])
+
+    // Tek bir ülke varsa ve seçili değerden farklıysa formu güncelle
     useEffect(() => {
-      let newCountryValue = "";
-      
-      // Gelen value değerini kullan
-      if (value && value.trim() !== "") {
-        newCountryValue = value;
+      if (
+        countryOptions.length === 1 &&
+        selectedValue &&
+        selectedValue !== value
+      ) {
+        onChange?.({ target: { name, value: selectedValue } })
       }
-      // veya region'da tek ülke varsa onu kullan
-      else if (region?.countries && region.countries.length > 0) {
-        newCountryValue = region.countries[0].iso_2 || "";
-      }
-
-      // Sadece state'i güncelle, onChange çağırma
-      if (newCountryValue) {
-        setSelectedCountry(newCountryValue);
-        console.log("CountrySelect - Default ülke ayarlandı:", newCountryValue);
-      }
-    }, [region]);
-
-    // Sadece selectedCountry değiştiğinde onChange çağırılır
-    // ve ilk render'da çağrılmaz
-    useEffect(() => {
-      // İlk render'da çalışmasını engelle
-      if (initialRenderRef.current) {
-        initialRenderRef.current = false;
-        return;
-      }
-
-      // Sadece kullanıcı seçim değişikliği yaptığında çağrılır
-      if (selectedCountry) {
-        console.log("CountrySelect - onChange çağrılıyor:", selectedCountry);
-        onChange?.({ target: { name, value: selectedCountry } });
-      }
-    }, [selectedCountry]);
-
-    const handleValueChange = (newValue: string) => {
-      if (newValue !== selectedCountry) {
-        setSelectedCountry(newValue);
-      }
-    };
+    }, [selectedValue, value, countryOptions.length, name, onChange])
 
     return (
       <>
         <Label htmlFor={name}>
           Ülke {required && <span className="text-destructive">*</span>}
         </Label>
-        
+
         {/* Hidden input form submission için */}
-        <input 
-          type="hidden" 
-          name={name} 
-          value={selectedCountry} 
-        />
-        
-        <Select 
-          value={selectedCountry} 
-          onValueChange={handleValueChange}
-          disabled={region?.countries?.length === 1} // Tek ülke varsa devre dışı bırak
+        <input type="hidden" name={name} value={selectedValue} />
+
+        <Select
+          value={selectedValue}
+          onValueChange={(newValue) => {
+            onChange?.({ target: { name, value: newValue } })
+          }}
+          disabled={countryOptions.length === 1} // Tek ülke varsa devre dışı bırak
         >
           <SelectTrigger ref={innerRef} id={name} className="w-full">
             <SelectValue placeholder="Ülke seçiniz" />
           </SelectTrigger>
           <SelectContent>
-            {countryOptions?.map(({ value: optionValue, label }) => 
+            {countryOptions?.map(({ value: optionValue, label }) =>
               optionValue ? (
                 <SelectItem key={optionValue} value={optionValue}>
                   {label}
                 </SelectItem>
-              ) : null
+              ) : null,
             )}
           </SelectContent>
         </Select>
       </>
-    );
+    )
   },
-);
+)
 
-CountrySelect.displayName = "CountrySelect";
+CountrySelect.displayName = "CountrySelect"
 
-export default CountrySelect;
+export default CountrySelect

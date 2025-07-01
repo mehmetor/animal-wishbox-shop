@@ -81,79 +81,77 @@ const Addresses = ({
         <div>
           <div className="text-sm font-normal">
             {cart && cart.shipping_address ? (
-              <div className="flex items-start gap-x-8">
-                <div className="flex w-full items-start gap-x-1">
-                  <div
-                    className="flex w-1/3 flex-col"
-                    data-testid="shipping-address-summary"
-                  >
-                    <p className="text-foreground mb-1 font-semibold">
-                      Teslimat Adresi
-                    </p>
-                    <p className="text-muted-foreground font-medium">
-                      {cart.shipping_address.first_name}{" "}
-                      {cart.shipping_address.last_name}
-                    </p>
-                    <p className="text-muted-foreground font-medium">
-                      {cart.shipping_address.address_1}{" "}
-                      {cart.shipping_address.address_2}
-                    </p>
-                    <p className="text-muted-foreground font-medium">
-                      {cart.shipping_address.postal_code},{" "}
-                      {cart.shipping_address.city}
-                    </p>
-                    <p className="text-muted-foreground font-medium">
-                      {cart.shipping_address.country_code?.toUpperCase()}
-                    </p>
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                  className="flex flex-col"
+                  data-testid="shipping-address-summary"
+                >
+                  <p className="text-foreground mb-1 font-semibold">
+                    Teslimat Adresi
+                  </p>
+                  <p className="text-muted-foreground font-medium">
+                    {cart.shipping_address.first_name}{" "}
+                    {cart.shipping_address.last_name}
+                  </p>
+                  <p className="text-muted-foreground font-medium">
+                    {cart.shipping_address.address_1}{" "}
+                    {cart.shipping_address.address_2}
+                  </p>
+                  <p className="text-muted-foreground font-medium">
+                    {cart.shipping_address.postal_code},{" "}
+                    {cart.shipping_address.city}
+                  </p>
+                  <p className="text-muted-foreground font-medium">
+                    {cart.shipping_address.country_code?.toUpperCase()}
+                  </p>
+                </div>
 
-                  <div
-                    className="flex w-1/3 flex-col"
-                    data-testid="shipping-contact-summary"
-                  >
-                    <p className="text-foreground mb-1 font-semibold">
-                      İletişim
-                    </p>
-                    <p className="text-muted-foreground font-medium">
-                      {cart.shipping_address.phone}
-                    </p>
-                    <p className="text-muted-foreground font-medium">
-                      {cart.email}
-                    </p>
-                  </div>
+                <div
+                  className="flex flex-col"
+                  data-testid="shipping-contact-summary"
+                >
+                  <p className="text-foreground mb-1 font-semibold">
+                    İletişim
+                  </p>
+                  <p className="text-muted-foreground font-medium">
+                    {cart.shipping_address.phone}
+                  </p>
+                  <p className="text-muted-foreground font-medium">
+                    {cart.email}
+                  </p>
+                </div>
 
-                  <div
-                    className="flex w-1/3 flex-col"
-                    data-testid="billing-address-summary"
-                  >
-                    <p className="text-foreground mb-1 font-semibold">
-                      Fatura Adresi
-                    </p>
+                <div
+                  className="flex flex-col"
+                  data-testid="billing-address-summary"
+                >
+                  <p className="text-foreground mb-1 font-semibold">
+                    Fatura Adresi
+                  </p>
 
-                    {sameAsBilling ? (
+                  {sameAsBilling ? (
+                    <p className="text-muted-foreground font-medium">
+                      Fatura ve teslimat adresi aynı.
+                    </p>
+                  ) : (
+                    <>
                       <p className="text-muted-foreground font-medium">
-                        Fatura ve teslimat adresi aynı.
+                        {cart.billing_address?.first_name}{" "}
+                        {cart.billing_address?.last_name}
                       </p>
-                    ) : (
-                      <>
-                        <p className="text-muted-foreground font-medium">
-                          {cart.billing_address?.first_name}{" "}
-                          {cart.billing_address?.last_name}
-                        </p>
-                        <p className="text-muted-foreground font-medium">
-                          {cart.billing_address?.address_1}{" "}
-                          {cart.billing_address?.address_2}
-                        </p>
-                        <p className="text-muted-foreground font-medium">
-                          {cart.billing_address?.postal_code},{" "}
-                          {cart.billing_address?.city}
-                        </p>
-                        <p className="text-muted-foreground font-medium">
-                          {cart.billing_address?.country_code?.toUpperCase()}
-                        </p>
-                      </>
-                    )}
-                  </div>
+                      <p className="text-muted-foreground font-medium">
+                        {cart.billing_address?.address_1}{" "}
+                        {cart.billing_address?.address_2}
+                      </p>
+                      <p className="text-muted-foreground font-medium">
+                        {cart.billing_address?.postal_code},{" "}
+                        {cart.billing_address?.city}
+                      </p>
+                      <p className="text-muted-foreground font-medium">
+                        {cart.billing_address?.country_code?.toUpperCase()}
+                      </p>
+                    </>
+                  )}
                 </div>
               </div>
             ) : (

@@ -15,8 +15,8 @@ const Help = () => {
             <LocalizedClientLink href="/contact">İletişim</LocalizedClientLink>
           </li>
           <li>
-            <LocalizedClientLink href="/legal/refund-policy">
-              İade & Değişim
+            <LocalizedClientLink href="/yasal/iade-iptal-degisim-politikasi">
+              İade, İptal, Değişim Politikası
             </LocalizedClientLink>
           </li>
         </ul>

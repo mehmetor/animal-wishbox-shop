@@ -62,3 +62,5 @@ dump.rdb
 /blob-report/
 /playwright/.cache/
 /playwright/.auth
+data/data.sql
+data/schema.sql

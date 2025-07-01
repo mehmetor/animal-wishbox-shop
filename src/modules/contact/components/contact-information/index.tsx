@@ -26,11 +26,6 @@ const ContactInformation = () => {
           <div>
             <h3 className="mb-1 font-medium">Telefon</h3>
             <p className="text-sm text-gray-600">
-              <a href="tel:+971123456789" className="hover:text-gray-900">
-                +971 527 467 429
-              </a>
-            </p>
-            <p className="text-sm text-gray-600">
               <a href="tel:+902164102210" className="hover:text-gray-900">
                 +90 216 410 2210
               </a>
@@ -47,15 +42,7 @@ const ContactInformation = () => {
                 href="mailto:info@animalwishbox.com"
                 className="hover:text-gray-900"
               >
-                info@animalwishbox.com
-              </a>
-            </p>
-            <p className="text-sm text-gray-600">
-              <a
-                href="mailto:info@wishfulgeneraltrading.com"
-                className="hover:text-gray-900"
-              >
-                info@wishfulgeneraltrading.com
+                destek@animalwishbox.com
               </a>
             </p>
           </div>
