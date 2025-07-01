@@ -225,6 +225,7 @@ const CartDropdown = ({
                   className="w-full"
                   size="lg"
                   data-testid="go-to-cart-button"
+                  onClick={close}
                 >
                   {t("goToCart")}
                 </Button>
