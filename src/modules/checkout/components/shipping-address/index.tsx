@@ -287,7 +287,9 @@ const ShippingAddress = ({
           />
         </div>
         <div className="flex flex-col gap-1">
-          <Label htmlFor="shipping_address.phone">Telefon</Label>
+          <Label htmlFor="shipping_address.phone">
+            Telefon {<span className="text-destructive">*</span>}
+          </Label>
           <Input
             id="shipping_address.phone"
             name="shipping_address.phone"
@@ -295,6 +297,7 @@ const ShippingAddress = ({
             value={formData["shipping_address.phone"]}
             onChange={handleChange}
             data-testid="shipping-phone-input"
+            required
           />
         </div>
       </div>

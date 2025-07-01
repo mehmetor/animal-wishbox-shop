@@ -12,16 +12,16 @@ Bu doküman, müşteri tarafından yapılan testler sonucunda iletilen geri bild
 4.  [x] **Ülke Seçim Alanı:** Ülke seçimi alanında aşağı ok ikonu bulunmasına rağmen seçenekler açılmıyor ve manuel giriş yapılamıyor. Zorunlu alan (`*`) olarak görünmesi kafa karışıklığına yol açıyor.
 5.  [x] **Teslimat Adresi Kaydetme Hatası:** Adres bilgileri doldurulduktan sonra ilk denemede hata alınıp ana sayfaya yönlendiriliyor. Tekrar denendiğinde (önceden girilen bilgiler dolu geliyor) işlem başarılı oluyor.
 6.  [x] **Ödeme Bilgisi Eksikliği:** Ödeme sayfasında "aşağıdaki banka adresine transfer ediniz" ifadesi yer alıyor ancak banka bilgileri (IBAN vb.) görünmüyor.
-7.  **Sipariş Tamamlama Akışı:** "Devam Et" butonundan sonra "Siparişi Tamamla" adımında ya IBAN bilgisi görüntüleniyor ya da "Server Components render error" hatası alınıyor.
+7.  [x] **Sipariş Tamamlama Akışı:** "Devam Et" butonundan sonra "Siparişi Tamamla" adımında ya IBAN bilgisi görüntüleniyor ya da "Server Components render error" hatası alınıyor.
 
 ---
 
 ## Masaüstü Ekran Test Sonuçları
 
 1.  [x] **Sepete Ekle Gecikmesi:** Mobil ile aynı şekilde, ürün sepete eklenirken gecikme yaşanabiliyor.
-2.  **Ülke Seçim Alanı:** Mobildeki gibi seçenekler açılmıyor ve manuel giriş yapılamıyor. **Öneri:** Türkiye'nin varsayılan olarak seçili gelmesi.
+2.  [x] **Ülke Seçim Alanı:** Mobildeki gibi seçenekler açılmıyor ve manuel giriş yapılamıyor. **Öneri:** Türkiye'nin varsayılan olarak seçili gelmesi.
 3.  **Telefon Bilgisi Zorunluluğu:** Teslimat adresinde telefon bilgisinin zorunlu alan olması gerekiyor.
-4.  **Teslimat Adresi Kaydetme Hatası:** Mobildekiyle aynı şekilde, ilk denemede hata alınıp ana sayfaya yönlendiriliyor.
+4.  [x] **Teslimat Adresi Kaydetme Hatası:** Mobildekiyle aynı şekilde, ilk denemede hata alınıp ana sayfaya yönlendiriliyor.
 5.  **Sipariş Akışı UI/UX:** Teslimat adresi sonrası adımlar (Ödeme, Onay) ayrı sayfalar gibi sunulabilir. Kullanıcının "Sipariş Tamamlandı" yazısını en sonda görmesi daha iyi bir deneyim olabilir.
 
 ---
