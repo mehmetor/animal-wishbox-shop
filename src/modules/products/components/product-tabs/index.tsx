@@ -90,7 +90,7 @@ const ShippingInfoTab = () => {
             <Truck  strokeWidth={1} />
           </div>
           <div>
-            <span className="font-semibold">Hızlı kargo</span>
+            <span className="font-semibold">Kargo</span>
             <p className="">Paketiniz 3-5 iş günü içinde teslim alın.</p>
           </div>
         </div>
@@ -99,7 +99,7 @@ const ShippingInfoTab = () => {
             <RefreshCcwDot strokeWidth={1} />
           </div>
           <div>
-            <span className="font-semibold">Basit değişim</span>
+            <span className="font-semibold">Değişim</span>
             <p className="">
               Uyumlu değil mi? Endişe etmeyin - ürününüzü yeni bir ürünle
               değiştireceğiz.
@@ -111,10 +111,9 @@ const ShippingInfoTab = () => {
             <Undo2 strokeWidth={1} />
           </div>
           <div>
-            <span className="font-semibold">Kolay iade</span>
+            <span className="font-semibold">İade</span>
             <p className="">
-              Sadece ürününüzü iade edin ve para iadesi alın. Soru sormadan -
-              iade işlemini sorunsuz hale getireceğiz.
+              Sadece ürününüzü iade edin ve para iadesi alın. İade işlemini sorunsuz hale getireceğiz.
             </p>
           </div>
         </div>

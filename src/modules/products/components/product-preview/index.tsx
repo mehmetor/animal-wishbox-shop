@@ -13,6 +13,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { VariantPrice } from "@/types/global";
 import { MagicCard } from "@/components/magicui/magic-card";
 export default async function ProductPreview({
@@ -43,11 +49,20 @@ export default async function ProductPreview({
         <MagicCard>
           <CardHeader>
             <CardTitle>
-              <div className="line-clamp-2 text-sm font-semibold md:text-base">
-                {product.title}
-              </div>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div className="truncate text-sm font-semibold md:text-base">
+                      {product.title}
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{product.title}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </CardTitle>
-            <CardDescription className="text-xs text-gray-500">
+            <CardDescription className="truncate text-xs text-gray-500">
               {product.description}
             </CardDescription>
           </CardHeader>
@@ -63,9 +78,9 @@ export default async function ProductPreview({
             <div className="flex flex-col items-start">
               {/* <Button>Sepete Ekle</Button> */}
             </div>
-            {cheapestPrice && (
+            {/* {cheapestPrice && (
               <PreviewPrice price={cheapestPrice as VariantPrice} />
-            )}
+            )} */}
           </CardFooter>
         </MagicCard>
       </Card>

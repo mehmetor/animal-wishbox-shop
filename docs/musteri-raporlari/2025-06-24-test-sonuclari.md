@@ -29,14 +29,14 @@ Bu doküman, müşteri tarafından yapılan testler sonucunda iletilen geri bild
 ## Genel Geri Bildirimler ve İstekler
 
 1.  **Ödeme Yöntemleri:** "Havale" seçeneğinin yanında, henüz aktif olmasa bile "Sanal POS" gibi bir seçeneğin görsel olarak eklenmesi.
-2.  **Kargo Bilgisi:** Kargo bölümünde "Aras Kargo" gibi spesifik bir firma adının belirtilmesi.
+2.  [x] **Kargo Bilgisi:** Kargo bölümünde "Aras Kargo" gibi spesifik bir firma adının belirtilmesi.
 3.  [x] **Yasal Metin Onayları:** Sipariş tamamlama aşamasında "Gizlilik Politikası", "İade ve Cayma Hakkı Koşulları", "Mesafeli Satış Sözleşmesi" ve "Açık Rıza (KVKK)" metinlerinin ayrı ayrı sunularak kullanıcı tarafından "okudum, kabul ettim" şeklinde aktif olarak işaretlenmesi gereken bir checkbox ile onaylatılması.
-4.  **Ana Sayfa Metni:** Ana sayfadaki "Kataloğu Keşfet" ifadesinin "Tüm Ürünleri Keşfet" olarak değiştirilmesi.
-5.  **Server Component Hatası:** Zaman zaman "An error occurred in the Server Components render..." hatası alınıyor.
-6.  **Katalog Sayfası Ürün Görselleri:** Katalog sayfasındaki ürün görsellerinin çerçeve boyutlarının eşitlenmesi.
-7.  **Fiyat Gösterimi:** Ürün listeleme (katalog) sayfasında fiyatların görünmemesi, sadece ürün detayına tıklandığında gösterilmesi.
+4.  [x] **Ana Sayfa Metni:** Ana sayfadaki "Kataloğu Keşfet" ifadesinin "Tüm Ürünleri Keşfet" olarak değiştirilmesi.
+5.  [x] **Server Component Hatası:** Zaman zaman "An error occurred in the Server Components render..." hatası alınıyor.
+6.  [x] **Katalog Sayfası Ürün Görselleri:** Katalog sayfasındaki ürün görsellerinin çerçeve boyutlarının eşitlenmesi.
+7.  [x] **Fiyat Gösterimi:** Ürün listeleme (katalog) sayfasında fiyatların görünmemesi, sadece ürün detayına tıklandığında gösterilmesi.
 8.  **Ürün Gramaj Bilgisi:** Katalog sayfasında, fiyatlar kaldırılırsa onların yerine ürün gramajlarının yazılması.
-9.  **İade Politikası Mail Adresi:** İade politikasındaki `iletişim@animalwishbox.com` adresinin `destek@animalwishbox.com` olarak güncellenmesi.
+9.  [x] **İade Politikası Mail Adresi:** İade politikasındaki `iletişim@animalwishbox.com` adresinin `destek@animalwishbox.com` olarak güncellenmesi.
 10. **Çerez Onayı:** `stripe_mid` ve `stripe_sid` çerezleri için siteye girişte bir çerez onay mekanizması eklenmesi. (Ayrıca "Çerezlere İlişkin Aydınlatma Metni" hazırlanacak).
 11. **Footer Linkleri:** Websitesi en altındaki "Portal" ve "Dokümantasyon" linklerinin gerekliliğinin değerlendirilmesi.
 12. **Sipariş Numarası Oluşturma:** Sipariş numaralarının sıralı artan olmak yerine rastgele (random) bir kod olarak oluşturulması.
@@ -46,6 +46,6 @@ Bu doküman, müşteri tarafından yapılan testler sonucunda iletilen geri bild
 
 ## Yapılacak Metin Düzenlemeleri (Detaylar Sonra İletilecek)
 
--   Kedi kumlarındaki "%100 doğal" gibi ifadelerin kaldırılması.
--   İade ve kargo metinlerindeki "basit değişim" gibi ifadelerin düzenlenmesi.
--   **İletişim Bilgileri:** Dubai telefon numarası ve `info@wishfulgeneraltrading` mail adresinin kaldırılması. 
+- [x] Kedi kumlarındaki "%100 doğal" gibi ifadelerin kaldırılması.
+- [x] İade ve kargo metinlerindeki "basit değişim" gibi ifadelerin düzenlenmesi.
+- [x] **İletişim Bilgileri:** Dubai telefon numarası ve `info@wishfulgeneraltrading` mail adresinin kaldırılması. 

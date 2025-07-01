@@ -84,14 +84,14 @@ const Hero = () => {
             )}
           >
             <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-              <span>✨ katalogta keşfet</span>
+              <span>✨ tüm ürünleri keşfet</span>
               <MoveRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
             </AnimatedShinyText>
           </LocalizedClientLink>
 
           <div className="flex flex-col items-center gap-6">
             <div className="text-3xl text-slate-700 md:text-4xl dark:text-white">
-              Tamamen doğal
+              çevre dostu
             </div>
             <div className="text-4xl font-bold md:text-5xl dark:text-white">
               <AuroraText
@@ -164,7 +164,7 @@ const Hero = () => {
                   size={24}
                 />
                 <p>
-                  Princess çevre dostu, tamamen doğal kedi kumu, bambu, mısır
+                  Princess çevre dostu, doğal kedi kumu, bambu, mısır
                   veya geri dönüştürülmüş kağıt gibi yenilenebilir kaynaklardan
                   üretilen sürdürülebilir bir seçimdir.
                 </p>

@@ -1,4 +1,4 @@
-﻿# İade – İptal – Değişim Politikası
+﻿# İade, İptal, Değişim Politikası
 
 **Animal Wishbox / Wishful General Trading İth. İhrc. Tic. Ltd. Şti.  ** 
 
@@ -46,9 +46,10 @@ Stok ve tedarik yapımız gereği, ürün değişimi yapılmamaktadır.
 
 Lütfen iade talebinizi iletmek için bizimle iletişime geçin:
 
+  - E-posta: destek@animalwishbox.com
   - WhatsApp 
   - Instagram DM
-  - Ürünü gönderirken:  Adınız ve soyadınız, sipariş numaranız, sipariş tarihini ve iletişim bilgileriniz belirtilmelidir.
+  - Ürünü gönderirken: Adınız ve soyadınız, sipariş numaranız, sipariş tarihini ve iletişim bilgileriniz belirtilmelidir.
 
 **Yayın Tarihi: [26.05.2025]**
 
