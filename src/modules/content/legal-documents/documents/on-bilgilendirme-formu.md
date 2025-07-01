@@ -7,7 +7,7 @@ Kedi ve köpek maması, kedi kumu, evcil hayvan şampuanı gibi evcil hayvan bak
 
 ### Satıcı Bilgileri
 
-  - **Satıcı:** Wishful General Trading Ith. Ihrç Ticç Ltç Şti  
+  - **Satıcı:** Wishful General Trading İth. İhrc. Tic. Ltd. Şti. 
   - **Vergi Dairesi / VKN:** Kozyatağı 8111546519
   - Telefon: +90 216 410 2210 / +90 530 260 90 07  
   - E-posta: info@animalwishbox.com

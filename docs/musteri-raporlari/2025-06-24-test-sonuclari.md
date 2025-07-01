@@ -30,7 +30,7 @@ Bu doküman, müşteri tarafından yapılan testler sonucunda iletilen geri bild
 
 1.  **Ödeme Yöntemleri:** "Havale" seçeneğinin yanında, henüz aktif olmasa bile "Sanal POS" gibi bir seçeneğin görsel olarak eklenmesi.
 2.  **Kargo Bilgisi:** Kargo bölümünde "Aras Kargo" gibi spesifik bir firma adının belirtilmesi.
-3.  **Yasal Metin Onayları:** Sipariş tamamlama aşamasında "Gizlilik Politikası", "İade ve Cayma Hakkı Koşulları", "Mesafeli Satış Sözleşmesi" ve "Açık Rıza (KVKK)" metinlerinin ayrı ayrı sunularak kullanıcı tarafından "okudum, kabul ettim" şeklinde aktif olarak işaretlenmesi gereken bir checkbox ile onaylatılması.
+3.  [x] **Yasal Metin Onayları:** Sipariş tamamlama aşamasında "Gizlilik Politikası", "İade ve Cayma Hakkı Koşulları", "Mesafeli Satış Sözleşmesi" ve "Açık Rıza (KVKK)" metinlerinin ayrı ayrı sunularak kullanıcı tarafından "okudum, kabul ettim" şeklinde aktif olarak işaretlenmesi gereken bir checkbox ile onaylatılması.
 4.  **Ana Sayfa Metni:** Ana sayfadaki "Kataloğu Keşfet" ifadesinin "Tüm Ürünleri Keşfet" olarak değiştirilmesi.
 5.  **Server Component Hatası:** Zaman zaman "An error occurred in the Server Components render..." hatası alınıyor.
 6.  **Katalog Sayfası Ürün Görselleri:** Katalog sayfasındaki ürün görsellerinin çerçeve boyutlarının eşitlenmesi.

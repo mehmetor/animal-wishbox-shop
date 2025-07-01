@@ -4,7 +4,7 @@
 
 ## Veri Sorumlusu:
 
-  - Wishful General Trading Ith. Ihrc. Tic. Ltd. Şti.
+  - Wishful General Trading İth. İhrc. Tic. Ltd. Şti.
   - Adres: Barbaros Mah. Sarkaç Sk. Ağaoğlu MyPrestige No:1/44 Ataşehir / İstanbul
   - Telefon: +90 216 410 2210 / +90 530 260 90 07
   - E-posta: info@animalwishbox.com
@@ -77,7 +77,7 @@ Kişisel verilerinizin güvenliğini sağlamak adına gerekli teknik ve idari te
 
 Yukarıdaki haklarınızı kullanmak ya da kişisel verilerinizle ilgili taleplerinizi iletmek için bizimle aşağıdaki iletişim kanallarından iletişime geçebilirsiniz:
 
-  - Wishful General Trading Ith. Ihrç Ticç Ltç Şti  
+  - Wishful General Trading İth. İhrc. Tic. Ltd. Şti.  
   - Adres: Barbaros Mah. Sarkaç Sk Ağaoğlu MyPrestige No1/44 Ataşehir İstanbul  
   - Telefon: +90 216 410 2210 / +90 530 260 90 07  
   - E-posta: info@animalwishbox.com

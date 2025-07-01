@@ -3,7 +3,7 @@
 ## 1. SÖZLEŞMENİN TARAFLARI
 
 **Satıcı:**
-  - Ünvan: Wishful General Trading
+  - Ünvan: Wishful General Trading İth. İhrc. Tic. Ltd. Şti.
   - Adres: Barbaros Mah. Begonya Sk. No1/2 Nida Kule Batı   - Ataşehir / İstanbul / Türkiye 
   - Telefon: +90 533 017 90 01
   - E-posta: aybike@wishfulgeneraltrading.com

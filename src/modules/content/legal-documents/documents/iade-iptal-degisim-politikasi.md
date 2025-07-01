@@ -1,6 +1,6 @@
 ﻿# İade – İptal – Değişim Politikası
 
-**Animal Wishbox / Wishful General Trading** 
+**Animal Wishbox / Wishful General Trading İth. İhrc. Tic. Ltd. Şti.  ** 
 
 ## Sipariş İptali
 
