@@ -299,7 +299,7 @@ const Shipping: React.FC<ShippingProps> = ({
           </div>
         </>
       ) : (
-        <div className="flex flex-row justify-between">
+        <div className="flex w-full flex-col md:flex-row justify-between">
           {cart && (cart.shipping_methods?.length ?? 0) > 0 && (
             <div className="flex flex-col">
               <p className="text-foreground mb-1 font-semibold">Yöntem</p>
