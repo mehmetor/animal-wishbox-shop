@@ -46,6 +46,6 @@ export const convertToLocale = ({
   )
   
   return isRightSymbol
-    ? `${formattedNumber} ${currencySymbol}`
+    ? `${formattedNumber}\u00A0${currencySymbol}`
     : `${currencySymbol}${formattedNumber}`
 }

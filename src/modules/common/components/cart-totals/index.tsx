@@ -35,7 +35,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-x-1">Sepet Toplamı</span>
           <span
-            className="font-mono font-semibold"
+            className="tabular-nums font-semibold"
             data-testid="cart-subtotal"
             data-value={item_total || 0}
           >
@@ -46,7 +46,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
           <div className="flex items-center justify-between">
             <span>İndirim</span>
             <span
-              className="text-primary font-mono"
+              className="text-primary tabular-nums"
               data-testid="cart-discount"
               data-value={discount_total || 0}
             >
@@ -60,7 +60,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
           <div className="flex items-center justify-between">
             <span>Kargo</span>
             <span
-              className="font-mono"
+              className="tabular-nums"
               data-testid="cart-shipping"
               data-value={shipping_subtotal || 0}
             >
@@ -84,7 +84,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
           <div className="flex items-center justify-between">
             <span>Hediye Kartı</span>
             <span
-              className="text-primary font-mono"
+              className="text-primary tabular-nums"
               data-testid="cart-gift-card-amount"
               data-value={gift_card_total || 0}
             >
@@ -98,7 +98,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
       <div className="text-foreground mb-2 flex items-center justify-between font-medium">
         <span>Toplam</span>
         <span
-          className="font-mono font-bold"
+          className="tabular-nums font-bold"
           data-testid="cart-total"
           data-value={total || 0}
         >
