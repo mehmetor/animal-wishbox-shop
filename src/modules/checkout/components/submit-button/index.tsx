@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Loader } from "lucide-react"
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { useFormStatus } from "react-dom"
 
 export function SubmitButton({
@@ -17,27 +17,16 @@ export function SubmitButton({
   "data-testid"?: string
 }) {
   const { pending } = useFormStatus()
-  const [wasSubmitted, setWasSubmitted] = useState(false)
-
-  // pending true olduğunda wasSubmitted'ı true yap
-  useEffect(() => {
-    if (pending) {
-      setWasSubmitted(true)
-    }
-  }, [pending])
-
-  // pending false olduktan sonra da bir süre loading göster
-  const isLoading = pending || wasSubmitted
 
   return (
     <Button
       className={className}
       type="submit"
-      disabled={isLoading}
+      disabled={pending}
       variant={variant || "default"}
       data-testid={dataTestId}
     >
-      {isLoading ? <Loader className="h-4 w-4 animate-spin" /> : children}
+      {pending ? <Loader className="h-4 w-4 animate-spin" /> : children}
     </Button>
   )
 }

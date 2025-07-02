@@ -27,7 +27,7 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
 
   return (
     // <AuroraBackground>
-    <div className="container mx-auto px-6 py-24 md:px-8 lg:px-12">
+    <div className="container mx-auto px-6 pt-24 md:px-8 lg:px-12 pb-12">
       <div className="relative isolate">
         <Nav />
 

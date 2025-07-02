@@ -1,15 +1,16 @@
 import ResetPasswordTemplate from "@modules/account/components/reset-password";
+import AccountLayout from "@modules/account/templates/account-layout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Şifremi Unuttum",
-  description: "Şifrenizi sıfırlayın.",
+  title: "Yeni Şifre Belirle",
+  description: "Hesabınız için yeni bir şifre belirleyin.",
 };
 
 export default function ResetPasswordPage() {
   return (
-    <div className="flex w-full justify-center px-8 py-8">
+    <AccountLayout customer={null}>
       <ResetPasswordTemplate />
-    </div>
+    </AccountLayout>
   );
 } 
