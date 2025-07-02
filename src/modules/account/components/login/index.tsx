@@ -18,7 +18,7 @@ const Login = ({ setCurrentView }: Props) => {
       className="flex w-full max-w-sm flex-col items-center"
       data-testid="login-page"
     >
-      <h1 className="mb-6 font-semibold">Hoşgeldiniz</h1>
+      <h1 className="mb-8 font-semibold">Hoşgeldiniz</h1>
       <p className="text-foreground mb-8 text-center text-base">
         Giriş yapmak için lütfen bilgilerinizi giriniz.
       </p>
@@ -47,16 +47,29 @@ const Login = ({ setCurrentView }: Props) => {
           Giriş Yap
         </SubmitButton>
       </form>
-      <span className="text-foreground mt-6 text-center text-sm font-normal">
-        Üye değil misiniz?
-        <Button
-          variant="link"
-          onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
-          data-testid="register-button"
-        >
-          Üye Ol
-        </Button>
-      </span>
+      <div className="text-foreground mt-6 flex flex-row justify-evenly w-full text-sm font-normal">
+        <span className="inline-block">
+          Üye değil misiniz?
+          <Button
+            variant="link"
+            onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
+            data-testid="register-button"
+            className="pl-1"
+          >
+            Üye Ol
+          </Button>
+        </span>
+        <span className="inline-block">
+          <Button
+            variant="link"
+            onClick={() => setCurrentView(LOGIN_VIEW.RESET_PASSWORD)}
+            data-testid="reset-password-button"
+            className="px-0"
+          >
+            Şifremi Unuttum
+          </Button>
+        </span>
+      </div>
     </div>
   );
 };

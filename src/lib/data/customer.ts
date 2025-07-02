@@ -13,6 +13,7 @@ import {
   removeAuthToken,
   setAuthToken,
 } from "./cookies"
+import { cookies } from "next/headers"
 
 export const retrieveCustomer =
   async (): Promise<HttpTypes.StoreCustomer | null> => {
@@ -39,7 +40,10 @@ export const retrieveCustomer =
         cache: "force-cache",
       })
       .then(({ customer }) => customer)
-      .catch(() => null)
+      .catch((error) => {
+        console.error("Error retrieving customer:", error);
+        return null;
+      })
   }
 
 export const updateCustomer = async (body: HttpTypes.StoreUpdateCustomer) => {
@@ -103,27 +107,48 @@ export async function signup(_currentState: unknown, formData: FormData) {
   }
 }
 
-export async function login(_currentState: unknown, formData: FormData) {
+export async function login(
+  _currentState: unknown,
+  formData: FormData
+): Promise<string | null> {
   const email = formData.get("email") as string
   const password = formData.get("password") as string
 
   try {
-    await sdk.auth
-      .login("customer", "emailpass", { email, password })
-      .then(async (token) => {
-        await setAuthToken(token as string)
-        const customerCacheTag = await getCacheTag("customers")
-        revalidateTag(customerCacheTag)
-      })
-  } catch (error: any) {
-    return error.toString()
-  }
+    const token = await sdk.auth.login("customer", "emailpass", {
+      email,
+      password,
+    })
+    await setAuthToken(token as string)
 
-  try {
+    // Giriş sonrası müşteri verisini doğrula
+    const customer = await retrieveCustomer()
+    if (!customer) {
+      // Eğer müşteri verisi alınamazsa, bu bir "not found" durumudur.
+      // Token'ı temizle ve hata döndür.
+      removeAuthToken()
+      return "E-posta veya şifre hatalı. Lütfen bilgilerinizi kontrol edip tekrar deneyin."
+    }
+
+    const customerCacheTag = await getCacheTag("customers")
+    revalidateTag(customerCacheTag)
+
     await transferCart()
   } catch (error: any) {
-    return error.toString()
+    // Token'ı temizle
+    removeAuthToken()
+
+    if (
+      error.message &&
+      (error.message.toLowerCase().includes("not found") ||
+        error.message.toLowerCase().includes("invalid email or password"))
+    ) {
+      return "E-posta veya şifre hatalı. Lütfen bilgilerinizi kontrol edip tekrar deneyin."
+    }
+    console.error("Login error:", error)
+    return "Giriş sırasında bir hata oluştu. Lütfen daha sonra tekrar deneyin."
   }
+  return null
 }
 
 export async function signout(countryCode: string) {
@@ -254,4 +279,66 @@ export const updateCustomerAddress = async (
     .catch((err) => {
       return { success: false, error: err.toString() }
     })
+}
+
+export async function requestPasswordReset(
+  previousState: any,
+  formData: FormData
+): Promise<{ success?: boolean; message?: string }> {
+  const email = formData.get("email") as string;
+
+  if (!email) {
+    return { success: false, message: "Lütfen e-posta adresinizi girin." };
+  }
+
+  try {
+    await sdk.auth.resetPassword("customer", "emailpass", { identifier: email });
+  } catch (error: any) {
+    return { success: false, message: error.toString() };
+  }
+
+  return {
+    success: true,
+    message:
+      "Girmiş olduğunuz e-posta adresine sahip bir hesap varsa, şifre sıfırlama talimatlarını içeren bir e-posta gönderilecektir.",
+  };
+}
+
+export async function resetPassword(
+  previousState: any,
+  formData: FormData
+): Promise<{ success?: boolean; message?: string }> {
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
+  const passwordConfirm = formData.get("password_confirm") as string;
+  const token = formData.get("token") as string;
+
+  if (!email || !password || !token) {
+    return { success: false, message: "Lütfen tüm alanları doldurun." };
+  }
+
+  if (password !== passwordConfirm) {
+    return { success: false, message: "Şifreleriniz eşleşmiyor." };
+  }
+
+  try {
+    await sdk.auth.updateProvider(
+      "customer",
+      "emailpass",
+      { email, password },
+      token
+    );
+  } catch (error: any) {
+    return { success: false, message: error.toString() };
+  }
+
+  // Şifre değiştikten sonra, güvenlik için mevcut oturumu sonlandır.
+  await sdk.auth.logout();
+  removeAuthToken();
+
+  revalidateTag("customer");
+  return {
+    success: true,
+    message: "Şifreniz başarıyla güncellendi. Lütfen tekrar giriş yapın.",
+  };
 }

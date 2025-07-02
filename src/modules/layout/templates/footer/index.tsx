@@ -16,18 +16,18 @@ export default async function Footer() {
     process.env.MEDUSA_BACKEND_URL || "http://localhost:9000";
 
   return (
-    <footer className="mt-16 w-full border-t px-8">
-      <div className="container mx-auto flex flex-col">
-        <div className="my-16 flex flex-col items-start justify-between gap-6 sm:flex-row">
-          <div className="w-full pb-8">
-            <LocalizedClientLink href="/" className="text-xl font-medium">
-              Animal Wishbox
-            </LocalizedClientLink>
-          </div>
+    <>
+      <footer className="mt-16 w-full border-y pb-8">
+        <div className="container mx-auto flex flex-col">
+          <div className="my-12 pb-12 grid grid-cols-1 gap-10 border-b text-sm sm:grid-cols-3 md:grid-cols-4 md:gap-16">
+            <div className="col-span-1 sm:col-span-3 md:col-span-1">
+              <LocalizedClientLink href="/" className="text-xl font-medium">
+                Animal Wishbox
+              </LocalizedClientLink>
+            </div>
 
-          <div className="flex w-full flex-row gap-10 text-sm md:gap-16 md:px-12">
             {productCategories && productCategories?.length > 0 && (
-              <div className="flex flex-1 flex-col gap-8">
+              <div className="flex flex-col gap-4">
                 <span className="text-sm font-medium text-gray-900">
                   Katagoriler
                 </span>
@@ -85,7 +85,7 @@ export default async function Footer() {
               </div>
             )}
             {collections && collections.length > 0 && (
-              <div className="flex flex-1 flex-col gap-8">
+              <div className="flex flex-col gap-4">
                 <span className="text-sm font-medium text-gray-900">
                   Kolleksiyonlar
                 </span>
@@ -111,7 +111,7 @@ export default async function Footer() {
               </div>
             )}
 
-            <div className="flex flex-1 flex-col gap-8">
+            <div className="flex flex-col gap-4">
               <span className="text-sm font-medium text-gray-900">
                 Bağlantılar
               </span>
@@ -132,12 +132,13 @@ export default async function Footer() {
                     İletişim
                   </LocalizedClientLink>
                 </li>
+                <li className="my-1 w-2/3 border-b" />
                 <li>
                   <LocalizedClientLink
                     className="hover:text-gray-900"
                     href="/yasal/iade-iptal-degisim-politikasi"
                   >
-                    İade – İptal – Değişim Politikası
+                    İade, İptal, Değişim Politikası
                   </LocalizedClientLink>
                 </li>
                 <li>
@@ -175,46 +176,26 @@ export default async function Footer() {
               </ul>
             </div>
           </div>
-        </div>
 
-        <div className="mt-8 flex w-full justify-between text-xs text-gray-500">
-          <div className="flex flex-col">
-            <p>© {new Date().getFullYear()} Animal Wishbox.</p>
-            <p>Tüm hakları saklıdır.</p>
-            <p>v0.2.10</p>
+          <div className="flex w-full flex-col justify-between text-xs text-gray-500 md:flex-row">
+            <div className="flex flex-col">
+              <p>
+                © {new Date().getFullYear()} Animal Wishbox. Tüm hakları
+                saklıdır.
+              </p>
+            </div>
 
-            <ul className="mt-2">
-              <li>
-                <a
-                  href="https://github.com/animal-wishbox/documentation"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex h-6 items-center gap-1 hover:text-gray-900"
-                >
-                  <span>Dokümantasyon</span>
-                  <ExternalLink size={16} />
-                </a>
-              </li>
-              <li>
-                <div>
-                  <a
-                    href={`${medusaBackendUrl}/app`}
-                    target="_blank"
-                    rel="noreferrer"
-                    title={medusaBackendUrl}
-                    className="flex h-6 items-center gap-1 hover:text-gray-900"
-                  >
-                    <span>Portal</span>
-                    <ExternalLink size={16} />
-                  </a>
-                </div>
-              </li>
-            </ul>
+            <MedusaCTA />
           </div>
-
-          <MedusaCTA />
         </div>
+      </footer>
+      <div className="pt-8 text-center text-xs text-gray-500">
+        Created by{" "}
+        <a href="https://simetri8.com" target="_blank" rel="noreferrer">
+          S8
+        </a>
+        {", "}v0.2.10
       </div>
-    </footer>
+    </>
   );
 }
