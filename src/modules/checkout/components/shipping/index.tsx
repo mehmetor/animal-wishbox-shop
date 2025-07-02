@@ -306,7 +306,7 @@ const Shipping: React.FC<ShippingProps> = ({
               <p className="text-muted-foreground font-medium">
                 {cart.shipping_methods?.at(-1)?.name}
                 {": "}
-                <span className="font-mono text-lg">
+                <span className="tabular-nums text-lg">
                   {convertToLocale({
                     // @ts-ignore
                     amount: cart.shipping_methods.at(-1)?.amount!,

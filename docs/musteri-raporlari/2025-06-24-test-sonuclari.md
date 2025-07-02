@@ -4,9 +4,9 @@ Bu doküman, müşteri tarafından yapılan testler sonucunda iletilen geri bild
 
 - "[x]" işaretleri içeren maddeler tamamlanmış. 
 - Bazı maddelerin altına "Cevap" notları eklenmiştir.
-- "Sanal POS" ve "Çerez" konuları beklemededir.
+- "Sanal POS", "Sipariş Akışı UI/UX" ve "Çerez" konuları beklemededir.
 
----
+
 
 ## Mobil Ekran Test Sonuçları
 
@@ -18,18 +18,18 @@ Bu doküman, müşteri tarafından yapılan testler sonucunda iletilen geri bild
 - [x] **Ödeme Bilgisi Eksikliği:** Ödeme sayfasında "aşağıdaki banka adresine transfer ediniz" ifadesi yer alıyor ancak banka bilgileri (IBAN vb.) görünmüyor.
 - [x] **Sipariş Tamamlama Akışı:** "Devam Et" butonundan sonra "Siparişi Tamamla" adımında ya IBAN bilgisi görüntüleniyor ya da "Server Components render error" hatası alınıyor.
 
----
+
 
 ## Masaüstü Ekran Test Sonuçları
 
 - [x] **Sepete Ekle Gecikmesi:** Mobil ile aynı şekilde, ürün sepete eklenirken gecikme yaşanabiliyor.
 - [x] **Ülke Seçim Alanı:** Mobildeki gibi seçenekler açılmıyor ve manuel giriş yapılamıyor. **Öneri:** Türkiye'nin varsayılan olarak seçili gelmesi.
-- **Telefon Bilgisi Zorunluluğu:** Teslimat adresinde telefon bilgisinin zorunlu alan olması gerekiyor.
+- [x] **Telefon Bilgisi Zorunluluğu:** Teslimat adresinde telefon bilgisinin zorunlu alan olması gerekiyor.
 - [x] **Teslimat Adresi Kaydetme Hatası:** Mobildekiyle aynı şekilde, ilk denemede hata alınıp ana sayfaya yönlendiriliyor.
 - **Sipariş Akışı UI/UX:** Teslimat adresi sonrası adımlar (Ödeme, Onay) ayrı sayfalar gibi sunulabilir. Kullanıcının "Sipariş Tamamlandı" yazısını en sonda görmesi daha iyi bir deneyim olabilir.
   - **Cevap:** Sipariş Tamamlandı yazısı zaten en son görünüyor, daha sonra yine de gerekirse yeni ekran konusunu programa alırız.
 
----
+
 
 ## Genel Geri Bildirimler ve İstekler
 
@@ -42,7 +42,8 @@ Bu doküman, müşteri tarafından yapılan testler sonucunda iletilen geri bild
 - [x] **Server Component Hatası:** Zaman zaman "An error occurred in the Server Components render..." hatası alınıyor.
 - [x] **Katalog Sayfası Ürün Görselleri:** Katalog sayfasındaki ürün görsellerinin çerçeve boyutlarının eşitlenmesi.
 - [x] **Fiyat Gösterimi:** Ürün listeleme (katalog) sayfasında fiyatların görünmemesi, sadece ürün detayına tıklandığında gösterilmesi.
-- **Ürün Gramaj Bilgisi:** Katalog sayfasında, fiyatlar kaldırılırsa onların yerine ürün gramajlarının yazılması.
+- [ ] **Ürün Gramaj Bilgisi:** Katalog sayfasında, fiyatlar kaldırılırsa onların yerine ürün gramajlarının yazılması.
+  - **Cevap:** Yönetim panelinden gramaj bilgileri girildikten sonra ekran gösterimini yapacağız.
 - [x] **İade Politikası Mail Adresi:** İade politikasındaki `iletişim@animalwishbox.com` adresinin `destek@animalwishbox.com` olarak güncellenmesi.
 - [ ] **Çerez Onayı:** `stripe_mid` ve `stripe_sid` çerezleri için siteye girişte bir çerez onay mekanizması eklenmesi. (Ayrıca "Çerezlere İlişkin Aydınlatma Metni" hazırlanacak).
   - **Cevap:** stripe çerezleri geçici, kaldırılacak. Şimdilik başka çerez eklenmeyecek. Yine de çerez politikası ekleyebiliriz.
@@ -52,7 +53,7 @@ Bu doküman, müşteri tarafından yapılan testler sonucunda iletilen geri bild
 - [x] **Stok Yönetimi:** Stokta son 1 kalan ürünün birden fazla kullanıcı tarafından aynı anda alınması senaryosunun nasıl yönetildiğinin incelenmesi.
   - **Cevap:** Uygulama varyantın yeterli stok miktarına sahip olup olmadığını kontrol eder. Eğer stokta yeterli miktar yoksa (örneğin stokta sadece 1 adet varsa ve iki kullanıcı aynı anda eklemeye çalışıyorsa), stok yetersizliği hata fırlatılır ve ürün sepete eklenmez. Bu kontrol, sepete ekleme işlemi sırasında gerçekleşir ve stok miktarı gerçek zamanlı olarak güncellenir. Böylece, stokta kalan son ürünün birden fazla kullanıcıya satılması engellenir.
 
----
+
 
 ## Yapılacak Metin Düzenlemeleri (Detaylar Sonra İletilecek)
 
