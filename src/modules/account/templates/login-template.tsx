@@ -15,14 +15,19 @@ export enum LOGIN_VIEW {
 const LoginTemplate = () => {
   const [currentView, setCurrentView] = useState("sign-in");
 
+  const handleViewChange = (view: LOGIN_VIEW) => {
+    window.scrollTo(0, 0);
+    setCurrentView(view);
+  };
+
   return (
     <div className="flex w-full justify-start px-8 py-8">
       {currentView === "sign-in" ? (
-        <Login setCurrentView={setCurrentView} />
+        <Login setCurrentView={handleViewChange} />
       ) : currentView === "register" ? (
-        <Register setCurrentView={setCurrentView} />
+        <Register setCurrentView={handleViewChange} />
       ) : (
-        <ResetPassword setCurrentView={setCurrentView} />
+        <ResetPassword setCurrentView={handleViewChange} />
       )}
     </div>
   );
