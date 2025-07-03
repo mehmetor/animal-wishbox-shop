@@ -11,6 +11,7 @@ import {
   LegalDocumentModal,
   LegalDocumentType,
 } from "@/modules/content/legal-documents/components/legal-document-modal";
+import { Checkbox } from "@/components/ui/checkbox";
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void;
@@ -21,11 +22,17 @@ const Register = ({ setCurrentView }: Props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeDocument, setActiveDocument] =
     useState<LegalDocumentType | null>(null);
+  const [preliminaryFormAccepted, setPreliminaryFormAccepted] =
+    useState(false);
+  const [salesContractAccepted, setSalesContractAccepted] = useState(false);
+  const [consentAccepted, setConsentAccepted] = useState(false);
 
   const handleOpenDocument = (documentType: LegalDocumentType) => {
     setActiveDocument(documentType);
     setModalOpen(true);
   };
+
+  const isSubmitDisabled = !preliminaryFormAccepted || !salesContractAccepted;
 
   return (
     <div
@@ -89,38 +96,91 @@ const Register = ({ setCurrentView }: Props) => {
           />
         </div>
         <ErrorMessage error={message} data-testid="register-error" />
-        <span className="text-foreground mt-6 text-center text-sm font-normal">
-          Üye olarak, Animal Wishbox&apos;ın{" "}
-          <button
-            type="button"
-            onClick={() => handleOpenDocument("kvkk-disclosure")}
-            className="text-primary underline"
-          >
-            Gizlilik Politikası
-          </button>{" "}
-          ve{" "}
-          <button
-            type="button"
-            onClick={() => handleOpenDocument("distance-sales-contract")}
-            className="text-primary underline"
-          >
-            Kullanım Sözleşmesi
-          </button>
-          'ni kabul etmiş olursunuz.
-        </span>
-        <SubmitButton className="mt-6 w-full" data-testid="register-button">
+
+        <div className="mt-4 space-y-3">
+          <div className="flex items-center gap-x-2 text-sm">
+            <Checkbox
+              id="preliminary-information-form"
+              checked={preliminaryFormAccepted}
+              onCheckedChange={() =>
+                setPreliminaryFormAccepted(!preliminaryFormAccepted)
+              }
+            />
+            <label
+              htmlFor="preliminary-information-form"
+              className="cursor-pointer"
+            >
+              <button
+                type="button"
+                onClick={() =>
+                  handleOpenDocument("preliminary-information-form")
+                }
+                className="text-primary underline"
+              >
+                Ön Bilgilendirme Formunu
+              </button>{" "}
+              okudum ve kabul ediyorum.
+            </label>
+          </div>
+          <div className="flex items-center gap-x-2 text-sm">
+            <Checkbox
+              id="distance-sales-contract"
+              checked={salesContractAccepted}
+              onCheckedChange={() =>
+                setSalesContractAccepted(!salesContractAccepted)
+              }
+            />
+            <label
+              htmlFor="distance-sales-contract"
+              className="cursor-pointer"
+            >
+              <button
+                type="button"
+                onClick={() => handleOpenDocument("distance-sales-contract")}
+                className="text-primary underline"
+              >
+                Mesafeli Satış Sözleşmesini
+              </button>{" "}
+              okudum ve kabul ediyorum.
+            </label>
+          </div>
+          <div className="flex items-center gap-x-2 text-sm">
+            <Checkbox
+              id="consent-document"
+              checked={consentAccepted}
+              onCheckedChange={() => setConsentAccepted(!consentAccepted)}
+            />
+            <label htmlFor="consent-document" className="cursor-pointer">
+              <button
+                type="button"
+                onClick={() => handleOpenDocument("consent-document")}
+                className="text-primary underline"
+              >
+                Açık Rıza Metni
+              </button>{" "}
+              kapsamında ticari elektronik ileti gönderilmesini kabul ediyorum.
+            </label>
+          </div>
+        </div>
+        <SubmitButton
+          className="mt-6 w-full"
+          data-testid="register-button"
+          disabled={isSubmitDisabled}
+        >
           Üye Ol
         </SubmitButton>
       </form>
-      <span className="text-foreground mt-6 text-center text-sm font-normal">
-        Zaten üye misiniz?{" "}
-        <button
-          onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
-          className="text-primary underline"
-        >
-          Giriş Yap
-        </button>
-        {" | "}
+      <span className="text-foreground mt-6 flex w-full flex-row justify-between text-center text-sm font-normal">
+        <div>
+          Zaten üye misiniz?{" "}
+          <button
+            onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
+            className="text-primary underline"
+          >
+            Giriş Yap
+          </button>
+        </div>
+
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.RESET_PASSWORD)}
           className="text-primary underline"

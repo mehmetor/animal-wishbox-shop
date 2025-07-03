@@ -79,8 +79,8 @@ try {
     let footerContent = fs.readFileSync(footerPath, "utf8");
 
     // Regex ile versiyon satırını bul ve değiştir
-    const versionRegex = /<p>v[0-9]+\.[0-9]+\.[0-9]+<\/p>/;
-    const newVersionText = `<p>v${newVersion}</p>`;
+    const versionRegex = /<span>v[0-9]+\.[0-9]+\.[0-9]+<\/span>/;
+    const newVersionText = `<span>v${newVersion}</span>`;
 
     if (versionRegex.test(footerContent)) {
       footerContent = footerContent.replace(versionRegex, newVersionText);
