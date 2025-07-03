@@ -63,8 +63,15 @@ const StripePaymentButton = ({
 
   const onPaymentCompleted = async () => {
     try {
+      console.log(
+        "StripePaymentButton: onPaymentCompleted -> placing order...",
+      );
       await placeOrder();
     } catch (err: any) {
+      console.error("StripePaymentButton: Error during placeOrder", err);
+      if (err.message.includes("NEXT_REDIRECT")) {
+        throw err;
+      }
       setErrorMessage(err.message);
     } finally {
       setSubmitting(false);
@@ -82,6 +89,7 @@ const StripePaymentButton = ({
   const disabledStripe = !stripe || !elements ? true : false;
 
   const handlePayment = async () => {
+    console.log("StripePaymentButton: handlePayment started");
     setSubmitting(true);
 
     if (!stripe || !elements || !card || !cart) {
@@ -166,6 +174,9 @@ const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
     try {
       await placeOrder();
     } catch (err: any) {
+      if (err.message.includes("NEXT_REDIRECT")) {
+        throw err;
+      }
       setErrorMessage(err.message);
     } finally {
       setSubmitting(false);
@@ -174,7 +185,6 @@ const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
 
   const handlePayment = () => {
     setSubmitting(true);
-
     onPaymentCompleted();
   };
 
