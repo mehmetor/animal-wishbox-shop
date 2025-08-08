@@ -37,3 +37,4 @@ Bir önceki test raporundan (`2025-06-24-test-sonuclari.md`) kalan ve henüz tam
 - [ ] İlk siparişte Teslimat Adresi kayıt edilmiyor, ikinci siparişte tekrar adres girmek zorunda kalıyor 
   - [ ] sepette kayıtlı adreslerimden seçim yapabilirliği kontrol edilecek
   - [ ] ilk siparişte girilen adres kaydedilmeli ve /tr/account/addresses sayfasında listelenebilmeli
+- [ ] Canlı ortamda e-postalar boş gönderiliyor.
