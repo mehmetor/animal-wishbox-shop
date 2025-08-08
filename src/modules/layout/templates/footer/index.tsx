@@ -194,7 +194,7 @@ export default async function Footer() {
         <a href="https://simetri8.com" target="_blank" rel="noreferrer">
           S8
         </a>
-        {", "}<span>v0.4.20</span>
+        {", "}<span>v0.4.21</span>
       </div>
     </>
   );
