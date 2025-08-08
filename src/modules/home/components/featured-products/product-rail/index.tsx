@@ -33,6 +33,8 @@ export default async function ProductRail({
     queryParams: {
       // @ts-ignore: 'collection_id' özelliği tip tanımında bulunmuyor ancak API tarafından destekleniyor
       collection_id: collection.id,
+      // En güncel güncellenen ürünler öne gelsin
+      order: "-updated_at",
       fields: "*variants.calculated_price",
     },
   });
